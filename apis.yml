@@ -1,0 +1,111 @@
+---
+aid: cornell
+name: Cornell University
+description: >-
+  Cornell University is a private Ivy League and statutory land-grant research
+  university based in Ithaca, New York, ranked #16 in the QS World University
+  Rankings 2025. Its public developer footprint is decentralized rather than
+  served through a single API gateway: the Class Roster team publishes a
+  documented Class Roster API for course and scheduling data, the Cornell
+  University Library operates the eCommons digital repository on DSpace with
+  REST and OAI-PMH access, and Cornell hosts arXiv with its long-standing public
+  arXiv API. The student-led Cornell Open Data Initiative (CODI) additionally
+  exposes campus map, transit, dining, and events datasets, though parts of that
+  platform are archived or marked as likely outdated.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/cornell/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Open Data
+  - Course Catalog
+  - Library
+  - Research
+  - United States
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: cornell:class-roster
+    name: Cornell Class Roster API
+    description: >-
+      Public read-only API (version 2.0) for Cornell Class Roster data,
+      providing scheduled classes with Course of Study details plus
+      configuration lookups for rosters, academic careers, academic groups,
+      class levels, and subjects. All methods are GET and return XML or JSON.
+      Usage should be limited to no more than one request per second.
+    humanURL: https://classes.cornell.edu/content/FA25/api-details
+    baseURL: https://classes.cornell.edu/api/2.0/
+    tags: [ Course Catalog, Class Roster, Education, Scheduling ]
+    properties:
+      - type: Documentation
+        url: https://classes.cornell.edu/content/FA25/api-details
+  - aid: cornell:ecommons
+    name: eCommons Digital Repository (DSpace REST and OAI-PMH)
+    description: >-
+      eCommons is Cornell University Library's institutional repository, running
+      on DSpace 7+. It exposes a public DSpace REST API for items, communities,
+      collections, and bitstreams, and an OAI-PMH endpoint for metadata
+      harvesting using Dublin Core. The library migrated to new DSpace
+      infrastructure in January 2026.
+    humanURL: https://guides.library.cornell.edu/ecommons/syndication
+    baseURL: https://ecommons.cornell.edu/server/api
+    tags: [ Library, Institutional Repository, OAI-PMH, DSpace, Research ]
+    properties:
+      - type: Documentation
+        url: https://guides.library.cornell.edu/ecommons/syndication
+      - type: Authentication
+        url: https://ecommons.cornell.edu/oai/request?verb=Identify
+  - aid: cornell:arxiv
+    name: arXiv API
+    description: >-
+      arXiv, hosted and stewarded by Cornell University, provides a long-running
+      public API for programmatic search and retrieval of e-print metadata
+      across physics, mathematics, computer science, and other fields. The query
+      interface returns Atom-formatted results.
+    humanURL: https://info.arxiv.org/help/api/index.html
+    baseURL: http://export.arxiv.org/api/
+    tags: [ Research, Open Access, Preprints, Metadata ]
+    properties:
+      - type: Documentation
+        url: https://info.arxiv.org/help/api/index.html
+  - aid: cornell:codi
+    name: Cornell Open Data Initiative (CODI)
+    description: >-
+      CODI is a student-led effort to publish open Cornell data including campus
+      map points of interest, transit (TCAT) schedules and stops, dining, and
+      events. API documentation has been synced to SwaggerHub via the CODI
+      repositories, but several CODI data repos are archived and the platform is
+      described as undergoing a revamp with datasets that may be outdated.
+    humanURL: https://codi.engineering.cornell.edu/
+    tags: [ Open Data, Campus, Transit, Dining, Events ]
+    properties:
+      - type: Documentation
+        url: https://codi.engineering.cornell.edu/
+      - type: GitHub
+        url: https://github.com/cornell-data
+common:
+  - type: Website
+    url: https://www.cornell.edu/
+  - type: GitHub
+    url: https://github.com/cornell-data
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/cornell-university/
+  - type: Authentication
+    url: https://shibidp.cit.cornell.edu/idp/shibboleth
+  - type: Plans
+    url: plans/cornell-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/cornell-rate-limits.yml
+  - type: FinOps
+    url: finops/cornell-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+---

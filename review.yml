@@ -1,0 +1,60 @@
+---
+name: Cornell University
+description: Cornell University public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/cornell/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 3
+    summary: >-
+      Cornell has a real but decentralized public API footprint, with no single
+      developer gateway. Verified live and documented: the Class Roster API (v2.0,
+      JSON/XML, documented rate limit of 1 req/sec), the eCommons DSpace REST API
+      and OAI-PMH endpoint, and the Cornell-hosted arXiv API. The student-led CODI
+      open-data project is real and has a live website and GitHub org, but several
+      data repos are archived and the platform is self-described as outdated, so
+      it is cataloged honestly rather than as a stable API. Shibboleth/SAML IdP
+      metadata resolves. No endpoints were fabricated; every URL below was probed
+      with curl.
+    endpoints:
+      - url: https://classes.cornell.edu/content/FA25/api-details
+        status: 200
+        note: Class Roster API documentation, version 2.0.
+      - url: https://classes.cornell.edu/api/2.0/config/rosters.json
+        status: 200
+        note: Live Class Roster config endpoint returning JSON.
+      - url: https://classes.cornell.edu/api/2.0/search/classes.json?roster=FA25&subject=MATH
+        status: 200
+        note: Live class search endpoint returning JSON.
+      - url: https://ecommons.cornell.edu/server/api
+        status: 200
+        note: eCommons DSpace REST API root resolves.
+      - url: https://ecommons.cornell.edu/oai/request?verb=Identify
+        status: 200
+        note: eCommons OAI-PMH Identify response resolves.
+      - url: http://export.arxiv.org/api/query?search_query=all:electron&max_results=1
+        status: 200
+        note: arXiv API query endpoint live (initial probe returned 429 rate limit).
+      - url: https://info.arxiv.org/help/api/index.html
+        status: 200
+        note: arXiv API documentation.
+      - url: https://codi.engineering.cornell.edu/
+        status: 200
+        note: CODI website live; datasets described as in revamp / likely outdated.
+      - url: https://github.com/cornell-data
+        status: 200
+        note: CODI GitHub org with API docs/explorer repos; several archived.
+      - url: https://github.com/cornell-dti
+        status: 200
+        note: Cornell DTI student org GitHub (client libraries, app backends).
+      - url: https://shibidp.cit.cornell.edu/idp/shibboleth
+        status: 200
+        note: Cornell Shibboleth SAML IdP metadata resolves.
+      - url: https://www.cornell.edu/
+        status: 200
+        note: Official university website.
+      - url: https://www.linkedin.com/school/cornell-university/
+        status: 999
+        note: LinkedIn school page; 999 is LinkedIn anti-bot, page exists in browser.
+---
