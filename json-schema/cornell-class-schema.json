@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cornell/main/json-schema/cornell-class-schema.json",
+  "title": "Cornell Class",
+  "description": "A scheduled class with Course of Study details, as returned by the Cornell Classes (CODI) API search/classes endpoint.",
+  "type": "object",
+  "properties": {
+    "strm": { "type": "integer", "description": "Term/roster code." },
+    "crseId": { "type": "integer", "description": "Course identifier." },
+    "crseOfferNbr": { "type": "integer", "description": "Course offer number." },
+    "subject": { "type": "string", "description": "Subject abbreviation, e.g. CS." },
+    "catalogNbr": { "type": "string", "description": "Catalog number, e.g. 1110." },
+    "titleShort": { "type": "string" },
+    "titleLong": { "type": "string" },
+    "enrollGroups": { "type": "array", "items": { "type": "object" } },
+    "description": { "type": "string" },
+    "catalogBreadth": { "type": "string" },
+    "catalogDistr": { "type": "string" },
+    "catalogLang": { "type": "string" },
+    "catalogForbiddenOverlaps": { "type": "string" },
+    "catalogWhenOffered": { "type": "string" },
+    "catalogComments": { "type": "string" },
+    "catalogPrereqCoreq": { "type": "string" },
+    "catalogFee": { "type": "string" },
+    "catalogSatisfiesReq": { "type": "string" },
+    "catalogPermission": { "type": "string" },
+    "catalogCourseSubfield": { "type": "string" },
+    "catalogOutcomes": { "type": "array", "items": { "type": "string" } },
+    "acadCareer": { "type": "string", "description": "Academic career, e.g. UG." },
+    "acadGroup": { "type": "string", "description": "Academic group." }
+  },
+  "required": ["crseId", "subject", "catalogNbr", "titleLong"]
+}

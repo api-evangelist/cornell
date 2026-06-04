@@ -1,0 +1,50 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "cornell": "https://www.cornell.edu/ns/",
+    "schema": "https://schema.org/",
+    "name": "schema:name",
+    "url": "schema:url",
+    "CollegeOrUniversity": "schema:CollegeOrUniversity",
+    "Course": "schema:Course",
+    "Event": "schema:Event",
+    "FoodEstablishment": "schema:FoodEstablishment",
+    "Place": "schema:Place",
+    "GeoCoordinates": "schema:GeoCoordinates",
+
+    "subject": "cornell:subject",
+    "catalogNbr": "schema:courseCode",
+    "titleLong": "schema:name",
+    "titleShort": "schema:alternateName",
+    "description": "schema:description",
+    "crseId": "schema:identifier",
+    "acadCareer": "cornell:academicCareer",
+    "acadGroup": "cornell:academicGroup",
+
+    "Eatery": "schema:FoodEstablishment",
+    "contactPhone": "schema:telephone",
+    "contactEmail": "schema:email",
+    "operatingHours": "schema:openingHours",
+    "onlineOrderUrl": "schema:potentialAction",
+    "latitude": "schema:latitude",
+    "longitude": "schema:longitude",
+
+    "title": "schema:name",
+    "first_date": "schema:startDate",
+    "last_date": "schema:endDate",
+    "location": "schema:location",
+    "location_name": "schema:name",
+    "ticket_url": "schema:offers",
+    "ticket_cost": "schema:price",
+
+    "Location": "schema:Place",
+    "Name": "schema:name",
+    "Address": "schema:address",
+    "Lat": "schema:latitude",
+    "Lng": "schema:longitude",
+    "AKA": "schema:alternateName"
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "Cornell University",
+  "url": "https://www.cornell.edu/"
+}

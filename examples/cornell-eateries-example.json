@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://now.dining.cornell.edu/api/1.0/dining/eateries.json"
+  },
+  "response": {
+    "status": "success",
+    "data": {
+      "eateries": [
+        {
+          "id": 1,
+          "slug": "104west",
+          "name": "104West!",
+          "nameshort": "104West!",
+          "about": "A kosher dining room serving the Cornell community.",
+          "cornellDining": true,
+          "onlineOrdering": false,
+          "contactPhone": "607-255-0104",
+          "contactEmail": "dining@cornell.edu",
+          "latitude": 42.4534,
+          "longitude": -76.4735,
+          "location": "104 West Avenue",
+          "operatingHours": [],
+          "eateryTypes": [],
+          "diningCuisines": [],
+          "payMethods": []
+        }
+      ]
+    }
+  }
+}

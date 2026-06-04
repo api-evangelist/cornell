@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cornell/main/json-structure/cornell-eatery-structure.json",
+  "name": "CornellEatery",
+  "type": "object",
+  "description": "A Cornell dining location from the Cornell Dining (CODI) API.",
+  "properties": {
+    "id": { "type": "int32" },
+    "slug": { "type": "string" },
+    "name": { "type": "string" },
+    "nameshort": { "type": "string" },
+    "about": { "type": "string" },
+    "cornellDining": { "type": "boolean" },
+    "onlineOrdering": { "type": "boolean" },
+    "onlineOrderUrl": { "type": "string" },
+    "contactPhone": { "type": "string" },
+    "contactEmail": { "type": "string" },
+    "latitude": { "type": "double" },
+    "longitude": { "type": "double" },
+    "location": { "type": "string" },
+    "operatingHours": { "type": "array", "items": { "type": "object", "properties": {} } },
+    "eateryTypes": { "type": "array", "items": { "type": "object", "properties": {} } },
+    "diningCuisines": { "type": "array", "items": { "type": "object", "properties": {} } },
+    "payMethods": { "type": "array", "items": { "type": "object", "properties": {} } }
+  },
+  "required": ["id", "name"]
+}

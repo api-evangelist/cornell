@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://classes.cornell.edu/api/2.0/search/classes.json?roster=FA25&subject=CS&q=CS%201110"
+  },
+  "response": {
+    "status": "success",
+    "data": {
+      "classes": [
+        {
+          "strm": 2909,
+          "crseId": 358526,
+          "crseOfferNbr": 1,
+          "subject": "CS",
+          "catalogNbr": "1110",
+          "titleShort": "Intro Computing: Design & Dev",
+          "titleLong": "Introduction to Computing: A Design and Development Perspective",
+          "description": "Programming and problem solving using Python. Emphasizes principles of software development, style, and testing. Topics include procedures and functions, iteration, recursion, arrays and vectors, strings, an operational model of procedure and function calls, algorithms, exceptions, object-oriented programming. Weekly labs provide guided practice on the computer, with staff present to help.",
+          "acadCareer": "UG",
+          "acadGroup": "EN",
+          "enrollGroups": []
+        }
+      ]
+    }
+  }
+}

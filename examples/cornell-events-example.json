@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://events.cornell.edu/api/2/events"
+  },
+  "response": {
+    "events": [
+      {
+        "event": {
+          "id": 12345,
+          "title": "Cornell Research Symposium",
+          "url": "https://events.cornell.edu/event/cornell-research-symposium",
+          "created_at": "2026-05-01T10:00:00-04:00",
+          "updated_at": "2026-05-15T12:00:00-04:00",
+          "first_date": "2026-06-10",
+          "last_date": "2026-06-10",
+          "location": "Statler Hall",
+          "location_name": "Statler Hall Auditorium",
+          "free": true,
+          "recurring": false,
+          "description_text": "An afternoon symposium showcasing undergraduate research across colleges.",
+          "address": "130 Statler Dr, Ithaca, NY 14853",
+          "localist_url": "https://events.cornell.edu/event/cornell-research-symposium",
+          "keywords": ["research", "symposium"],
+          "tags": ["academic"],
+          "event_instances": []
+        }
+      }
+    ]
+  }
+}

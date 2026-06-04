@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cornell/main/json-structure/cornell-event-structure.json",
+  "name": "CornellEvent",
+  "type": "object",
+  "description": "An official Cornell event from the Cornell Events (CODI) API.",
+  "properties": {
+    "id": { "type": "int32" },
+    "title": { "type": "string" },
+    "url": { "type": "string" },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" },
+    "first_date": { "type": "string" },
+    "last_date": { "type": "string" },
+    "location": { "type": "string" },
+    "location_name": { "type": "string" },
+    "free": { "type": "boolean" },
+    "recurring": { "type": "boolean" },
+    "ticket_url": { "type": "string" },
+    "ticket_cost": { "type": "int32" },
+    "description_text": { "type": "string" },
+    "address": { "type": "string" },
+    "localist_url": { "type": "string" },
+    "photo_url": { "type": "string" },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "event_instances": { "type": "array", "items": { "type": "object", "properties": {} } }
+  },
+  "required": ["id", "title"]
+}

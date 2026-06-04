@@ -88,6 +88,20 @@ apis:
         url: https://codi.engineering.cornell.edu/
       - type: GitHub
         url: https://github.com/cornell-data
+      - type: OpenAPI
+        url: openapi/cornell-codi-classes.yaml
+      - type: OpenAPI
+        url: openapi/cornell-codi-days.yaml
+      - type: OpenAPI
+        url: openapi/cornell-codi-dining.yaml
+      - type: OpenAPI
+        url: openapi/cornell-codi-events.yaml
+      - type: OpenAPI
+        url: openapi/cornell-codi-map.yaml
+      - type: Vocabulary
+        url: vocabulary/cornell-vocabulary.yml
+      - type: JSONLD
+        url: json-ld/cornell-context.jsonld
 common:
   - type: Website
     url: https://www.cornell.edu/

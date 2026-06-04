@@ -1,0 +1,48 @@
+---
+# Spectral ruleset encoding patterns observed across the Cornell Open Data
+# Initiative (CODI) OpenAPI definitions: classes, days, dining, events, map.
+extends: [[spectral:oas, off]]
+formats:
+  - oas3
+rules:
+  cornell-info-contact:
+    description: CODI APIs should declare the Cornell Open Data Initiative contact.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  cornell-info-description:
+    description: Every API must carry a description.
+    severity: warn
+    given: $.info
+    then:
+      field: description
+      function: truthy
+
+  cornell-operations-have-tags:
+    description: Operations are grouped by tag (config, events, eateries, etc.).
+    severity: warn
+    given: $.paths[*][get]
+    then:
+      field: tags
+      function: truthy
+
+  cornell-get-only:
+    description: The CODI public read-only APIs expose GET operations only.
+    severity: error
+    given: $.paths[*]
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^(get|parameters|summary|description|servers)$"
+
+  cornell-2xx-response:
+    description: Each operation must document a success response.
+    severity: warn
+    given: $.paths[*][get].responses
+    then:
+      field: "200"
+      function: truthy

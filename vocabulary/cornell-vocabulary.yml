@@ -1,0 +1,58 @@
+---
+vocabulary:
+  name: Cornell Open Data Initiative Vocabulary
+  description: >-
+    Controlled terms drawn from the Cornell Open Data Initiative (CODI) public
+    APIs (Classes, Days, Dining, Events, Map) as stewarded under Cornell
+    University. Definitions reflect fields and concepts present in the real
+    OpenAPI definitions synced to SwaggerHub.
+  version: "0.1"
+  terms:
+    - term: Roster
+      definition: A published academic term of the Class Roster, e.g. FA25, identified by a slug and strm code.
+      tags: [classes, scheduling]
+    - term: strm
+      definition: Numeric term code identifying a specific roster/term in the Classes API.
+      tags: [classes]
+    - term: crseId
+      definition: Unique course identifier for a class in the Classes API.
+      tags: [classes]
+    - term: catalogNbr
+      definition: Catalog number of a course, e.g. 1110, within a subject.
+      tags: [classes, catalog]
+    - term: acadCareer
+      definition: Academic career classification such as UG (undergraduate) or GR (graduate).
+      tags: [classes]
+    - term: acadGroup
+      definition: Academic group (college/school) offering the class, e.g. EN for Engineering.
+      tags: [classes]
+    - term: enrollGroups
+      definition: Enrollment groupings within a class describing class sections and components.
+      tags: [classes, enrollment]
+    - term: Eatery
+      definition: A Cornell dining location with hours, cuisines, pay methods, and menu items.
+      tags: [dining]
+    - term: operatingHours
+      definition: Per-day open/close windows and events for a dining eatery.
+      tags: [dining, hours]
+    - term: payMethods
+      definition: Accepted payment methods at a dining eatery, e.g. meal plan, BRB, cash.
+      tags: [dining]
+    - term: Event
+      definition: An official Cornell event with dates, location, and Localist metadata.
+      tags: [events, calendar]
+    - term: event_instances
+      definition: Specific dated occurrences of a recurring or single Cornell event.
+      tags: [events]
+    - term: localist_url
+      definition: Canonical Localist URL for an event in the Events API.
+      tags: [events]
+    - term: Location
+      definition: A Cornell campus map point of interest with name, address, and coordinates.
+      tags: [map, geo]
+    - term: AKA
+      definition: Alternate or also-known-as name for a campus map location.
+      tags: [map]
+    - term: Cornell Days
+      definition: Admitted-student program events exposed via the Cornell Days itinerary API.
+      tags: [days, admissions, events]

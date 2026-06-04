@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cornell/main/json-structure/cornell-class-structure.json",
+  "name": "CornellClass",
+  "type": "object",
+  "description": "A scheduled Cornell class from the Cornell Classes (CODI) API.",
+  "properties": {
+    "strm": { "type": "int32" },
+    "crseId": { "type": "int32" },
+    "crseOfferNbr": { "type": "int32" },
+    "subject": { "type": "string" },
+    "catalogNbr": { "type": "string" },
+    "titleShort": { "type": "string" },
+    "titleLong": { "type": "string" },
+    "description": { "type": "string" },
+    "catalogWhenOffered": { "type": "string" },
+    "catalogPrereqCoreq": { "type": "string" },
+    "acadCareer": { "type": "string" },
+    "acadGroup": { "type": "string" },
+    "enrollGroups": { "type": "array", "items": { "type": "object", "properties": {} } },
+    "catalogOutcomes": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["crseId", "subject", "catalogNbr", "titleLong"]
+}

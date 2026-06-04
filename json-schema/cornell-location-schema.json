@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cornell/main/json-schema/cornell-location-schema.json",
+  "title": "Cornell Map Location",
+  "description": "A campus map location as returned by the Cornell Map (CODI) API locations endpoint.",
+  "type": "object",
+  "properties": {
+    "Name": { "type": "string" },
+    "Folder": { "type": "string" },
+    "ImageURL": { "type": "string", "format": "uri" },
+    "Address": { "type": "string" },
+    "Lat": { "type": "string", "description": "Latitude as a string." },
+    "Lng": { "type": "string", "description": "Longitude as a string." },
+    "Notes": { "type": "string" },
+    "AKA": { "type": "string", "description": "Also-known-as alternate name." }
+  },
+  "required": ["Name"]
+}
