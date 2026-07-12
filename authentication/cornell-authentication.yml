@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cornell-codi-events.yaml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: UserSecurity
+  type: apiKey
+  in: query
+  parameter: api_key
+  description: Security for the API key
+  sources:
+  - openapi/cornell-codi-events.yaml
