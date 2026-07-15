@@ -103,6 +103,8 @@ apis:
       - type: JSONLD
         url: json-ld/cornell-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/cornell-agentic-access.yml
   - type: DomainSecurity
     url: security/cornell-domain-security.yml
   - type: Authentication
