@@ -1,0 +1,694 @@
+openapi: 3.0.0
+info:
+  description: A public API for retrieving classes at Cornell University
+  version: '0.1'
+  title: Cornell Classes config API
+  contact:
+    name: Cornell Open Data Initiative
+    url: https://codi.engineering.cornell.edu
+    email: codi@cornellappdev.com
+servers:
+- url: https://classes.cornell.edu/api/2.0
+tags:
+- name: config
+paths:
+  /config/rosters.json:
+    get:
+      tags:
+      - config
+      summary: Get available Cornell rosters
+      description: Return information about all available Cornell rosters
+      responses:
+        '200':
+          description: A JSON of rosters
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RostersResponse'
+  /config/acadCareers.json:
+    get:
+      tags:
+      - config
+      summary: Get available academic careers for a roster
+      description: Return all available academic careers for a roster. Academic careers refer to student type (i.e. Undergraduate) or study type (i.e. Graduate Management).
+      parameters:
+      - name: roster
+        in: query
+        description: Roster semester & year (i.e. FA14, SP15)
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A JSON of academic careers
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AcadCareersResponse'
+  /config/acadGroups.json:
+    get:
+      tags:
+      - config
+      summary: Get available academic groups for a roster
+      description: Return all available academic groups for a roster. Academic groups refer to college type (i.e. Engineering) or study type (i.e. Graduate Management).
+      parameters:
+      - name: roster
+        in: query
+        description: Roster semester & year (i.e. FA14, SP15)
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A JSON of academic groups
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AcadGroupsResponse'
+  /config/classLevels.json:
+    get:
+      tags:
+      - config
+      summary: Get available class levels for a roster
+      description: Return all available class levels for a roster. Class levels refer to the level of the course as specified by the course number (i.e. 1000, 2000). For instance, CS 4300 has a class level of 4000.
+      parameters:
+      - name: roster
+        in: query
+        description: Roster semester & year (i.e. FA14, SP15)
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A JSON of class levels
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClassLevelsResponse'
+  /config/subjects.json:
+    get:
+      tags:
+      - config
+      summary: Get available subjects for roster
+      description: Return all available course subjects for a roster.
+      parameters:
+      - name: roster
+        in: query
+        description: Roster semester & year (i.e. FA14, SP15)
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A JSON of subjects
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SubjectsResponse'
+  /config/pages.json:
+    get:
+      tags:
+      - config
+      summary: Get Cornell Dining Pages
+      description: Return all pages on the Cornell Dining website
+      responses:
+        '200':
+          description: A JSON of dining pages
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PagesResponse'
+components:
+  schemas:
+    Roster_version_catalog:
+      properties:
+        descrshort:
+          type: string
+          example: CoS 14-15
+        descr:
+          type: string
+          example: Courses of Study 2014-2015
+        acalogCatalogId:
+          type: integer
+          example: 22
+        version:
+          $ref: '#/components/schemas/Roster_version_catalog_version'
+      example:
+        acalogCatalogId: 22
+        descr: Courses of Study 2014-2015
+        descrshort: CoS 14-15
+        version:
+          status: COMPLETE
+    Meta:
+      type: object
+      properties:
+        copyright:
+          type: string
+          example: Cornell University, Office of the University Registrar
+        referenceDttm:
+          type: string
+          example: 2015-01-14T18:16:01-0500
+      example:
+        referenceDttm: 2015-01-14T18:16:01-0500
+        copyright: Cornell University, Office of the University Registrar
+    Roster_version:
+      properties:
+        status:
+          type: string
+          example: COMPLETE
+        referenceDttm:
+          type: string
+          example: 2015-01-14T18:16:01-0500
+        catalogDttm:
+          type: string
+          example: 2015-01-14T18:21:04-0500
+        descriptionSource:
+          type: string
+          example: CATALOG
+        showCatalogNote:
+          type: string
+          example: Y
+        catalogCourseNote:
+          type: string
+          example: null
+        catalog:
+          $ref: '#/components/schemas/Roster_version_catalog'
+      example:
+        referenceDttm: 2015-01-14T18:16:01-0500
+        catalogDttm: 2015-01-14T18:21:04-0500
+        showCatalogNote: Y
+        catalogCourseNote: null
+        catalog:
+          acalogCatalogId: 22
+          descr: Courses of Study 2014-2015
+          descrshort: CoS 14-15
+          version:
+            status: COMPLETE
+        descriptionSource: CATALOG
+        status: COMPLETE
+    PagesResponse_data:
+      properties:
+        pages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Page'
+      example:
+        pages:
+        - updatedDttm: 2015-10-14T11:24:37-0400
+          title: About
+          body: body
+          navInclude: true
+          slug: about
+          navSortIdx: 1
+        - updatedDttm: 2015-10-14T11:24:37-0400
+          title: About
+          body: body
+          navInclude: true
+          slug: about
+          navSortIdx: 1
+    PagesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/PagesResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/Meta_2'
+      example:
+        data:
+          pages:
+          - updatedDttm: 2015-10-14T11:24:37-0400
+            title: About
+            body: body
+            navInclude: true
+            slug: about
+            navSortIdx: 1
+          - updatedDttm: 2015-10-14T11:24:37-0400
+            title: About
+            body: body
+            navInclude: true
+            slug: about
+            navSortIdx: 1
+        meta:
+          copyright: Cornell University, Cornell Dining
+          responseDttm: 2018-04-02T05:26:17-0400
+        message: null
+        status: success
+    AcadCareersResponse_data:
+      properties:
+        acadCareers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcadCareers'
+      example:
+        acadCareers:
+        - descr: Undergraduate
+          value: UG
+        - descr: Undergraduate
+          value: UG
+    AcadGroupsResponse_data:
+      properties:
+        acadGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcadGroups'
+      example:
+        acadGroups:
+        - descr: Agriculture and Life Sciences
+          value: AG
+        - descr: Agriculture and Life Sciences
+          value: AG
+    SubjectsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/SubjectsResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/Meta'
+      example:
+        data:
+          subjects:
+          - descr: Asian American Studies
+            descrformal: Asian American Studies
+            value: AAS
+          - descr: Asian American Studies
+            descrformal: Asian American Studies
+            value: AAS
+        meta:
+          referenceDttm: 2015-01-14T18:16:01-0500
+          copyright: Cornell University, Office of the University Registrar
+        message: null
+        status: success
+    ClassLevelsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/ClassLevelsResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/Meta'
+      example:
+        data:
+          classLevels:
+          - descr: 1000
+            value: 1000
+          - descr: 1000
+            value: 1000
+        meta:
+          referenceDttm: 2015-01-14T18:16:01-0500
+          copyright: Cornell University, Office of the University Registrar
+        message: null
+        status: success
+    RostersResponse_meta:
+      properties:
+        copyright:
+          type: string
+          example: Cornell University, Office of the University Registrar
+      example:
+        copyright: Cornell University, Office of the University Registrar
+    AcadGroupsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/AcadGroupsResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/Meta'
+      example:
+        data:
+          acadGroups:
+          - descr: Agriculture and Life Sciences
+            value: AG
+          - descr: Agriculture and Life Sciences
+            value: AG
+        meta:
+          referenceDttm: 2015-01-14T18:16:01-0500
+          copyright: Cornell University, Office of the University Registrar
+        message: null
+        status: success
+    RostersResponse_data:
+      properties:
+        rosters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Roster'
+      example:
+        rosters:
+        - lastModifiedDttm: 2018-04-02T19:35:43-0400
+          strm: 2573
+          defaultInstructionMode: P
+          sharing: N
+          isDefaultRoster: N
+          version:
+            referenceDttm: 2015-01-14T18:16:01-0500
+            catalogDttm: 2015-01-14T18:21:04-0500
+            showCatalogNote: Y
+            catalogCourseNote: null
+            catalog:
+              acalogCatalogId: 22
+              descr: Courses of Study 2014-2015
+              descrshort: CoS 14-15
+              version:
+                status: COMPLETE
+            descriptionSource: CATALOG
+            status: COMPLETE
+          archiveMode: Y
+          defaultCampus: MAIN
+          descr: Fall 2014
+          defaultSessionCode: 1
+          descrshort: 2014FA
+          slug: FA14
+          defaultLocation: ITH
+        - lastModifiedDttm: 2018-04-02T19:35:43-0400
+          strm: 2573
+          defaultInstructionMode: P
+          sharing: N
+          isDefaultRoster: N
+          version:
+            referenceDttm: 2015-01-14T18:16:01-0500
+            catalogDttm: 2015-01-14T18:21:04-0500
+            showCatalogNote: Y
+            catalogCourseNote: null
+            catalog:
+              acalogCatalogId: 22
+              descr: Courses of Study 2014-2015
+              descrshort: CoS 14-15
+              version:
+                status: COMPLETE
+            descriptionSource: CATALOG
+            status: COMPLETE
+          archiveMode: Y
+          defaultCampus: MAIN
+          descr: Fall 2014
+          defaultSessionCode: 1
+          descrshort: 2014FA
+          slug: FA14
+          defaultLocation: ITH
+    ClassLevelsResponse_data:
+      properties:
+        classLevels:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassLevels'
+      example:
+        classLevels:
+        - descr: 1000
+          value: 1000
+        - descr: 1000
+          value: 1000
+    AcadCareersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/AcadCareersResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/Meta'
+      example:
+        data:
+          acadCareers:
+          - descr: Undergraduate
+            value: UG
+          - descr: Undergraduate
+            value: UG
+        meta:
+          referenceDttm: 2015-01-14T18:16:01-0500
+          copyright: Cornell University, Office of the University Registrar
+        message: null
+        status: success
+    SubjectsResponse_data:
+      properties:
+        subjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subjects'
+      example:
+        subjects:
+        - descr: Asian American Studies
+          descrformal: Asian American Studies
+          value: AAS
+        - descr: Asian American Studies
+          descrformal: Asian American Studies
+          value: AAS
+    AcadCareers:
+      type: object
+      properties:
+        value:
+          type: string
+          example: UG
+        descr:
+          type: string
+          example: Undergraduate
+      example:
+        descr: Undergraduate
+        value: UG
+    ClassLevels:
+      type: object
+      properties:
+        value:
+          type: string
+          example: 1000
+        descr:
+          type: integer
+          example: 1000
+      example:
+        descr: 1000
+        value: 1000
+    AcadGroups:
+      type: object
+      properties:
+        value:
+          type: string
+          example: AG
+        descr:
+          type: string
+          example: Agriculture and Life Sciences
+      example:
+        descr: Agriculture and Life Sciences
+        value: AG
+    Meta_2:
+      type: object
+      properties:
+        copyright:
+          type: string
+          example: Cornell University, Cornell Dining
+        responseDttm:
+          type: string
+          example: 2018-04-02T05:26:17-0400
+      example:
+        copyright: Cornell University, Cornell Dining
+        responseDttm: 2018-04-02T05:26:17-0400
+    Subjects:
+      type: object
+      properties:
+        value:
+          type: string
+          example: AAS
+        descr:
+          type: string
+          example: Asian American Studies
+        descrformal:
+          type: string
+          example: Asian American Studies
+      example:
+        descr: Asian American Studies
+        descrformal: Asian American Studies
+        value: AAS
+    RostersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/RostersResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/RostersResponse_meta'
+      example:
+        data:
+          rosters:
+          - lastModifiedDttm: 2018-04-02T19:35:43-0400
+            strm: 2573
+            defaultInstructionMode: P
+            sharing: N
+            isDefaultRoster: N
+            version:
+              referenceDttm: 2015-01-14T18:16:01-0500
+              catalogDttm: 2015-01-14T18:21:04-0500
+              showCatalogNote: Y
+              catalogCourseNote: null
+              catalog:
+                acalogCatalogId: 22
+                descr: Courses of Study 2014-2015
+                descrshort: CoS 14-15
+                version:
+                  status: COMPLETE
+              descriptionSource: CATALOG
+              status: COMPLETE
+            archiveMode: Y
+            defaultCampus: MAIN
+            descr: Fall 2014
+            defaultSessionCode: 1
+            descrshort: 2014FA
+            slug: FA14
+            defaultLocation: ITH
+          - lastModifiedDttm: 2018-04-02T19:35:43-0400
+            strm: 2573
+            defaultInstructionMode: P
+            sharing: N
+            isDefaultRoster: N
+            version:
+              referenceDttm: 2015-01-14T18:16:01-0500
+              catalogDttm: 2015-01-14T18:21:04-0500
+              showCatalogNote: Y
+              catalogCourseNote: null
+              catalog:
+                acalogCatalogId: 22
+                descr: Courses of Study 2014-2015
+                descrshort: CoS 14-15
+                version:
+                  status: COMPLETE
+              descriptionSource: CATALOG
+              status: COMPLETE
+            archiveMode: Y
+            defaultCampus: MAIN
+            descr: Fall 2014
+            defaultSessionCode: 1
+            descrshort: 2014FA
+            slug: FA14
+            defaultLocation: ITH
+        meta:
+          copyright: Cornell University, Office of the University Registrar
+        message: null
+        status: success
+    Page:
+      type: object
+      properties:
+        slug:
+          type: string
+          example: about
+        title:
+          type: string
+          example: About
+        body:
+          type: string
+        updatedDttm:
+          type: string
+          example: 2015-10-14T11:24:37-0400
+        navInclude:
+          type: boolean
+          example: true
+        navSortIdx:
+          type: integer
+          format: int32
+          example: 1
+      example:
+        updatedDttm: 2015-10-14T11:24:37-0400
+        title: About
+        body: body
+        navInclude: true
+        slug: about
+        navSortIdx: 1
+    Roster_version_catalog_version:
+      properties:
+        status:
+          type: string
+          example: COMPLETE
+      example:
+        status: COMPLETE
+    Roster:
+      type: object
+      properties:
+        slug:
+          type: string
+          example: FA14
+        isDefaultRoster:
+          type: string
+          example: N
+        strm:
+          type: string
+          example: 2573
+        descr:
+          type: string
+          example: Fall 2014
+        descrshort:
+          type: string
+          example: 2014FA
+        defaultSessionCode:
+          type: string
+          example: 1
+        defaultCampus:
+          type: string
+          example: MAIN
+        defaultLocation:
+          type: string
+          example: ITH
+        defaultInstructionMode:
+          type: string
+          example: P
+        sharing:
+          type: string
+          example: N
+        archiveMode:
+          type: string
+          example: Y
+        version:
+          $ref: '#/components/schemas/Roster_version'
+        lastModifiedDttm:
+          type: string
+          example: 2018-04-02T19:35:43-0400
+      example:
+        lastModifiedDttm: 2018-04-02T19:35:43-0400
+        strm: 2573
+        defaultInstructionMode: P
+        sharing: N
+        isDefaultRoster: N
+        version:
+          referenceDttm: 2015-01-14T18:16:01-0500
+          catalogDttm: 2015-01-14T18:21:04-0500
+          showCatalogNote: Y
+          catalogCourseNote: null
+          catalog:
+            acalogCatalogId: 22
+            descr: Courses of Study 2014-2015
+            descrshort: CoS 14-15
+            version:
+              status: COMPLETE
+          descriptionSource: CATALOG
+          status: COMPLETE
+        archiveMode: Y
+        defaultCampus: MAIN
+        descr: Fall 2014
+        defaultSessionCode: 1
+        descrshort: 2014FA
+        slug: FA14
+        defaultLocation: ITH

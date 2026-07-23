@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  description: A public API for retrieving classes at Cornell University
+  version: '0.1'
+  title: Cornell Classes config tags API
+  contact:
+    name: Cornell Open Data Initiative
+    url: https://codi.engineering.cornell.edu
+    email: codi@cornellappdev.com
+servers:
+- url: https://classes.cornell.edu/api/2.0
+tags:
+- name: tags
+paths:
+  /tags:
+    get:
+      tags:
+      - tags
+      summary: Get Cornell Days tags
+      description: Return all tags describing Cornell Days events
+      responses:
+        '200':
+          description: A JSON of Cornell Days tags
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TagsResponse'
+components:
+  schemas:
+    TagsResponse_META:
+      properties:
+        REQUESTTIME:
+          type: string
+          example: 7:13 AM April 3, 2018
+      example:
+        REQUESTTIME: 7:13 AM April 3, 2018
+    TagsResponse:
+      type: object
+      properties:
+        CATEGORIES:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        META:
+          $ref: '#/components/schemas/TagsResponse_META'
+      example:
+        META:
+          REQUESTTIME: 7:13 AM April 3, 2018
+        CATEGORIES:
+        - CAT_ID: 442C8728-B2C8-3474-0AA196853A695775
+          TAGS:
+          - TAG_LABEL: A&S - College of Arts and Sciences
+            TAG_ID: 4432D6B5-9DAA-484F-1BA06B88A600DD13
+          - TAG_LABEL: A&S - College of Arts and Sciences
+            TAG_ID: 4432D6B5-9DAA-484F-1BA06B88A600DD13
+          CAT_NAME: College/School
+        - CAT_ID: 442C8728-B2C8-3474-0AA196853A695775
+          TAGS:
+          - TAG_LABEL: A&S - College of Arts and Sciences
+            TAG_ID: 4432D6B5-9DAA-484F-1BA06B88A600DD13
+          - TAG_LABEL: A&S - College of Arts and Sciences
+            TAG_ID: 4432D6B5-9DAA-484F-1BA06B88A600DD13
+          CAT_NAME: College/School
+    Tag:
+      type: object
+      properties:
+        TAGS:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event_EVENT_TAGS'
+        CAT_ID:
+          type: string
+          example: 442C8728-B2C8-3474-0AA196853A695775
+        CAT_NAME:
+          type: string
+          example: College/School
+      example:
+        CAT_ID: 442C8728-B2C8-3474-0AA196853A695775
+        TAGS:
+        - TAG_LABEL: A&S - College of Arts and Sciences
+          TAG_ID: 4432D6B5-9DAA-484F-1BA06B88A600DD13
+        - TAG_LABEL: A&S - College of Arts and Sciences
+          TAG_ID: 4432D6B5-9DAA-484F-1BA06B88A600DD13
+        CAT_NAME: College/School
+    Event_EVENT_TAGS:
+      properties:
+        TAG_ID:
+          type: string
+          example: 4432D6B5-9DAA-484F-1BA06B88A600DD13
+        TAG_LABEL:
+          type: string
+          example: A&S - College of Arts and Sciences
+      example:
+        TAG_LABEL: A&S - College of Arts and Sciences
+        TAG_ID: 4432D6B5-9DAA-484F-1BA06B88A600DD13

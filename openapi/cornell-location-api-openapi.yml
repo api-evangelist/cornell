@@ -1,0 +1,101 @@
+openapi: 3.0.0
+info:
+  description: A public API for retrieving classes at Cornell University
+  version: '0.1'
+  title: Cornell Classes config location API
+  contact:
+    name: Cornell Open Data Initiative
+    url: https://codi.engineering.cornell.edu
+    email: codi@cornellappdev.com
+servers:
+- url: https://classes.cornell.edu/api/2.0
+tags:
+- name: location
+paths:
+  /locations.cfm:
+    get:
+      tags:
+      - location
+      summary: Get Cornell Locations
+      description: Return information about all available Cornell locations
+      parameters:
+      - name: returnJSON
+        in: query
+        description: 1 if JSON should be returned
+        required: true
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+          default: 1
+      responses:
+        '200':
+          description: A JSON of Cornell locations
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LocationsResponse'
+components:
+  schemas:
+    Location:
+      type: object
+      properties:
+        Name:
+          type: string
+          example: A. D. White Gardens
+        Folder:
+          type: string
+          example: Plantations
+        ImageURL:
+          type: string
+          example: http://images-cf.localist.com/photos/16496/huge/3d1823d5d412fbd89b226723466e404d9f4fa43b.jpg
+        Address:
+          type: string
+          example: null
+        Lat:
+          type: string
+          example: 42.44780277777777
+        Lng:
+          type: string
+          example: -76.48188888888889
+        Notes:
+          type: string
+          example: Plantations
+        AKA:
+          type: string
+          example: null
+      example:
+        Address: null
+        Lng: -76.48188888888889
+        AKA: null
+        ImageURL: http://images-cf.localist.com/photos/16496/huge/3d1823d5d412fbd89b226723466e404d9f4fa43b.jpg
+        Folder: Plantations
+        Lat: 42.44780277777777
+        Notes: Plantations
+        Name: A. D. White Gardens
+    LocationsResponse:
+      type: object
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+      example:
+        locations:
+        - Address: null
+          Lng: -76.48188888888889
+          AKA: null
+          ImageURL: http://images-cf.localist.com/photos/16496/huge/3d1823d5d412fbd89b226723466e404d9f4fa43b.jpg
+          Folder: Plantations
+          Lat: 42.44780277777777
+          Notes: Plantations
+          Name: A. D. White Gardens
+        - Address: null
+          Lng: -76.48188888888889
+          AKA: null
+          ImageURL: http://images-cf.localist.com/photos/16496/huge/3d1823d5d412fbd89b226723466e404d9f4fa43b.jpg
+          Folder: Plantations
+          Lat: 42.44780277777777
+          Notes: Plantations
+          Name: A. D. White Gardens
