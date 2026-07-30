@@ -13,9 +13,22 @@ description: >-
   exposes campus map, transit, dining, and events datasets, though parts of that
   platform are archived or marked as likely outdated.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cornell.png
 url: https://raw.githubusercontent.com/api-evangelist/cornell/refs/heads/main/apis.yml
 tags:
   - Education
@@ -30,78 +43,185 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: cornell:class-roster
-    name: Cornell Class Roster API
-    description: >-
-      Public read-only API (version 2.0) for Cornell Class Roster data,
-      providing scheduled classes with Course of Study details plus
-      configuration lookups for rosters, academic careers, academic groups,
-      class levels, and subjects. All methods are GET and return XML or JSON.
-      Usage should be limited to no more than one request per second.
-    humanURL: https://classes.cornell.edu/content/FA25/api-details
-    baseURL: https://classes.cornell.edu/api/2.0/
-    tags: [ Course Catalog, Class Roster, Education, Scheduling ]
-    properties:
-      - type: Documentation
-        url: https://classes.cornell.edu/content/FA25/api-details
-  - aid: cornell:ecommons
-    name: eCommons Digital Repository (DSpace REST and OAI-PMH)
-    description: >-
-      eCommons is Cornell University Library's institutional repository, running
-      on DSpace 7+. It exposes a public DSpace REST API for items, communities,
-      collections, and bitstreams, and an OAI-PMH endpoint for metadata
-      harvesting using Dublin Core. The library migrated to new DSpace
-      infrastructure in January 2026.
-    humanURL: https://guides.library.cornell.edu/ecommons/syndication
-    baseURL: https://ecommons.cornell.edu/server/api
-    tags: [ Library, Institutional Repository, OAI-PMH, DSpace, Research ]
-    properties:
-      - type: Documentation
-        url: https://guides.library.cornell.edu/ecommons/syndication
-      - type: Authentication
-        url: https://ecommons.cornell.edu/oai/request?verb=Identify
-  - aid: cornell:arxiv
-    name: arXiv API
-    description: >-
-      arXiv, hosted and stewarded by Cornell University, provides a long-running
-      public API for programmatic search and retrieval of e-print metadata
-      across physics, mathematics, computer science, and other fields. The query
-      interface returns Atom-formatted results.
-    humanURL: https://info.arxiv.org/help/api/index.html
-    baseURL: http://export.arxiv.org/api/
-    tags: [ Research, Open Access, Preprints, Metadata ]
-    properties:
-      - type: Documentation
-        url: https://info.arxiv.org/help/api/index.html
-  - aid: cornell:codi
-    name: Cornell Open Data Initiative (CODI)
-    description: >-
-      CODI is a student-led effort to publish open Cornell data including campus
-      map points of interest, transit (TCAT) schedules and stops, dining, and
-      events. API documentation has been synced to SwaggerHub via the CODI
-      repositories, but several CODI data repos are archived and the platform is
-      described as undergoing a revamp with datasets that may be outdated.
-    humanURL: https://codi.engineering.cornell.edu/
-    tags: [ Open Data, Campus, Transit, Dining, Events ]
-    properties:
-      - type: Documentation
-        url: https://codi.engineering.cornell.edu/
-      - type: GitHub
-        url: https://github.com/cornell-data
-      - type: OpenAPI
-        url: openapi/cornell-codi-classes.yaml
-      - type: OpenAPI
-        url: openapi/cornell-codi-days.yaml
-      - type: OpenAPI
-        url: openapi/cornell-codi-dining.yaml
-      - type: OpenAPI
-        url: openapi/cornell-codi-events.yaml
-      - type: OpenAPI
-        url: openapi/cornell-codi-map.yaml
-      - type: Vocabulary
-        url: vocabulary/cornell-vocabulary.yml
-      - type: JSONLD
-        url: json-ld/cornell-context.jsonld
+- aid: cornell:class-roster
+  name: Cornell Class Roster API
+  description: >-
+    Public read-only API (version 2.0) for Cornell Class Roster data, providing scheduled classes with
+    Course of Study details plus configuration lookups for rosters, academic careers, academic groups,
+    class levels, and subjects. All methods are GET and return XML or JSON. Usage should be limited to
+    no more than one request per second.
+  humanURL: https://classes.cornell.edu/content/FA25/api-details
+  baseURL: https://classes.cornell.edu/api/2.0/
+  tags:
+  - Course Catalog
+  - Class Roster
+  - Education
+  - Scheduling
+  properties:
+  - type: Documentation
+    url: https://classes.cornell.edu/content/FA25/api-details
+- aid: cornell:ecommons
+  name: eCommons Digital Repository (DSpace REST and OAI-PMH)
+  description: >-
+    eCommons is Cornell University Library's institutional repository, running on DSpace 7+. It exposes
+    a public DSpace REST API for items, communities, collections, and bitstreams, and an OAI-PMH endpoint
+    for metadata harvesting using Dublin Core. The library migrated to new DSpace infrastructure in January
+    2026.
+  humanURL: https://guides.library.cornell.edu/ecommons/syndication
+  baseURL: https://ecommons.cornell.edu/server/api
+  tags:
+  - Library
+  - Institutional Repository
+  - OAI-PMH
+  - DSpace
+  - Research
+  properties:
+  - type: Documentation
+    url: https://guides.library.cornell.edu/ecommons/syndication
+  - type: Authentication
+    url: https://ecommons.cornell.edu/oai/request?verb=Identify
+- aid: cornell:arxiv
+  name: arXiv API
+  description: >-
+    arXiv, hosted and stewarded by Cornell University, provides a long-running public API for programmatic
+    search and retrieval of e-print metadata across physics, mathematics, computer science, and other
+    fields. The query interface returns Atom-formatted results.
+  humanURL: https://info.arxiv.org/help/api/index.html
+  baseURL: http://export.arxiv.org/api/
+  tags:
+  - Research
+  - Open Access
+  - Preprints
+  - Metadata
+  properties:
+  - type: Documentation
+    url: https://info.arxiv.org/help/api/index.html
+- aid: cornell:cornell-config-api
+  name: Cornell University config API
+  description: The config API from Cornell University — 6 operation(s) for config.
+  humanURL: https://classes.cornell.edu/content/FA25/api-details
+  baseURL: https://classes.cornell.edu/api/2.0/
+  tags:
+  - config
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-config-api-openapi.yml
+  - type: Documentation
+    url: https://codi.engineering.cornell.edu/
+  - type: GitHub
+    url: https://github.com/cornell-data
+  - type: Vocabulary
+    url: vocabulary/cornell-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/cornell-context.jsonld
+- aid: cornell:cornell-dining-api
+  name: Cornell University dining API
+  description: The dining API from Cornell University — 2 operation(s) for dining.
+  humanURL: https://classes.cornell.edu/content/FA25/api-details
+  baseURL: https://classes.cornell.edu/api/2.0/
+  tags:
+  - dining
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-dining-api-openapi.yml
+  - type: Documentation
+    url: https://codi.engineering.cornell.edu/
+  - type: GitHub
+    url: https://github.com/cornell-data
+  - type: Vocabulary
+    url: vocabulary/cornell-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/cornell-context.jsonld
+- aid: cornell:cornell-events-api
+  name: Cornell University events API
+  description: The events API from Cornell University — 1 operation(s) for events.
+  humanURL: https://classes.cornell.edu/content/FA25/api-details
+  baseURL: https://classes.cornell.edu/api/2.0/
+  tags:
+  - events
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-events-api-openapi.yml
+  - type: Documentation
+    url: https://codi.engineering.cornell.edu/
+  - type: GitHub
+    url: https://github.com/cornell-data
+  - type: Vocabulary
+    url: vocabulary/cornell-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/cornell-context.jsonld
+- aid: cornell:cornell-location-api
+  name: Cornell University location API
+  description: The location API from Cornell University — 1 operation(s) for location.
+  humanURL: https://classes.cornell.edu/content/FA25/api-details
+  baseURL: https://classes.cornell.edu/api/2.0/
+  tags:
+  - location
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-location-api-openapi.yml
+  - type: Documentation
+    url: https://codi.engineering.cornell.edu/
+  - type: GitHub
+    url: https://github.com/cornell-data
+  - type: Vocabulary
+    url: vocabulary/cornell-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/cornell-context.jsonld
+- aid: cornell:cornell-map-items-api
+  name: Cornell University map items API
+  description: The map items API from Cornell University — 1 operation(s) for map items.
+  humanURL: https://classes.cornell.edu/content/FA25/api-details
+  baseURL: https://classes.cornell.edu/api/2.0/
+  tags:
+  - map items
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-map-items-api-openapi.yml
+  - type: Documentation
+    url: https://codi.engineering.cornell.edu/
+  - type: GitHub
+    url: https://github.com/cornell-data
+  - type: Vocabulary
+    url: vocabulary/cornell-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/cornell-context.jsonld
+- aid: cornell:cornell-search-api
+  name: Cornell University search API
+  description: The search API from Cornell University — 2 operation(s) for search.
+  humanURL: https://classes.cornell.edu/content/FA25/api-details
+  baseURL: https://classes.cornell.edu/api/2.0/
+  tags:
+  - search
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-search-api-openapi.yml
+  - type: Documentation
+    url: https://codi.engineering.cornell.edu/
+  - type: GitHub
+    url: https://github.com/cornell-data
+  - type: Vocabulary
+    url: vocabulary/cornell-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/cornell-context.jsonld
+- aid: cornell:cornell-tags-api
+  name: Cornell University tags API
+  description: The tags API from Cornell University — 1 operation(s) for tags.
+  humanURL: https://classes.cornell.edu/content/FA25/api-details
+  baseURL: https://classes.cornell.edu/api/2.0/
+  tags:
+  - tags
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-tags-api-openapi.yml
+  - type: Documentation
+    url: https://codi.engineering.cornell.edu/
+  - type: GitHub
+    url: https://github.com/cornell-data
+  - type: Vocabulary
+    url: vocabulary/cornell-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/cornell-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/cornell-agentic-access.yml
