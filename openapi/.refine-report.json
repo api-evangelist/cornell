@@ -1,0 +1,26 @@
+{
+  "provider": "cornell",
+  "sources": [
+    "cornell-config-api-openapi.yml",
+    "cornell-dining-api-openapi.yml",
+    "cornell-events-api-openapi.yml",
+    "cornell-location-api-openapi.yml",
+    "cornell-map-items-api-openapi.yml",
+    "cornell-search-api-openapi.yml",
+    "cornell-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "cornell-config-api-openapi.yml",
+    "cornell-dining-api-openapi.yml",
+    "cornell-events-api-openapi.yml",
+    "cornell-location-api-openapi.yml",
+    "cornell-map-items-api-openapi.yml",
+    "cornell-search-api-openapi.yml",
+    "cornell-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
