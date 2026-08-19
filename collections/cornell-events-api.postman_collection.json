@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "d76731c8-72c1-46b8-84e6-7a6f4faaa352",
+      "name": "events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60447c71-a395-44b8-a646-1059a266e853",
+          "name": "Get Cornell Days events",
+          "request": {
+            "name": "Get Cornell Days events",
+            "description": {
+              "content": "Return all events related to Cornell Days",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c6734bd-cb03-40ce-abb8-4bbd7234e17b",
+              "name": "A JSON of Cornell Days events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"EVENTS\": [\n    {\n      \"EVENT_TAGS\": [\n        {\n          \"TAG_LABEL\": \"A&S - College of Arts and Sciences\",\n          \"TAG_ID\": \"4432D6B5-9DAA-484F-1BA06B88A600DD13\"\n        },\n        {\n          \"TAG_LABEL\": \"A&S - College of Arts and Sciences\",\n          \"TAG_ID\": \"4432D6B5-9DAA-484F-1BA06B88A600DD13\"\n        }\n      ],\n      \"EVENT_EXTERNAL_REGISTRATION_URL\": \"string\",\n      \"EVENT_TIMES\": [\n        {\n          \"TIME_START\": \"April, 12 2018 10:10:00\",\n          \"TIME_START_FORMATTED\": \"10:10 a.m. Thu, Apr 12, 2018\",\n          \"TIME_ID\": \"A985BCFD-F501-B058-96AEA199D111FB8D\",\n          \"FULL\": false,\n          \"SUM_ATTENDEES\": 22,\n          \"TIMECAP\": \"string\",\n          \"TIME_LOCATION_OVERRIDE\": \"string\",\n          \"TIME_END\": \"April, 12 2018 11:00:00\",\n          \"TIME_END_FORMATTED\": \"11:00 a.m. Thu, Apr 12, 2018\",\n          \"TIME_NOTE\": \"string\"\n        },\n        {\n          \"TIME_START\": \"April, 12 2018 10:10:00\",\n          \"TIME_START_FORMATTED\": \"10:10 a.m. Thu, Apr 12, 2018\",\n          \"TIME_ID\": \"A985BCFD-F501-B058-96AEA199D111FB8D\",\n          \"FULL\": false,\n          \"SUM_ATTENDEES\": 22,\n          \"TIMECAP\": \"string\",\n          \"TIME_LOCATION_OVERRIDE\": \"string\",\n          \"TIME_END\": \"April, 12 2018 11:00:00\",\n          \"TIME_END_FORMATTED\": \"11:00 a.m. Thu, Apr 12, 2018\",\n          \"TIME_NOTE\": \"string\"\n        }\n      ],\n      \"EVENT_DESCRIPTION\": \"Representatives from admissions, advising and career development, along with faculty members and student ambassadors will give an overview of the College of Arts and Sciences (A&S), and answer questions about undergraduate life at Cornell.\",\n      \"EVENT_ID\": \"AD87530A-D89A-0E45-64BED13BF0B38A37\",\n      \"EVENT_ADDITIONAL_FEE\": \"string\",\n      \"EVENT_EXTERNAL_URL\": \"string\",\n      \"EVENT_TITLE\": \"A&S Information Session\",\n      \"EVENT_LOCATION\": \"G10 Biotechnology Building\"\n    },\n    {\n      \"EVENT_TAGS\": [\n        {\n          \"TAG_LABEL\": \"A&S - College of Arts and Sciences\",\n          \"TAG_ID\": \"4432D6B5-9DAA-484F-1BA06B88A600DD13\"\n        },\n        {\n          \"TAG_LABEL\": \"A&S - College of Arts and Sciences\",\n          \"TAG_ID\": \"4432D6B5-9DAA-484F-1BA06B88A600DD13\"\n        }\n      ],\n      \"EVENT_EXTERNAL_REGISTRATION_URL\": \"string\",\n      \"EVENT_TIMES\": [\n        {\n          \"TIME_START\": \"April, 12 2018 10:10:00\",\n          \"TIME_START_FORMATTED\": \"10:10 a.m. Thu, Apr 12, 2018\",\n          \"TIME_ID\": \"A985BCFD-F501-B058-96AEA199D111FB8D\",\n          \"FULL\": false,\n          \"SUM_ATTENDEES\": 22,\n          \"TIMECAP\": \"string\",\n          \"TIME_LOCATION_OVERRIDE\": \"string\",\n          \"TIME_END\": \"April, 12 2018 11:00:00\",\n          \"TIME_END_FORMATTED\": \"11:00 a.m. Thu, Apr 12, 2018\",\n          \"TIME_NOTE\": \"string\"\n        },\n        {\n          \"TIME_START\": \"April, 12 2018 10:10:00\",\n          \"TIME_START_FORMATTED\": \"10:10 a.m. Thu, Apr 12, 2018\",\n          \"TIME_ID\": \"A985BCFD-F501-B058-96AEA199D111FB8D\",\n          \"FULL\": false,\n          \"SUM_ATTENDEES\": 22,\n          \"TIMECAP\": \"string\",\n          \"TIME_LOCATION_OVERRIDE\": \"string\",\n          \"TIME_END\": \"April, 12 2018 11:00:00\",\n          \"TIME_END_FORMATTED\": \"11:00 a.m. Thu, Apr 12, 2018\",\n          \"TIME_NOTE\": \"string\"\n        }\n      ],\n      \"EVENT_DESCRIPTION\": \"Representatives from admissions, advising and career development, along with faculty members and student ambassadors will give an overview of the College of Arts and Sciences (A&S), and answer questions about undergraduate life at Cornell.\",\n      \"EVENT_ID\": \"AD87530A-D89A-0E45-64BED13BF0B38A37\",\n      \"EVENT_ADDITIONAL_FEE\": \"string\",\n      \"EVENT_EXTERNAL_URL\": \"string\",\n      \"EVENT_TITLE\": \"A&S Information Session\",\n      \"EVENT_LOCATION\": \"G10 Biotechnology Building\"\n    }\n  ],\n  \"META\": {\n    \"EVENT_STATUS\": \"published\",\n    \"FILTER_TAGS\": \"string\",\n    \"NUM_EVENTS\": 64,\n    \"REQUESTTIME\": \"7:17 AM April 3, 2018\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://classes.cornell.edu/api/2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b9dccf24-67d0-4bad-aee8-886ab24e3ba6",
+    "name": "Cornell Classes config events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A public API for retrieving classes at Cornell University\n\nContact Support:\n Name: Cornell Open Data Initiative\n Email: codi@cornellappdev.com",
+      "type": "text/plain"
+    }
+  }
+}

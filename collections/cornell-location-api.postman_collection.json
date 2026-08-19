@@ -1,0 +1,114 @@
+{
+  "item": [
+    {
+      "id": "18d25b9f-1127-4d82-8a25-b90c23329db3",
+      "name": "location",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f667d32-d516-4788-a631-88bfd179a8ba",
+          "name": "Get Cornell Locations",
+          "request": {
+            "name": "Get Cornell Locations",
+            "description": {
+              "content": "Return information about all available Cornell locations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations.cfm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "returnJSON",
+                  "value": "1",
+                  "description": "(Required) 1 if JSON should be returned"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8653569b-bbe7-49f1-a961-8d257358eb85",
+              "name": "A JSON of Cornell locations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations.cfm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "returnJSON",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"locations\": [\n    {\n      \"Name\": \"A. D. White Gardens\",\n      \"Folder\": \"Plantations\",\n      \"ImageURL\": \"http://images-cf.localist.com/photos/16496/huge/3d1823d5d412fbd89b226723466e404d9f4fa43b.jpg\",\n      \"Address\": \"string\",\n      \"Lat\": \"string\",\n      \"Lng\": \"string\",\n      \"Notes\": \"Plantations\",\n      \"AKA\": \"string\"\n    },\n    {\n      \"Name\": \"A. D. White Gardens\",\n      \"Folder\": \"Plantations\",\n      \"ImageURL\": \"http://images-cf.localist.com/photos/16496/huge/3d1823d5d412fbd89b226723466e404d9f4fa43b.jpg\",\n      \"Address\": \"string\",\n      \"Lat\": \"string\",\n      \"Lng\": \"string\",\n      \"Notes\": \"Plantations\",\n      \"AKA\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://classes.cornell.edu/api/2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c2d65dd0-c0c2-4f6d-9f23-ad507d419909",
+    "name": "Cornell Classes config location API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A public API for retrieving classes at Cornell University\n\nContact Support:\n Name: Cornell Open Data Initiative\n Email: codi@cornellappdev.com",
+      "type": "text/plain"
+    }
+  }
+}

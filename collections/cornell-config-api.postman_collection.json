@@ -1,0 +1,512 @@
+{
+  "item": [
+    {
+      "id": "1887a9ff-e7ee-4822-9e46-b09c7994b677",
+      "name": "config",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d71e6a1c-827c-41d1-8ab9-6bc00915b4a0",
+          "name": "Get available Cornell rosters",
+          "request": {
+            "name": "Get available Cornell rosters",
+            "description": {
+              "content": "Return information about all available Cornell rosters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "rosters.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd854738-405a-4670-b7c5-363497ee655a",
+              "name": "A JSON of rosters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "rosters.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"rosters\": [\n      {\n        \"slug\": \"FA14\",\n        \"isDefaultRoster\": \"N\",\n        \"strm\": \"string\",\n        \"descr\": \"Fall 2014\",\n        \"descrshort\": \"2014FA\",\n        \"defaultSessionCode\": \"string\",\n        \"defaultCampus\": \"MAIN\",\n        \"defaultLocation\": \"ITH\",\n        \"defaultInstructionMode\": \"P\",\n        \"sharing\": \"N\",\n        \"archiveMode\": \"Y\",\n        \"version\": {\n          \"status\": \"COMPLETE\",\n          \"referenceDttm\": \"2015-01-14T18:16:01-0500\",\n          \"catalogDttm\": \"2015-01-14T18:21:04-0500\",\n          \"descriptionSource\": \"CATALOG\",\n          \"showCatalogNote\": \"Y\",\n          \"catalogCourseNote\": \"string\",\n          \"catalog\": {\n            \"acalogCatalogId\": 22,\n            \"descr\": \"Courses of Study 2014-2015\",\n            \"descrshort\": \"CoS 14-15\",\n            \"version\": {\n              \"status\": \"COMPLETE\"\n            }\n          }\n        },\n        \"lastModifiedDttm\": \"2018-04-02T19:35:43-0400\"\n      },\n      {\n        \"slug\": \"FA14\",\n        \"isDefaultRoster\": \"N\",\n        \"strm\": \"string\",\n        \"descr\": \"Fall 2014\",\n        \"descrshort\": \"2014FA\",\n        \"defaultSessionCode\": \"string\",\n        \"defaultCampus\": \"MAIN\",\n        \"defaultLocation\": \"ITH\",\n        \"defaultInstructionMode\": \"P\",\n        \"sharing\": \"N\",\n        \"archiveMode\": \"Y\",\n        \"version\": {\n          \"status\": \"COMPLETE\",\n          \"referenceDttm\": \"2015-01-14T18:16:01-0500\",\n          \"catalogDttm\": \"2015-01-14T18:21:04-0500\",\n          \"descriptionSource\": \"CATALOG\",\n          \"showCatalogNote\": \"Y\",\n          \"catalogCourseNote\": \"string\",\n          \"catalog\": {\n            \"acalogCatalogId\": 22,\n            \"descr\": \"Courses of Study 2014-2015\",\n            \"descrshort\": \"CoS 14-15\",\n            \"version\": {\n              \"status\": \"COMPLETE\"\n            }\n          }\n        },\n        \"lastModifiedDttm\": \"2018-04-02T19:35:43-0400\"\n      }\n    ]\n  },\n  \"message\": \"string\",\n  \"meta\": {\n    \"copyright\": \"Cornell University, Office of the University Registrar\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82a721d1-2612-442c-8b62-ab3ba352cfd6",
+          "name": "Get available academic careers for a roster",
+          "request": {
+            "name": "Get available academic careers for a roster",
+            "description": {
+              "content": "Return all available academic careers for a roster. Academic careers refer to student type (i.e. Undergraduate) or study type (i.e. Graduate Management).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "acadCareers.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "roster",
+                  "value": "<string>",
+                  "description": "(Required) Roster semester & year (i.e. FA14, SP15)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e3e126b-6645-4661-96e7-45010a1eb985",
+              "name": "A JSON of academic careers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "acadCareers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "roster",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"acadCareers\": [\n      {\n        \"descr\": \"Undergraduate\",\n        \"value\": \"UG\"\n      },\n      {\n        \"descr\": \"Undergraduate\",\n        \"value\": \"UG\"\n      }\n    ]\n  },\n  \"message\": \"string\",\n  \"meta\": {\n    \"referenceDttm\": \"2015-01-14T18:16:01-0500\",\n    \"copyright\": \"Cornell University, Office of the University Registrar\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ec9a717-c200-4964-9980-a992e017fe91",
+          "name": "Get available academic groups for a roster",
+          "request": {
+            "name": "Get available academic groups for a roster",
+            "description": {
+              "content": "Return all available academic groups for a roster. Academic groups refer to college type (i.e. Engineering) or study type (i.e. Graduate Management).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "acadGroups.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "roster",
+                  "value": "<string>",
+                  "description": "(Required) Roster semester & year (i.e. FA14, SP15)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80dae00b-7ac6-4451-a4c7-e864b54a0b50",
+              "name": "A JSON of academic groups",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "acadGroups.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "roster",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"acadGroups\": [\n      {\n        \"descr\": \"Agriculture and Life Sciences\",\n        \"value\": \"AG\"\n      },\n      {\n        \"descr\": \"Agriculture and Life Sciences\",\n        \"value\": \"AG\"\n      }\n    ]\n  },\n  \"message\": \"string\",\n  \"meta\": {\n    \"referenceDttm\": \"2015-01-14T18:16:01-0500\",\n    \"copyright\": \"Cornell University, Office of the University Registrar\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66f299e9-7289-4a27-b2d0-930c909d6dc0",
+          "name": "Get available class levels for a roster",
+          "request": {
+            "name": "Get available class levels for a roster",
+            "description": {
+              "content": "Return all available class levels for a roster. Class levels refer to the level of the course as specified by the course number (i.e. 1000, 2000). For instance, CS 4300 has a class level of 4000.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "classLevels.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "roster",
+                  "value": "<string>",
+                  "description": "(Required) Roster semester & year (i.e. FA14, SP15)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63ac9585-1c40-4ee3-88e5-71048bde9a10",
+              "name": "A JSON of class levels",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "classLevels.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "roster",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"classLevels\": [\n      {\n        \"value\": \"string\",\n        \"descr\": 1000\n      },\n      {\n        \"value\": \"string\",\n        \"descr\": 1000\n      }\n    ]\n  },\n  \"message\": \"string\",\n  \"meta\": {\n    \"referenceDttm\": \"2015-01-14T18:16:01-0500\",\n    \"copyright\": \"Cornell University, Office of the University Registrar\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ee30db0-643f-4e6a-9753-19444136bb2d",
+          "name": "Get available subjects for roster",
+          "request": {
+            "name": "Get available subjects for roster",
+            "description": {
+              "content": "Return all available course subjects for a roster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "subjects.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "roster",
+                  "value": "<string>",
+                  "description": "(Required) Roster semester & year (i.e. FA14, SP15)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8bcf0a27-00b3-46b4-850f-fe82fc2e0c10",
+              "name": "A JSON of subjects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "subjects.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "roster",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"subjects\": [\n      {\n        \"descr\": \"Asian American Studies\",\n        \"descrformal\": \"Asian American Studies\",\n        \"value\": \"AAS\"\n      },\n      {\n        \"descr\": \"Asian American Studies\",\n        \"descrformal\": \"Asian American Studies\",\n        \"value\": \"AAS\"\n      }\n    ]\n  },\n  \"message\": \"string\",\n  \"meta\": {\n    \"referenceDttm\": \"2015-01-14T18:16:01-0500\",\n    \"copyright\": \"Cornell University, Office of the University Registrar\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1935cf4-c26e-484f-9818-f95d9a8aa687",
+          "name": "Get Cornell Dining Pages",
+          "request": {
+            "name": "Get Cornell Dining Pages",
+            "description": {
+              "content": "Return all pages on the Cornell Dining website",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "pages.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f084b736-99f0-487f-bf35-91c5eb8851b7",
+              "name": "A JSON of dining pages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "pages.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"pages\": [\n      {\n        \"updatedDttm\": \"2015-10-14T11:24:37-0400\",\n        \"title\": \"About\",\n        \"body\": \"body\",\n        \"navInclude\": true,\n        \"slug\": \"about\",\n        \"navSortIdx\": 1\n      },\n      {\n        \"updatedDttm\": \"2015-10-14T11:24:37-0400\",\n        \"title\": \"About\",\n        \"body\": \"body\",\n        \"navInclude\": true,\n        \"slug\": \"about\",\n        \"navSortIdx\": 1\n      }\n    ]\n  },\n  \"message\": \"string\",\n  \"meta\": {\n    \"copyright\": \"Cornell University, Cornell Dining\",\n    \"responseDttm\": \"2018-04-02T05:26:17-0400\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://classes.cornell.edu/api/2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "40f9df25-a4a7-4933-8437-48646f256a14",
+    "name": "Cornell Classes config API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A public API for retrieving classes at Cornell University\n\nContact Support:\n Name: Cornell Open Data Initiative\n Email: codi@cornellappdev.com",
+      "type": "text/plain"
+    }
+  }
+}

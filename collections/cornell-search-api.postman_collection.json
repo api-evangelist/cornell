@@ -1,0 +1,280 @@
+{
+  "item": [
+    {
+      "id": "846e7612-e75c-4726-997f-4418bed8e320",
+      "name": "search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c76febf4-4ed7-48c9-ac7b-3d1f662880a3",
+          "name": "Get all classes matching input query",
+          "request": {
+            "name": "Get all classes matching input query",
+            "description": {
+              "content": "Return all classes in the specified roster and subject that match the input query",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "classes.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "roster",
+                  "value": "<string>",
+                  "description": "(Required) Roster semester & year (i.e. FA14, SP15)"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "<string>",
+                  "description": "(Required) Academic subject (i.e. CS, PHIL)"
+                },
+                {
+                  "disabled": false,
+                  "key": "acadGroup[]",
+                  "value": "<string>",
+                  "description": "Academic group (i.e. AG)"
+                },
+                {
+                  "disabled": false,
+                  "key": "acadCareer[]",
+                  "value": "<string>",
+                  "description": "Academic career (i.e. GR)"
+                },
+                {
+                  "disabled": false,
+                  "key": "classLevels[]",
+                  "value": "<integer>",
+                  "description": "Class levels (i.e. 6000)"
+                },
+                {
+                  "disabled": false,
+                  "key": "crseAttrs[]",
+                  "value": "<string>",
+                  "description": "Course attribute (i.e. CU-SBY)"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Search term (i.e. graphics)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16d0f864-82e9-4aa6-87ed-ab995a74d450",
+              "name": "A JSON of classes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "classes.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "roster",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subject",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "acadGroup[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "acadCareer[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classLevels[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "crseAttrs[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"subjects\": [\n      {\n        \"strm\": 2573,\n        \"crseId\": 358526,\n        \"crseOfferNbr\": 1,\n        \"subject\": \"CS\",\n        \"catalogNbr\": \"string\",\n        \"titleShort\": \"Intro Computing Using Python\",\n        \"titleLong\": \"Introduction to Computing Using Python\",\n        \"enrollGroups\": [\n          {\n            \"unitsMinimum\": 4,\n            \"unitsMaximum\": 4,\n            \"gradingBasis\": \"OPT\",\n            \"gradingBasisShort\": \"Stdnt Opt\",\n            \"gradingBasisLong\": \"Student Option\",\n            \"sessionCode\": \"string\",\n            \"sessionBeginDt\": \"08/26/2014\",\n            \"sessionEndDt\": \"12/05/2014\",\n            \"sessionLong\": \"Regular Academic Session\"\n          },\n          {\n            \"unitsMinimum\": 4,\n            \"unitsMaximum\": 4,\n            \"gradingBasis\": \"OPT\",\n            \"gradingBasisShort\": \"Stdnt Opt\",\n            \"gradingBasisLong\": \"Student Option\",\n            \"sessionCode\": \"string\",\n            \"sessionBeginDt\": \"08/26/2014\",\n            \"sessionEndDt\": \"12/05/2014\",\n            \"sessionLong\": \"Regular Academic Session\"\n          }\n        ],\n        \"description\": \"string\",\n        \"catalogBreadth\": \"string\",\n        \"catalogDistr\": \"(MQR)\",\n        \"catalogLang\": \"string\",\n        \"catalogForbiddenOverlaps\": \"string\",\n        \"catalogWhenOffered\": \"Fall, spring, summer.\",\n        \"catalogComments\": \"string\",\n        \"catalogPrereqCoreq\": \"Assumes basic high school mathematics (no calculus) but no programming experience.\",\n        \"catalogFee\": \"string\",\n        \"catalogSatisfiesReq\": \"string\",\n        \"catalogPermission\": \"string\",\n        \"catalogCourseSubfield\": \"string\",\n        \"acadCareer\": \"UG\",\n        \"acadGroup\": \"EN\"\n      },\n      {\n        \"strm\": 2573,\n        \"crseId\": 358526,\n        \"crseOfferNbr\": 1,\n        \"subject\": \"CS\",\n        \"catalogNbr\": \"string\",\n        \"titleShort\": \"Intro Computing Using Python\",\n        \"titleLong\": \"Introduction to Computing Using Python\",\n        \"enrollGroups\": [\n          {\n            \"unitsMinimum\": 4,\n            \"unitsMaximum\": 4,\n            \"gradingBasis\": \"OPT\",\n            \"gradingBasisShort\": \"Stdnt Opt\",\n            \"gradingBasisLong\": \"Student Option\",\n            \"sessionCode\": \"string\",\n            \"sessionBeginDt\": \"08/26/2014\",\n            \"sessionEndDt\": \"12/05/2014\",\n            \"sessionLong\": \"Regular Academic Session\"\n          },\n          {\n            \"unitsMinimum\": 4,\n            \"unitsMaximum\": 4,\n            \"gradingBasis\": \"OPT\",\n            \"gradingBasisShort\": \"Stdnt Opt\",\n            \"gradingBasisLong\": \"Student Option\",\n            \"sessionCode\": \"string\",\n            \"sessionBeginDt\": \"08/26/2014\",\n            \"sessionEndDt\": \"12/05/2014\",\n            \"sessionLong\": \"Regular Academic Session\"\n          }\n        ],\n        \"description\": \"string\",\n        \"catalogBreadth\": \"string\",\n        \"catalogDistr\": \"(MQR)\",\n        \"catalogLang\": \"string\",\n        \"catalogForbiddenOverlaps\": \"string\",\n        \"catalogWhenOffered\": \"Fall, spring, summer.\",\n        \"catalogComments\": \"string\",\n        \"catalogPrereqCoreq\": \"Assumes basic high school mathematics (no calculus) but no programming experience.\",\n        \"catalogFee\": \"string\",\n        \"catalogSatisfiesReq\": \"string\",\n        \"catalogPermission\": \"string\",\n        \"catalogCourseSubfield\": \"string\",\n        \"acadCareer\": \"UG\",\n        \"acadGroup\": \"EN\"\n      }\n    ]\n  },\n  \"message\": \"string\",\n  \"meta\": {\n    \"copyright\": \"Cornell University, Office of the University Registrar\",\n    \"catalogDttm\": \"2015-01-14T18:21:04-0500\",\n    \"rosterDttm\": \"2015-01-14T18:16:01-0500\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce016396-992f-4319-9235-7cdf6a8928b2",
+          "name": "Search Cornell Events",
+          "request": {
+            "name": "Search Cornell Events",
+            "description": {
+              "content": "Return the evens on the Cornell website matching the input query",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "days",
+                  "value": "7",
+                  "description": "Number of days ahead to look for events"
+                },
+                {
+                  "disabled": false,
+                  "key": "distinct",
+                  "value": "true",
+                  "description": "Whether to only show distinct events"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Input query to search events for"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4baf8b2-0398-4e61-8383-fbb4b416b507",
+              "name": "A JSON of events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "days",
+                      "value": "7"
+                    },
+                    {
+                      "key": "distinct",
+                      "value": "true"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"events\": {\n    \"events\": [\n      {\n        \"id\": 1138971,\n        \"title\": \"4-H Exhibit Creation Day\",\n        \"url\": \"string\",\n        \"updated_at\": \"2018-04-02 08:06:32-04:00\",\n        \"created_at\": \"2017-12-20 03:28:33-05:00\",\n        \"facebook_id\": 8990,\n        \"first_date\": \"2018-01-27\",\n        \"last_date\": \"2018-04-02\",\n        \"hashtag\": \"string\",\n        \"urlname\": \"4-h_exhibit_creation_day\",\n        \"user_id\": 5303,\n        \"directions\": \"string\",\n        \"allows_reviews\": true,\n        \"allows_attendance\": true,\n        \"location\": \"string\",\n        \"room_number\": 9295,\n        \"location_name\": \"string\",\n        \"created_by\": \"string\",\n        \"updated_by\": \"string\",\n        \"city_id\": 8692,\n        \"neighborhood_id\": 6003,\n        \"school_id\": 10,\n        \"campus_id\": 1149,\n        \"recurring\": false,\n        \"free\": true,\n        \"private\": false,\n        \"verified\": true,\n        \"rejected\": false,\n        \"sponsored\": false,\n        \"venue_id\": 7235,\n        \"ticket_url\": \"string\",\n        \"ticket_cost\": 8258,\n        \"description_text\": \"string\",\n        \"photo_id\": 214651,\n        \"detail_views\": 14,\n        \"event_instances\": [\n          {\n            \"event_instance\": {\n              \"event_id\": 1138971,\n              \"start\": \"2018-04-02 00:00:00-04:00\",\n              \"all_day\": true,\n              \"ranking\": 0,\n              \"end\": null,\n              \"id\": 3451946\n            }\n          },\n          {\n            \"event_instance\": {\n              \"event_id\": 1138971,\n              \"start\": \"2018-04-02 00:00:00-04:00\",\n              \"all_day\": true,\n              \"ranking\": 0,\n              \"end\": null,\n              \"id\": 3451946\n            }\n          }\n        ],\n        \"address\": \"string\",\n        \"description\": \"string\",\n        \"featured\": false,\n        \"geo\": {\n          \"latitude\": \"string\",\n          \"longitude\": \"string\",\n          \"street\": \"840 Front Street\",\n          \"city\": \"Binghamton\",\n          \"state\": \"NY\",\n          \"country\": \"US\",\n          \"zip\": \"string\"\n        },\n        \"filters\": {\n          \"departments\": [\n            {\n              \"name\": \"CCE Broome\",\n              \"id\": 30022\n            },\n            {\n              \"name\": \"CCE Broome\",\n              \"id\": 30022\n            }\n          ]\n        },\n        \"custom_fields\": {\n          \"contact_name\": \"Kelly Adams\",\n          \"contact_phone\": \"607-772-8953\",\n          \"contact_email\": \"kea32@cornell.edu\"\n        },\n        \"localist_url\": \"string\",\n        \"localist_ics_url\": \"string\",\n        \"photo_url\": \"string\",\n        \"venue_url\": \"string\",\n        \"groups\": [\n          {\n            \"name\": \"Cooperative Extension\",\n            \"id\": 5506\n          },\n          {\n            \"name\": \"Cooperative Extension\",\n            \"id\": 5506\n          }\n        ]\n      },\n      {\n        \"id\": 1138971,\n        \"title\": \"4-H Exhibit Creation Day\",\n        \"url\": \"string\",\n        \"updated_at\": \"2018-04-02 08:06:32-04:00\",\n        \"created_at\": \"2017-12-20 03:28:33-05:00\",\n        \"facebook_id\": 8710,\n        \"first_date\": \"2018-01-27\",\n        \"last_date\": \"2018-04-02\",\n        \"hashtag\": \"string\",\n        \"urlname\": \"4-h_exhibit_creation_day\",\n        \"user_id\": 4330,\n        \"directions\": \"string\",\n        \"allows_reviews\": true,\n        \"allows_attendance\": true,\n        \"location\": \"string\",\n        \"room_number\": 6516,\n        \"location_name\": \"string\",\n        \"created_by\": \"string\",\n        \"updated_by\": \"string\",\n        \"city_id\": 6609,\n        \"neighborhood_id\": 7545,\n        \"school_id\": 10,\n        \"campus_id\": 6669,\n        \"recurring\": false,\n        \"free\": true,\n        \"private\": false,\n        \"verified\": true,\n        \"rejected\": false,\n        \"sponsored\": false,\n        \"venue_id\": 1357,\n        \"ticket_url\": \"string\",\n        \"ticket_cost\": 1183,\n        \"description_text\": \"string\",\n        \"photo_id\": 214651,\n        \"detail_views\": 14,\n        \"event_instances\": [\n          {\n            \"event_instance\": {\n              \"event_id\": 1138971,\n              \"start\": \"2018-04-02 00:00:00-04:00\",\n              \"all_day\": true,\n              \"ranking\": 0,\n              \"end\": null,\n              \"id\": 3451946\n            }\n          },\n          {\n            \"event_instance\": {\n              \"event_id\": 1138971,\n              \"start\": \"2018-04-02 00:00:00-04:00\",\n              \"all_day\": true,\n              \"ranking\": 0,\n              \"end\": null,\n              \"id\": 3451946\n            }\n          }\n        ],\n        \"address\": \"string\",\n        \"description\": \"string\",\n        \"featured\": false,\n        \"geo\": {\n          \"latitude\": \"string\",\n          \"longitude\": \"string\",\n          \"street\": \"840 Front Street\",\n          \"city\": \"Binghamton\",\n          \"state\": \"NY\",\n          \"country\": \"US\",\n          \"zip\": \"string\"\n        },\n        \"filters\": {\n          \"departments\": [\n            {\n              \"name\": \"CCE Broome\",\n              \"id\": 30022\n            },\n            {\n              \"name\": \"CCE Broome\",\n              \"id\": 30022\n            }\n          ]\n        },\n        \"custom_fields\": {\n          \"contact_name\": \"Kelly Adams\",\n          \"contact_phone\": \"607-772-8953\",\n          \"contact_email\": \"kea32@cornell.edu\"\n        },\n        \"localist_url\": \"string\",\n        \"localist_ics_url\": \"string\",\n        \"photo_url\": \"string\",\n        \"venue_url\": \"string\",\n        \"groups\": [\n          {\n            \"name\": \"Cooperative Extension\",\n            \"id\": 5506\n          },\n          {\n            \"name\": \"Cooperative Extension\",\n            \"id\": 5506\n          }\n        ]\n      }\n    ],\n    \"page\": {\n      \"current\": 1,\n      \"total\": 0,\n      \"size\": 10\n    },\n    \"date\": {\n      \"last\": \"2018-05-03\",\n      \"first\": \"2018-04-02\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://classes.cornell.edu/api/2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f292dba1-fa49-4afd-ade9-28cbf2bec53f",
+    "name": "Cornell Classes config search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A public API for retrieving classes at Cornell University\n\nContact Support:\n Name: Cornell Open Data Initiative\n Email: codi@cornellappdev.com",
+      "type": "text/plain"
+    }
+  }
+}

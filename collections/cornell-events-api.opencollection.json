@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cornell Classes config events API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Cornell Days events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/events"
+          },
+          "docs": "Return all events related to Cornell Days"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

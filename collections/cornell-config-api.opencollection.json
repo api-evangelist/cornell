@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cornell Classes config API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "config",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get available Cornell rosters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/config/rosters.json"
+          },
+          "docs": "Return information about all available Cornell rosters"
+        },
+        {
+          "info": {
+            "name": "Get available academic careers for a roster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/config/acadCareers.json",
+            "params": [
+              {
+                "name": "roster",
+                "value": "",
+                "type": "query",
+                "description": "Roster semester & year (i.e. FA14, SP15)"
+              }
+            ]
+          },
+          "docs": "Return all available academic careers for a roster. Academic careers refer to student type (i.e. Undergraduate) or study type (i.e. Graduate Management)."
+        },
+        {
+          "info": {
+            "name": "Get available academic groups for a roster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/config/acadGroups.json",
+            "params": [
+              {
+                "name": "roster",
+                "value": "",
+                "type": "query",
+                "description": "Roster semester & year (i.e. FA14, SP15)"
+              }
+            ]
+          },
+          "docs": "Return all available academic groups for a roster. Academic groups refer to college type (i.e. Engineering) or study type (i.e. Graduate Management)."
+        },
+        {
+          "info": {
+            "name": "Get available class levels for a roster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/config/classLevels.json",
+            "params": [
+              {
+                "name": "roster",
+                "value": "",
+                "type": "query",
+                "description": "Roster semester & year (i.e. FA14, SP15)"
+              }
+            ]
+          },
+          "docs": "Return all available class levels for a roster. Class levels refer to the level of the course as specified by the course number (i.e. 1000, 2000). For instance, CS 4300 has a class level of 4000."
+        },
+        {
+          "info": {
+            "name": "Get available subjects for roster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/config/subjects.json",
+            "params": [
+              {
+                "name": "roster",
+                "value": "",
+                "type": "query",
+                "description": "Roster semester & year (i.e. FA14, SP15)"
+              }
+            ]
+          },
+          "docs": "Return all available course subjects for a roster."
+        },
+        {
+          "info": {
+            "name": "Get Cornell Dining Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/config/pages.json"
+          },
+          "docs": "Return all pages on the Cornell Dining website"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

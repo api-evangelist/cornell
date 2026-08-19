@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cornell Classes config search API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all classes matching input query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/search/classes.json",
+            "params": [
+              {
+                "name": "roster",
+                "value": "",
+                "type": "query",
+                "description": "Roster semester & year (i.e. FA14, SP15)"
+              },
+              {
+                "name": "subject",
+                "value": "",
+                "type": "query",
+                "description": "Academic subject (i.e. CS, PHIL)"
+              },
+              {
+                "name": "acadGroup[]",
+                "value": "",
+                "type": "query",
+                "description": "Academic group (i.e. AG)"
+              },
+              {
+                "name": "acadCareer[]",
+                "value": "",
+                "type": "query",
+                "description": "Academic career (i.e. GR)"
+              },
+              {
+                "name": "classLevels[]",
+                "value": "",
+                "type": "query",
+                "description": "Class levels (i.e. 6000)"
+              },
+              {
+                "name": "crseAttrs[]",
+                "value": "",
+                "type": "query",
+                "description": "Course attribute (i.e. CU-SBY)"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search term (i.e. graphics)"
+              }
+            ]
+          },
+          "docs": "Return all classes in the specified roster and subject that match the input query"
+        },
+        {
+          "info": {
+            "name": "Search Cornell Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/events/search",
+            "params": [
+              {
+                "name": "days",
+                "value": "",
+                "type": "query",
+                "description": "Number of days ahead to look for events"
+              },
+              {
+                "name": "distinct",
+                "value": "",
+                "type": "query",
+                "description": "Whether to only show distinct events"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Input query to search events for"
+              }
+            ]
+          },
+          "docs": "Return the evens on the Cornell website matching the input query"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

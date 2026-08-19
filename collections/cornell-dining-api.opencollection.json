@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cornell Classes config dining API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "dining",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Cornell Dining Announcements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/dining/announcements.json"
+          },
+          "docs": "Return all announcements from Cornell Dining"
+        },
+        {
+          "info": {
+            "name": "Get Cornell Dining Eateries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://classes.cornell.edu/api/2.0/dining/eateries.json"
+          },
+          "docs": "Return all eateries (i.e. dining halls, cafes) under Cornell Dining. Eateries not under Cornell Dining, like Terrace and Mac's, are not included."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

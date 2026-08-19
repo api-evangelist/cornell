@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "beb66c5c-a61c-42b7-a574-476044ad781d",
+      "name": "tags",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1945e954-d441-4e7b-aa81-911cf8e8e37b",
+          "name": "Get Cornell Days tags",
+          "request": {
+            "name": "Get Cornell Days tags",
+            "description": {
+              "content": "Return all tags describing Cornell Days events",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f4efe42-e94f-4e7d-81c2-190d3af21cf2",
+              "name": "A JSON of Cornell Days tags",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"META\": {\n    \"REQUESTTIME\": \"7:13 AM April 3, 2018\"\n  },\n  \"CATEGORIES\": [\n    {\n      \"CAT_ID\": \"442C8728-B2C8-3474-0AA196853A695775\",\n      \"TAGS\": [\n        {\n          \"TAG_LABEL\": \"A&S - College of Arts and Sciences\",\n          \"TAG_ID\": \"4432D6B5-9DAA-484F-1BA06B88A600DD13\"\n        },\n        {\n          \"TAG_LABEL\": \"A&S - College of Arts and Sciences\",\n          \"TAG_ID\": \"4432D6B5-9DAA-484F-1BA06B88A600DD13\"\n        }\n      ],\n      \"CAT_NAME\": \"College/School\"\n    },\n    {\n      \"CAT_ID\": \"442C8728-B2C8-3474-0AA196853A695775\",\n      \"TAGS\": [\n        {\n          \"TAG_LABEL\": \"A&S - College of Arts and Sciences\",\n          \"TAG_ID\": \"4432D6B5-9DAA-484F-1BA06B88A600DD13\"\n        },\n        {\n          \"TAG_LABEL\": \"A&S - College of Arts and Sciences\",\n          \"TAG_ID\": \"4432D6B5-9DAA-484F-1BA06B88A600DD13\"\n        }\n      ],\n      \"CAT_NAME\": \"College/School\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://classes.cornell.edu/api/2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "90face24-4e5e-4eb6-8602-3070324d8772",
+    "name": "Cornell Classes config tags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A public API for retrieving classes at Cornell University\n\nContact Support:\n Name: Cornell Open Data Initiative\n Email: codi@cornellappdev.com",
+      "type": "text/plain"
+    }
+  }
+}

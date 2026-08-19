@@ -1,0 +1,176 @@
+{
+  "item": [
+    {
+      "id": "ff40cf40-3f62-4a33-9980-fe0a08848abe",
+      "name": "dining",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8cafb24-f6ea-411d-8663-e998bcdcceee",
+          "name": "Get Cornell Dining Announcements",
+          "request": {
+            "name": "Get Cornell Dining Announcements",
+            "description": {
+              "content": "Return all announcements from Cornell Dining",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dining",
+                "announcements.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7259cdc5-ec74-4d59-8e84-a36843672443",
+              "name": "A JSON of dining announcements",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dining",
+                    "announcements.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"announcements\": []\n  },\n  \"message\": \"string\",\n  \"meta\": {\n    \"copyright\": \"Cornell University, Cornell Dining\",\n    \"responseDttm\": \"2018-04-02T05:26:17-0400\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36a6e286-cf8e-4b2b-aae0-0daf8a999162",
+          "name": "Get Cornell Dining Eateries",
+          "request": {
+            "name": "Get Cornell Dining Eateries",
+            "description": {
+              "content": "Return all eateries (i.e. dining halls, cafes) under Cornell Dining. Eateries not under Cornell Dining, like Terrace and Mac's, are not included.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dining",
+                "eateries.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf8365c1-643d-4deb-bc50-5dbd3e0c90a8",
+              "name": "A JSON of eateries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dining",
+                    "eateries.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"eateries\": [\n      {\n        \"id\": 8,\n        \"slug\": \"Atrium-Cafe\",\n        \"name\": \"Atrium Café\",\n        \"nameshort\": \"Atrium Café\",\n        \"about\": \"string\",\n        \"aboutshort\": \"string\",\n        \"nutrition\": \"string\",\n        \"cornellDining\": true,\n        \"opHoursCalc\": \"AUTO-GOOGLE\",\n        \"opHoursCalcDesc\": \"Google Calendar - 7 Day Accuracy\",\n        \"opHoursDesc\": \"string\",\n        \"googleCalendarId\": \"string\",\n        \"onlineOrdering\": false,\n        \"onlineOrderUrl\": \"string\",\n        \"contactPhone\": \"607-255-7591\",\n        \"contactEmail\": \"string\",\n        \"serviceUnitId\": 9999,\n        \"campusArea\": {\n          \"descr\": \"Central Campus\",\n          \"descrshort\": \"Central\"\n        },\n        \"latitude\": 42.445784,\n        \"longitude\": -76.483232,\n        \"location\": \"Sage Hall\",\n        \"coordinates\": {\n          \"latitude\": 42.445784,\n          \"longitude\": -76.483232\n        },\n        \"operatingHours\": {\n          \"date\": \"2018-04-02\",\n          \"events\": [\n            {\n              \"descr\": \"Coffee Cart\",\n              \"start\": \"7:00am\",\n              \"end\": \"7:30am\",\n              \"calSummary\": \"Coffee Cart Opens at 7am\",\n              \"menu\": [\n                {\n                  \"category\": \"Special\",\n                  \"sortIdx\": 1,\n                  \"items\": [\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    },\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    }\n                  ]\n                },\n                {\n                  \"category\": \"Special\",\n                  \"sortIdx\": 1,\n                  \"items\": [\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    },\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    }\n                  ]\n                }\n              ],\n              \"endTimestamp\": 1522668600,\n              \"startTimestamp\": 1522666800\n            },\n            {\n              \"descr\": \"Coffee Cart\",\n              \"start\": \"7:00am\",\n              \"end\": \"7:30am\",\n              \"calSummary\": \"Coffee Cart Opens at 7am\",\n              \"menu\": [\n                {\n                  \"category\": \"Special\",\n                  \"sortIdx\": 1,\n                  \"items\": [\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    },\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    }\n                  ]\n                },\n                {\n                  \"category\": \"Special\",\n                  \"sortIdx\": 1,\n                  \"items\": [\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    },\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    }\n                  ]\n                }\n              ],\n              \"endTimestamp\": 1522668600,\n              \"startTimestamp\": 1522666800\n            }\n          ],\n          \"status\": \"EVENTS\"\n        },\n        \"eateryTypes\": {\n          \"descr\": \"Cafe\",\n          \"descrshort\": \"cafe\"\n        },\n        \"diningCuisines\": {\n          \"name\": \"Sushi\",\n          \"nameshort\": \"Sushi\",\n          \"descr\": \"string\"\n        },\n        \"payMethods\": {\n          \"descr\": \"cash\",\n          \"descrshort\": \"cash\"\n        },\n        \"diningItems\": {\n          \"descr\": \"Coffee Bar - Starbucks Coffee\",\n          \"showCategory\": false,\n          \"item\": \"Starbucks Coffee\",\n          \"healthy\": false,\n          \"icon\": \"fastfood-blue\",\n          \"category\": \"Coffee Bar\",\n          \"announcements\": []\n        }\n      },\n      {\n        \"id\": 8,\n        \"slug\": \"Atrium-Cafe\",\n        \"name\": \"Atrium Café\",\n        \"nameshort\": \"Atrium Café\",\n        \"about\": \"string\",\n        \"aboutshort\": \"string\",\n        \"nutrition\": \"string\",\n        \"cornellDining\": true,\n        \"opHoursCalc\": \"AUTO-GOOGLE\",\n        \"opHoursCalcDesc\": \"Google Calendar - 7 Day Accuracy\",\n        \"opHoursDesc\": \"string\",\n        \"googleCalendarId\": \"string\",\n        \"onlineOrdering\": false,\n        \"onlineOrderUrl\": \"string\",\n        \"contactPhone\": \"607-255-7591\",\n        \"contactEmail\": \"string\",\n        \"serviceUnitId\": 9999,\n        \"campusArea\": {\n          \"descr\": \"Central Campus\",\n          \"descrshort\": \"Central\"\n        },\n        \"latitude\": 42.445784,\n        \"longitude\": -76.483232,\n        \"location\": \"Sage Hall\",\n        \"coordinates\": {\n          \"latitude\": 42.445784,\n          \"longitude\": -76.483232\n        },\n        \"operatingHours\": {\n          \"date\": \"2018-04-02\",\n          \"events\": [\n            {\n              \"descr\": \"Coffee Cart\",\n              \"start\": \"7:00am\",\n              \"end\": \"7:30am\",\n              \"calSummary\": \"Coffee Cart Opens at 7am\",\n              \"menu\": [\n                {\n                  \"category\": \"Special\",\n                  \"sortIdx\": 1,\n                  \"items\": [\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    },\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    }\n                  ]\n                },\n                {\n                  \"category\": \"Special\",\n                  \"sortIdx\": 1,\n                  \"items\": [\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    },\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    }\n                  ]\n                }\n              ],\n              \"endTimestamp\": 1522668600,\n              \"startTimestamp\": 1522666800\n            },\n            {\n              \"descr\": \"Coffee Cart\",\n              \"start\": \"7:00am\",\n              \"end\": \"7:30am\",\n              \"calSummary\": \"Coffee Cart Opens at 7am\",\n              \"menu\": [\n                {\n                  \"category\": \"Special\",\n                  \"sortIdx\": 1,\n                  \"items\": [\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    },\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    }\n                  ]\n                },\n                {\n                  \"category\": \"Special\",\n                  \"sortIdx\": 1,\n                  \"items\": [\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    },\n                    {\n                      \"item\": \"Morning Zhou Rice Porridge\",\n                      \"sortIdex\": 1,\n                      \"healthy\": false\n                    }\n                  ]\n                }\n              ],\n              \"endTimestamp\": 1522668600,\n              \"startTimestamp\": 1522666800\n            }\n          ],\n          \"status\": \"EVENTS\"\n        },\n        \"eateryTypes\": {\n          \"descr\": \"Cafe\",\n          \"descrshort\": \"cafe\"\n        },\n        \"diningCuisines\": {\n          \"name\": \"Sushi\",\n          \"nameshort\": \"Sushi\",\n          \"descr\": \"string\"\n        },\n        \"payMethods\": {\n          \"descr\": \"cash\",\n          \"descrshort\": \"cash\"\n        },\n        \"diningItems\": {\n          \"descr\": \"Coffee Bar - Starbucks Coffee\",\n          \"showCategory\": false,\n          \"item\": \"Starbucks Coffee\",\n          \"healthy\": false,\n          \"icon\": \"fastfood-blue\",\n          \"category\": \"Coffee Bar\",\n          \"announcements\": []\n        }\n      }\n    ]\n  },\n  \"message\": \"string\",\n  \"meta\": {\n    \"copyright\": \"Cornell University, Cornell Dining\",\n    \"responseDttm\": \"2018-04-02T05:26:17-0400\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://classes.cornell.edu/api/2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "62310827-b151-4627-80fb-3237a203724d",
+    "name": "Cornell Classes config dining API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A public API for retrieving classes at Cornell University\n\nContact Support:\n Name: Cornell Open Data Initiative\n Email: codi@cornellappdev.com",
+      "type": "text/plain"
+    }
+  }
+}
