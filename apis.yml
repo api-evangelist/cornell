@@ -219,6 +219,10 @@ apis:
     origin). Institution hostname, vendor platform and vendor contract.
   x-vendor: Localist (Concept3D)
   tags:
+  - Event
+  - Campus Life
+  - Calendar
+  tags_raw:
   - Events
   - Campus Life
   - Calendar
