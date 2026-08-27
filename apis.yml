@@ -54,19 +54,19 @@ apis:
 - aid: cornell:class-roster
   name: Cornell Class Roster API
   description: >-
-    Public, read-only API (version 2.0) for Cornell Class Roster data: scheduled classes with Course
-    of Study detail, plus configuration lookups for rosters, academic careers, academic groups, class
-    levels and subjects. All methods are GET and return JSON or XML. No authentication. The schedule
-    behind it is maintained by the Cornell Office of the University Registrar and updated daily; the
-    documentation asks clients to stay under one request per second. This is the one unambiguous,
-    institution-engineered public API Cornell operates.
+    Public, read-only API (version 2.0) for Cornell Class Roster data: scheduled classes with Course of
+    Study detail, plus configuration lookups for rosters, academic careers, academic groups, class levels
+    and subjects. All methods are GET and return JSON or XML. No authentication. The schedule behind it
+    is maintained by the Cornell Office of the University Registrar and updated daily; the documentation
+    asks clients to stay under one request per second. This is the one unambiguous, institution-engineered
+    public API Cornell operates.
   humanURL: https://classes.cornell.edu/content/FA26/api-details
   baseURL: https://classes.cornell.edu/api/2.0
   x-operator: institution
   x-operator-evidence: >-
-    classes.cornell.edu is Cornell's own registrable domain and CNAMEs to classes.ssit.cucloud.net,
-    Cornell's own cloud namespace. Probed 2026-08-19: /config/rosters.json 200 application/json,
-    /search/classes.json?roster=FA26&subject=CS 200, /config/rosters.xml 200.
+    classes.cornell.edu is Cornell's own registrable domain and CNAMEs to classes.ssit.cucloud.net, Cornell's
+    own cloud namespace. Probed 2026-08-19: /config/rosters.json 200 application/json, /search/classes.json?roster=FA26&subject=CS
+    200, /config/rosters.xml 200.
   tags:
   - Course Catalog
   - Class Roster
@@ -94,20 +94,20 @@ apis:
 - aid: cornell:library-catalog
   name: Cornell University Library Catalog Search API
   description: >-
-    JSON search over Cornell University Library's catalog. The catalog is the library's own
-    Blacklight deployment; appending .json to any catalog route returns a Solr-backed JSON envelope,
-    and an OpenSearch description document is published at /catalog/opensearch.xml. Cornell publishes
-    no API reference for it, so the contract in this repo is derived from live probes, not from a
-    Cornell-authored spec. Item-level JSON is not offered (406).
+    JSON search over Cornell University Library's catalog. The catalog is the library's own Blacklight
+    deployment; appending .json to any catalog route returns a Solr-backed JSON envelope, and an OpenSearch
+    description document is published at /catalog/opensearch.xml. Cornell publishes no API reference for
+    it, so the contract in this repo is derived from live probes, not from a Cornell-authored spec. Item-level
+    JSON is not offered (406).
   humanURL: https://www.library.cornell.edu/
   baseURL: https://catalog.library.cornell.edu
   x-operator: institution
   x-operator-evidence: >-
     catalog.library.cornell.edu CNAMEs to blacklight-cornell-prod-1202100003.us-east-1.elb.amazonaws.com,
     an AWS load balancer in Cornell University Library's own account — self-hosted open-source software,
-    not a vendor tenancy. Probed 2026-08-19: /catalog.json 200 application/json, /catalog/opensearch.xml 200.
-    The HTML root returns 202 with an empty body to non-browser clients (bot challenge); the JSON routes
-    are unaffected.
+    not a vendor tenancy. Probed 2026-08-19: /catalog.json 200 application/json, /catalog/opensearch.xml
+    200. The HTML root returns 202 with an empty body to non-browser clients (bot challenge); the JSON
+    routes are unaffected.
   tags:
   - Library
   - Discovery
@@ -120,46 +120,22 @@ apis:
     url: examples/cornell-library-catalog-search-example.json
   - type: Documentation
     url: https://guides.library.cornell.edu/
-- aid: cornell:cugir
-  name: CUGIR — Cornell University Geospatial Information Repository API
-  description: >-
-    JSON:API search and record retrieval for CUGIR, Cornell University Library's geospatial data and
-    historical map repository, running GeoBlacklight on the library's own infrastructure. Records carry
-    OpenGeoMetadata Aardvark fields. Derived from live probes; CUGIR publishes no API reference, and it
-    exposes no OAI-PMH endpoint (/oai returned 404 on 2026-08-19).
-  humanURL: https://cugir.library.cornell.edu/
-  baseURL: https://cugir.library.cornell.edu
-  x-operator: institution
-  x-operator-evidence: >-
-    cugir.library.cornell.edu CNAMEs to cugir-app-1492036709.us-east-1.elb.amazonaws.com, an AWS load
-    balancer in Cornell University Library's own account. Probed 2026-08-19: /catalog.json?q=ithaca 200,
-    /catalog/cugir-map-5063364.json 200 application/json.
-  tags:
-  - Geospatial
-  - Research Data
-  - Open Data
-  - GeoBlacklight
-  properties:
-  - type: OpenAPI
-    url: openapi/cugir-geospatial-api-openapi.yml
-  - type: Examples
-    url: examples/cugir-record-example.json
 - aid: cornell:ebird
   name: eBird API 2.0
   description: >-
-    Global bird-observation API run by the Cornell Lab of Ornithology, a unit of Cornell University.
-    Free but token-gated: requests without a valid X-eBirdApiToken return 403. Reference documentation
-    is published as a Postman collection rather than an OpenAPI, so no contract is saved in this repo —
-    a gated surface with no machine-readable contract is recorded as the relationship it is, not as an
-    artifact Cornell published.
+    Global bird-observation API run by the Cornell Lab of Ornithology, a unit of Cornell University. Free
+    but token-gated: requests without a valid X-eBirdApiToken return 403. Reference documentation is published
+    as a Postman collection rather than an OpenAPI, so no contract is saved in this repo — a gated surface
+    with no machine-readable contract is recorded as the relationship it is, not as an artifact Cornell
+    published.
   humanURL: https://documenter.getpostman.com/view/664302/S1ENwy59
   baseURL: https://api.ebird.org/v2
   x-operator: institution
   x-operator-evidence: >-
-    https://ebird.org/about states "eBird is managed by the Cornell Lab of Ornithology" (200,
-    2026-08-19). api.ebird.org is not under cornell.edu, so it is recorded here as an institution
-    surface on an affiliate domain, registered in 0-working/university-affiliates.json with evidence.
-    Probed 2026-08-19: /v2/ref/region/list/subnational1/US 403 with and without a token — gated, live.
+    https://ebird.org/about states "eBird is managed by the Cornell Lab of Ornithology" (200, 2026-08-19).
+    api.ebird.org is not under cornell.edu, so it is recorded here as an institution surface on an affiliate
+    domain, registered in 0-working/university-affiliates.json with evidence. Probed 2026-08-19: /v2/ref/region/list/subnational1/US
+    403 with and without a token — gated, live.
   tags:
   - Research Data
   - Citizen Science
@@ -173,20 +149,19 @@ apis:
 - aid: cornell:ecommons
   name: eCommons Institutional Repository (DSpace REST + OAI-PMH) — tenant
   description: >-
-    eCommons is Cornell University Library's institutional repository: Cornell's content, Cornell's
-    DOIs, Cornell's host. The interface is not Cornell's engineering. It runs DSpace 8.2 on a
-    4Science-managed platform, so the REST and OAI-PMH contracts belong to DSpace/4Science and are
-    deliberately NOT saved as Cornell OpenAPIs. The relationship is recorded because a managed
-    repository is a real institutional fact and one of the few programmable surfaces a university has.
-    OAI-PMH Identify and ListMetadataFormats both answer 200 and are the repository's genuine
-    education-regime conformance evidence.
+    eCommons is Cornell University Library's institutional repository: Cornell's content, Cornell's DOIs,
+    Cornell's host. The interface is not Cornell's engineering. It runs DSpace 8.2 on a 4Science-managed
+    platform, so the REST and OAI-PMH contracts belong to DSpace/4Science and are deliberately NOT saved
+    as Cornell OpenAPIs. The relationship is recorded because a managed repository is a real institutional
+    fact and one of the few programmable surfaces a university has. OAI-PMH Identify and ListMetadataFormats
+    both answer 200 and are the repository's genuine education-regime conformance evidence.
   humanURL: https://guides.library.cornell.edu/ecommons/syndication
   baseURL: https://ecommons.cornell.edu/server/api
   x-operator: tenant
   x-operator-evidence: >-
     ecommons.cornell.edu CNAMEs to cornell-ecommons.eks.prod.4science.cloud — an institution hostname
-    on a vendor-managed DSpace platform. The REST root self-reports dspaceVersion "DSpace 8.2".
-    Probed 2026-08-19: /server/api 200 application/hal+json, /server/oai/request?verb=Identify 200 text/xml.
+    on a vendor-managed DSpace platform. The REST root self-reports dspaceVersion "DSpace 8.2". Probed
+    2026-08-19: /server/api 200 application/hal+json, /server/oai/request?verb=Identify 200 text/xml.
   x-vendor: 4Science (DSpace)
   tags:
   - Institutional Repository
@@ -204,19 +179,19 @@ apis:
 - aid: cornell:events-calendar
   name: Cornell Events Calendar API (Localist) — tenant
   description: >-
-    The Cornell events calendar at events.cornell.edu answers a live JSON API at /api/2/events, and
-    the data is Cornell's. The platform is Localist (Concept3D): the response headers carry
-    x-slzr-platform: cornell, and the /api/2 shape is Localist's product API, identical across every
-    Localist customer. The contract therefore belongs to Localist and is not saved here — this is the
-    exact misattribution class the university pipeline exists to prevent. The 2026-06 profile of this
-    repo scored a copy of it as "Cornell University events API".
+    The Cornell events calendar at events.cornell.edu answers a live JSON API at /api/2/events, and the
+    data is Cornell's. The platform is Localist (Concept3D): the response headers carry x-slzr-platform:
+    cornell, and the /api/2 shape is Localist's product API, identical across every Localist customer.
+    The contract therefore belongs to Localist and is not saved here — this is the exact misattribution
+    class the university pipeline exists to prevent. The 2026-06 profile of this repo scored a copy of
+    it as "Cornell University events API".
   humanURL: https://events.cornell.edu/
   baseURL: https://events.cornell.edu/api/2
   x-operator: tenant
   x-operator-evidence: >-
     Probed 2026-08-19: GET https://events.cornell.edu/api/2/events 200 application/json with response
-    header `x-slzr-platform: cornell` — Localist's platform header ("slzr" = Schedulizer, Localist's
-    origin). Institution hostname, vendor platform and vendor contract.
+    header `x-slzr-platform: cornell` — Localist's platform header ("slzr" = Schedulizer, Localist's origin).
+    Institution hostname, vendor platform and vendor contract.
   x-vendor: Localist (Concept3D)
   tags:
   - Event
@@ -229,6 +204,18 @@ apis:
   properties:
   - type: Documentation
     url: https://events.cornell.edu/
+- aid: cornell:cornell-cugir-api
+  name: Cornell University Cugir API
+  description: Search and retrieve Cornell geospatial datasets and historical maps.
+  humanURL: https://classes.cornell.edu/content/FA26/api-details
+  baseURL: https://classes.cornell.edu/api/2.0
+  tags:
+  - cugir
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-cugir-api-openapi.yml
+  - type: Examples
+    url: examples/cugir-record-example.json
 common:
   - type: Website
     url: https://www.cornell.edu/
