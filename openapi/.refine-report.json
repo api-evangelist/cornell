@@ -1,26 +1,25 @@
 {
   "provider": "cornell",
   "sources": [
-    "cornell-config-api-openapi.yml",
-    "cornell-dining-api-openapi.yml",
-    "cornell-events-api-openapi.yml",
-    "cornell-location-api-openapi.yml",
-    "cornell-map-items-api-openapi.yml",
-    "cornell-search-api-openapi.yml",
-    "cornell-tags-api-openapi.yml"
+    "cornell-class-roster-api-openapi.yml",
+    "cornell-library-catalog-api-openapi.yml",
+    "cugir-geospatial-api-openapi.yml"
   ],
   "outputs": [
-    "cornell-config-api-openapi.yml",
-    "cornell-dining-api-openapi.yml",
-    "cornell-events-api-openapi.yml",
-    "cornell-location-api-openapi.yml",
-    "cornell-map-items-api-openapi.yml",
-    "cornell-search-api-openapi.yml",
-    "cornell-tags-api-openapi.yml"
+    "cornell-class-roster-api-openapi.yml",
+    "cornell-library-catalog-api-openapi.yml",
+    "cornell-cugir-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "archived openapi/cugir-geospatial-api-openapi.yml"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "cornell-class-roster-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "cornell-library-catalog-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "cugir-geospatial-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+1 apis, 6 total)"
+  ],
   "skipped": []
 }

@@ -1,0 +1,108 @@
+openapi: 3.2.0
+info:
+  title: Cornell University Search Library Catalog API
+  version: '1.0'
+  description: 'Machine-readable search over the Cornell University Library catalog. The catalog runs on Blacklight, the open-source Solr discovery layer Cornell University Library develops and self-hosts (github.com/cul), and every catalog route answers in JSON when `.json` is appended, alongside RSS, Atom and an OpenSearch description. There is no published API reference and no versioning commitment: this document was derived from live probes of the running service, not from a Cornell-published contract. Item-level JSON is not offered — /catalog/{id}.json returns 406.'
+  termsOfService: https://www.library.cornell.edu/
+  contact:
+    name: Cornell University Library
+    url: https://www.library.cornell.edu/
+  x-operator: institution
+  x-operator-evidence: catalog.library.cornell.edu is under Cornell's own registrable domain and CNAMEs to blacklight-cornell-prod-1202100003.us-east-1.elb.amazonaws.com — an AWS load balancer in Cornell University Library's own account, not a vendor platform tenancy. The application is Cornell University Library's own Blacklight deployment (github.com/cul, 200 on 2026-08-19). OpenSearch description at /catalog/opensearch.xml self-identifies as "Cornell University Library Catalog".
+  x-provenance:
+    generated: '2026-08-19'
+    method: derived
+    source: 'Live probes 2026-08-19: https://catalog.library.cornell.edu/catalog.json?q=cornell&search_field=all_fields 200 application/json (287,551 bytes); .../catalog.json?q=birds&search_field=all_fields&page=2&per_page=5 200; https://catalog.library.cornell.edu/catalog/opensearch.xml 200 application/xml; https://catalog.library.cornell.edu/catalog/15658426.json 406 (item JSON not served). The HTML root returns HTTP 202 with a zero-length body to non-browser clients (bot challenge) while the JSON routes answer normally.'
+servers:
+- url: https://catalog.library.cornell.edu
+  description: Cornell University Library catalog (production)
+tags:
+- name: library-catalog
+  description: Search the Cornell University Library catalog.
+paths:
+  /catalog.json:
+    get:
+      tags:
+      - library-catalog
+      summary: Search the library catalog
+      description: Blacklight search returning a JSON envelope of `response.document[]` plus facets and pagination. Verified live 2026-08-19.
+      operationId: searchCatalog
+      parameters:
+      - name: q
+        in: query
+        description: Search terms.
+        required: false
+        schema:
+          type: string
+      - name: search_field
+        in: query
+        description: Blacklight search field, e.g. all_fields, title, author, subject.
+        required: false
+        schema:
+          type: string
+          default: all_fields
+      - name: page
+        in: query
+        description: 1-indexed result page.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      - name: per_page
+        in: query
+        description: Results per page.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      responses:
+        '200':
+          description: A JSON search response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      document:
+                        type: array
+                        items:
+                          type: object
+                          description: A catalog record. Blacklight returns dynamic Solr field names (title_sms_compat_display, id, record_dates_display, ...); the field set is not contractually declared by Cornell and is not enumerated here.
+  /catalog/opensearch.xml:
+    get:
+      tags:
+      - library-catalog
+      summary: OpenSearch description document
+      description: OpenSearch 1.1 description advertising the HTML, RSS and suggestion endpoints.
+      operationId: getOpenSearchDescription
+      responses:
+        '200':
+          description: OpenSearch description document.
+          content:
+            application/xml:
+              schema:
+                type: string
+  /catalog/opensearch.json:
+    get:
+      tags:
+      - library-catalog
+      summary: Search suggestions
+      description: OpenSearch suggestions endpoint advertised by the OpenSearch description document.
+      operationId: getSearchSuggestions
+      parameters:
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Suggestion list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}

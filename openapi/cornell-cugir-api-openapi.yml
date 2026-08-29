@@ -1,0 +1,108 @@
+openapi: 3.2.0
+info:
+  title: Cornell University Geospatial Information Repository Cugir API
+  version: '1.0'
+  description: Machine-readable search and item metadata for CUGIR, the Cornell University Geospatial Information Repository operated by Cornell University Library. CUGIR runs GeoBlacklight, which answers every catalog route in JSON:API form when `.json` is appended. There is no Cornell-published API reference; this document was derived from live probes of the running service. Item records carry Aardvark/GeoBlacklight metadata fields (dct_creator_sm, dct_spatial_sm, and so on).
+  termsOfService: https://cugir.library.cornell.edu/
+  contact:
+    name: Cornell University Library
+    url: https://cugir.library.cornell.edu/
+  x-operator: institution
+  x-operator-evidence: cugir.library.cornell.edu is under Cornell's own registrable domain and CNAMEs to cugir-app-1492036709.us-east-1.elb.amazonaws.com — an AWS load balancer in Cornell University Library's own account, not a vendor platform. CUGIR is Cornell University Library's own GeoBlacklight deployment.
+  x-provenance:
+    generated: '2026-08-19'
+    method: derived
+    source: 'Live probes 2026-08-19: https://cugir.library.cornell.edu/catalog.json?q=ithaca 200 application/json; .../catalog.json?q=soil&page=2&per_page=5 200; https://cugir.library.cornell.edu/catalog/cugir-map-5063364.json 200 application/json (JSON:API `data.attributes`); https://cugir.library.cornell.edu/oai?verb=Identify 404 — CUGIR exposes no OAI-PMH endpoint at that path.'
+servers:
+- url: https://cugir.library.cornell.edu
+  description: CUGIR (production)
+tags:
+- name: cugir
+  description: Search and retrieve Cornell geospatial datasets and historical maps.
+paths:
+  /catalog.json:
+    get:
+      tags:
+      - cugir
+      summary: Search CUGIR
+      description: GeoBlacklight search returning a JSON:API envelope with links, meta and data[].
+      operationId: searchCugir
+      parameters:
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      responses:
+        '200':
+          description: JSON:API search response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  links:
+                    type: object
+                    description: self / next / last page links
+                  meta:
+                    type: object
+                    description: result counts and page metadata
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: cugir-map-5063364
+                        attributes:
+                          type: object
+                          description: Aardvark/GeoBlacklight metadata fields
+                  included:
+                    type: array
+                    items: {}
+  /catalog/{id}.json:
+    get:
+      tags:
+      - cugir
+      summary: Get one CUGIR record
+      description: Returns a single dataset or map record as JSON:API. Verified live 2026-08-19.
+      operationId: getCugirRecord
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: CUGIR record identifier, e.g. cugir-map-5063364.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: One record.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  links:
+                    type: object
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      attributes:
+                        type: object
+        '404':
+          description: No such record.
