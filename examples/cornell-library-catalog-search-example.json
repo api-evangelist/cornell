@@ -1,0 +1,153 @@
+{
+  "provenance": {
+    "generated": "2026-08-19",
+    "method": "probed",
+    "source": "live GET https://catalog.library.cornell.edu/catalog.json?q=ornithology&search_field=all_fields&per_page=5 on 2026-08-19 (HTTP 200)",
+    "notes": "Response truncated to the first document of the page."
+  },
+  "request": {
+    "method": "GET",
+    "url": "https://catalog.library.cornell.edu/catalog.json?q=ornithology&search_field=all_fields&per_page=5"
+  },
+  "response": {
+    "response": {
+      "document": [
+        {
+          "record_dates_display": [
+            "{\"bib\":\"2026-05-19T21:28:29.241+00:00\",\"holdings\":{\"10999870\":\"2021-06-19T11:18:01.137\"}}"
+          ],
+          "title_sms_compat_display": [
+            "Ornithology"
+          ],
+          "title_2letter_s": [
+            "or"
+          ],
+          "title_1letter_s": [
+            "o"
+          ],
+          "title_display": "Ornithology",
+          "fulltitle_display": "Ornithology",
+          "opensearch_display": [
+            "Ornithology",
+            "Jazz",
+            "Parker, Charlie, 1920-1955."
+          ],
+          "subtitle_display": "",
+          "subject_json": [
+            "[{\"subject\":\"Jazz.\",\"authorized\":true,\"type\":\"Topical Term\"}]"
+          ],
+          "subject_display": [
+            "Jazz"
+          ],
+          "fast_b": false,
+          "pub_info_display": [
+            "[S.l.] : Vision 21 OMP, 2009."
+          ],
+          "pubplace_display": [
+            "[S.l.]"
+          ],
+          "publisher_display": [
+            "Vision 21 OMP"
+          ],
+          "pub_date_display": [
+            "2009"
+          ],
+          "bib_format_display": [
+            "jm"
+          ],
+          "database_b": false,
+          "author_addl_display": [
+            "Parker, Charlie, 1920-1955."
+          ],
+          "author_addl_json": [
+            "{\"name1\":\"Parker, Charlie, 1920-1955.\",\"search1\":\"Parker, Charlie, 1920-1955.\",\"relator\":\"\",\"type\":\"Personal Name\",\"authorizedForm\":true}"
+          ],
+          "contents_display": [
+            "Track titles: Ornithology",
+            "All The Things You Are",
+            "Salt Peanuts",
+            "Night In Tunisia",
+            "Hot House",
+            "Dizzy Atmosphere",
+            "Yardbird Suite",
+            "Shaw Nuff",
+            "Embraceable You",
+            "Stupendous",
+            "Groovin' High",
+            "Ko Ko."
+          ],
+          "id": "10703041",
+          "bibid_display": [
+            "10703041"
+          ],
+          "description_display": [
+            "1 online resource (50 min.)"
+          ],
+          "notes_display": [
+            "Previously released as a compact disc.",
+            "Title from resource description page (viewed Jul. 31, 2011).",
+            "Performed by Charlie Parker."
+          ],
+          "eightninenine_display": [
+            "PRVAAS_NSB"
+          ],
+          "url_access_json": [
+            "{\"providercode\":\"PRVAAS\",\"dbcode\":\"NSB\",\"description\":\"Available at Alexander Street Press Music Online: Jazz Music Library Connect to online resource.\",\"url\":\"https://proxy.library.cornell.edu/login?url=http://www.aspresolver.com/aspresolver.asp?JAZZ;1005315\"}"
+          ],
+          "acquired_dt": "2019-02-28T00:00:00Z",
+          "callnum_sort": "No call number",
+          "other_id_display": [
+            "(VaAlASP)ASP1005315/jazz"
+          ],
+          "oclc_id_display": [
+            "767804673"
+          ],
+          "instance_id": "c16fff0d-8e18-4ca8-afa5-0d438565d849",
+          "item_count_i": 0,
+          "holdings_json": "{\"a69e9011-0436-4bef-b527-d304f03689c2\":{\"hrid\":\"10999870\",\"online\":true,\"active\":true,\"links\":[{\"url\":\"https://proxy.library.cornell.edu/login?url=http://www.aspresolver.com/aspresolver.asp?JAZZ;1005315\",\"description\":\"Available at Alexander Street Press Music Online: Jazz Music Library Connect to online resource.\",\"dbcode\":\"NSB\",\"providercode\":\"PRVAAS\"}]}}",
+          "availability_json": "{\"online\":true}",
+          "_version_": 1872303119062269952,
+          "timestamp": "2026-08-01T06:56:37.185Z",
+          "marc_display": "<?xml version='1.0' encoding='UTF-8'?><record xmlns=\"http://www.loc.gov/MARC21/slim\"><leader>01804cjm a22003973i 4500</leader><controlfield tag=\"001\">10703041</controlfield><controlfield tag=\"006\">m|||||o||h||||||||</controlfield><controlfield tag=\"007\">cr\u00a0|n||||||||a</controlfield><controlfield tag=\"007\">sz|z|nnnnnzned</controlfield><controlfield tag=\"008\">110729s2009\u00a0\u00a0\u00a0\u00a0xx\u00a0||nn|o|||||||||||\u00a0\u00a0\u00a0|d</controlfield><controlfield tag=\"005\">20260519212828.9</controlfield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(VaAlASP)ASP1005315/jazz</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(OCoLC)767804673</subfield></datafield><datafield tag=\"040\" ind1=\" \" ind2=\" \"><subfield code=\"a\">VaAlASP</subfield><subfield code=\"c\">VaAlASP</subfield><subfield code=\"d\">NIC</subfield></datafield><datafield tag=\"245\" ind1=\"0\" ind2=\"0\"><subfield code=\"a\">Ornithology.</subfield></datafield><datafield tag=\"260\" ind1=\" \" ind2=\" \"><subfield code=\"a\">[S.l.] :</subfield><subfield code=\"b\">Vision 21 OMP,</subfield><subfield code=\"c\">2009.</subfield></datafield><datafield tag=\"300\" ind1=\" \" ind2=\" \"><subfield code=\"a\">1 online resource (50 min.)</subfield></datafield><datafield tag=\"336\" ind1=\" \" ind2=\" \"><subfield code=\"a\">performed music</subfield><subfield code=\"b\">prm</subfield><subfield code=\"2\">rdacontent</subfield></datafield><datafield tag=\"337\" ind1=\" \" ind2=\" \"><subfield code=\"a\">computer</subfield><subfield code=\"b\">c</subfield><subfield code=\"2\">rdamedia</subfield></datafield><datafield tag=\"337\" ind1=\" \" ind2=\" \"><subfield code=\"a\">audio</subfield><subfield code=\"b\">s</subfield><subfield code=\"2\">rdamedia</subfield></datafield><datafield tag=\"338\" ind1=\" \" ind2=\" \"><subfield code=\"a\">online resource</subfield><subfield code=\"b\">cr</subfield><subfield code=\"2\">rdacarrier</subfield></datafield><datafield tag=\"338\" ind1=\" \" ind2=\" \"><subfield code=\"a\">other</subfield><subfield code=\"b\">sz</subfield><subfield code=\"2\">rdacarrier</subfield></datafield><datafield tag=\"500\" ind1=\" \" ind2=\" \"><subfield code=\"a\">Previously released as a compact disc.</subfield></datafield><datafield tag=\"500\" ind1=\" \" ind2=\" \"><subfield code=\"a\">Title from resource description page (viewed Jul. 31, 2011).</subfield></datafield><datafield tag=\"505\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">Track titles: Ornithology -- All The Things You Are -- Salt Peanuts -- Night In Tunisia -- Hot House -- Dizzy Atmosphere -- Yardbird Suite -- Shaw Nuff -- Embraceable You -- Stupendous -- Groovin' High -- Ko Ko.</subfield></datafield><datafield tag=\"511\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">Performed by Charlie Parker.</subfield></datafield><datafield tag=\"650\" ind1=\" \" ind2=\"0\"><subfield code=\"a\">Jazz.</subfield></datafield><datafield tag=\"700\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Parker, Charlie,</subfield><subfield code=\"d\">1920-1955.</subfield></datafield><datafield tag=\"856\" ind1=\"4\" ind2=\"0\"><subfield code=\"3\">Available at Alexander Street Press Music Online: Jazz Music Library </subfield><subfield code=\"i\">dbcode=NSB; providercode=PRVAAS</subfield><subfield code=\"u\">https://proxy.library.cornell.edu/login?url=http://www.aspresolver.com/aspresolver.asp?JAZZ;1005315</subfield><subfield code=\"z\">Connect to online resource.</subfield></datafield><datafield tag=\"899\" ind1=\"2\" ind2=\" \"><subfield code=\"a\">PRVAAS_NSB</subfield><subfield code=\"n\">Subscription</subfield></datafield><datafield tag=\"906\" ind1=\" \" ind2=\" \"><subfield code=\"a\">gs</subfield></datafield><datafield tag=\"948\" ind1=\"5\" ind2=\" \"><subfield code=\"a\">20260519</subfield><subfield code=\"h\">update_proxy-string</subfield><subfield code=\"i\">folio_instance_uuids_update_proxy_string_2026-05-09_004.mrc</subfield></datafield><datafield tag=\"948\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">20190228</subfield><subfield code=\"b\">i</subfield><subfield code=\"d\">batch</subfield><subfield code=\"e\">lts</subfield></datafield><datafield tag=\"948\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">20190228</subfield><subfield code=\"b\">s</subfield><subfield code=\"d\">batch</subfield><subfield code=\"e\">lts</subfield><subfield code=\"f\">eaudio</subfield></datafield><datafield tag=\"948\" ind1=\"3\" ind2=\" \"><subfield code=\"a\">20190228</subfield><subfield code=\"h\">PRVAAS_NSB</subfield><subfield code=\"i\">alexstpress_MusicOnlineJazzMusicLibrary.mrc</subfield></datafield><datafield tag=\"999\" ind1=\"f\" ind2=\"f\"><subfield code=\"i\">c16fff0d-8e18-4ca8-afa5-0d438565d849</subfield><subfield code=\"s\">637a2102-da86-4d3a-8b18-67411fd5545d</subfield></datafield></record>",
+          "author_pers_roman_filing": [
+            "parker charlie 1920 1955"
+          ],
+          "author_pers_filing": [
+            "parker charlie 1920 1955"
+          ],
+          "availability_facet": [
+            "Copies",
+            "url_access"
+          ],
+          "source": "MARC",
+          "author_facet": [
+            "Parker, Charlie, 1920-1955"
+          ],
+          "type": "Catalog",
+          "acquired_month": "2019-02",
+          "pub_date_facet": 2009,
+          "subject_topic_lc_filing": [
+            "jazz"
+          ],
+          "format_main_facet": "Musical Recording",
+          "format": [
+            "Musical Recording"
+          ],
+          "pub_date_sort": 2009,
+          "subject_topic_lc_facet": [
+            "Jazz"
+          ],
+          "subject_topic_filing": [
+            "jazz"
+          ],
+          "subject_topic_facet": [
+            "Jazz"
+          ],
+          "online": [
+            "Online"
+          ]
+        }
+      ]
+    }
+  }
+}

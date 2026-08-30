@@ -1,0 +1,131 @@
+{
+  "provenance": {
+    "generated": "2026-08-19",
+    "method": "probed",
+    "source": "live GET https://classes.cornell.edu/api/2.0/config/rosters.json on 2026-08-19 (HTTP 200)",
+    "notes": "Response truncated to the four most recent rosters; the live response lists every published term."
+  },
+  "request": {
+    "method": "GET",
+    "url": "https://classes.cornell.edu/api/2.0/config/rosters.json"
+  },
+  "response": {
+    "status": "success",
+    "data": {
+      "rosters": [
+        {
+          "slug": "WI26",
+          "isDefaultRoster": "N",
+          "strm": "2916",
+          "descr": "Winter 2026",
+          "descrshort": "2026WI",
+          "courseLastTermsOffered": 4,
+          "defaultSessionCode": "1",
+          "defaultCampus": "MAIN",
+          "defaultLocation": "ITH",
+          "defaultInstructionMode": "P",
+          "sharing": "Y",
+          "archiveMode": "N",
+          "version": {
+            "status": "COMPLETE",
+            "referenceDttm": "2026-01-19T19:07:17-0500",
+            "catalogDttm": null,
+            "descriptionSource": "REFERENCE",
+            "showCatalogNote": "Y",
+            "catalogCourseNote": null,
+            "catalog": [],
+            "exploreTileVersions": []
+          },
+          "lastModifiedDttm": "2026-07-28T15:13:29-0400",
+          "classMaterialSupport": "N",
+          "classMaterialAutoAction": "0"
+        },
+        {
+          "slug": "SP26",
+          "isDefaultRoster": "N",
+          "strm": "2923",
+          "descr": "Spring 2026",
+          "descrshort": "2026SP",
+          "courseLastTermsOffered": 4,
+          "defaultSessionCode": "1",
+          "defaultCampus": "MAIN",
+          "defaultLocation": "ITH",
+          "defaultInstructionMode": "P",
+          "sharing": "Y",
+          "archiveMode": "N",
+          "version": {
+            "status": "COMPLETE",
+            "referenceDttm": "2026-05-17T19:07:07-0400",
+            "catalogDttm": null,
+            "descriptionSource": "REFERENCE",
+            "showCatalogNote": "Y",
+            "catalogCourseNote": null,
+            "catalog": [],
+            "exploreTileVersions": []
+          },
+          "lastModifiedDttm": "2026-07-28T15:13:47-0400",
+          "classMaterialSupport": "N",
+          "classMaterialAutoAction": "0"
+        },
+        {
+          "slug": "SU26",
+          "isDefaultRoster": "N",
+          "strm": "2930",
+          "descr": "Summer 2026",
+          "descrshort": "2026SU",
+          "courseLastTermsOffered": 4,
+          "defaultSessionCode": "1",
+          "defaultCampus": "MAIN",
+          "defaultLocation": "ITH",
+          "defaultInstructionMode": "P",
+          "sharing": "Y",
+          "archiveMode": "N",
+          "version": {
+            "status": "COMPLETE",
+            "referenceDttm": "2026-08-16T19:07:12-0400",
+            "catalogDttm": null,
+            "descriptionSource": "REFERENCE",
+            "showCatalogNote": "Y",
+            "catalogCourseNote": null,
+            "catalog": [],
+            "exploreTileVersions": []
+          },
+          "lastModifiedDttm": "2026-08-17T11:39:10-0400",
+          "classMaterialSupport": "N",
+          "classMaterialAutoAction": "0"
+        },
+        {
+          "slug": "FA26",
+          "isDefaultRoster": "Y",
+          "strm": "2937",
+          "descr": "Fall 2026",
+          "descrshort": "2026FA",
+          "courseLastTermsOffered": 4,
+          "defaultSessionCode": "1",
+          "defaultCampus": "MAIN",
+          "defaultLocation": "ITH",
+          "defaultInstructionMode": "P",
+          "sharing": "Y",
+          "archiveMode": "N",
+          "version": {
+            "status": "COMPLETE",
+            "referenceDttm": "2026-08-18T19:07:14-0400",
+            "catalogDttm": null,
+            "descriptionSource": "REFERENCE",
+            "showCatalogNote": "Y",
+            "catalogCourseNote": null,
+            "catalog": [],
+            "exploreTileVersions": []
+          },
+          "lastModifiedDttm": "2026-08-18T19:23:48-0400",
+          "classMaterialSupport": "N",
+          "classMaterialAutoAction": "0"
+        }
+      ]
+    },
+    "message": null,
+    "meta": {
+      "copyright": "Cornell University, Office of the University Registrar"
+    }
+  }
+}

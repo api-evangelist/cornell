@@ -1,0 +1,104 @@
+{
+  "provenance": {
+    "generated": "2026-08-19",
+    "method": "probed",
+    "source": "live GET https://cugir.library.cornell.edu/catalog/cugir-map-5063364.json on 2026-08-19 (HTTP 200)",
+    "notes": "Full JSON:API record as returned."
+  },
+  "request": {
+    "method": "GET",
+    "url": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364.json"
+  },
+  "response": {
+    "links": {
+      "self": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364"
+    },
+    "data": {
+      "id": "cugir-map-5063364",
+      "type": null,
+      "attributes": {
+        "title": "Map of Ithaca.",
+        "dct_creator_sm": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#dct_creator_sm",
+          "type": "document_value",
+          "attributes": {
+            "value": "<span itemprop=\"creator\">H.A. Manning Company.</span>",
+            "label": "Creator"
+          }
+        },
+        "dct_publisher_sm": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#dct_publisher_sm",
+          "type": "document_value",
+          "attributes": {
+            "value": "<span itemprop=\"publisher\">H.A. Manning Co.</span>",
+            "label": "Publisher"
+          }
+        },
+        "dct_description_sm": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#dct_description_sm",
+          "type": "document_value",
+          "attributes": {
+            "value": "<div class=\"truncate-abstract\"><div>1 map ; 55 x 46 cm. Scale [1:12,000]. Shows streets, railoads, streetcar lines and ward boundaries. Oriented with north to the upper left. Shows radial distances. Includes index. Copy of Archives 1617-384</div></div>",
+            "label": "Description"
+          }
+        },
+        "dct_subject_sm": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#dct_subject_sm",
+          "type": "document_value",
+          "attributes": {
+            "value": "<span itemprop=\"keywords\">Electric railroads--New York (State)--Ithaca--Maps.</span>, <span itemprop=\"keywords\">Local transit--New York (State)--Ithaca--Maps.</span>, and <span itemprop=\"keywords\">Ithaca (N.Y.)--Administrative and political divisions--Maps.</span>",
+            "label": "Subject"
+          }
+        },
+        "dct_spatial_sm": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#dct_spatial_sm",
+          "type": "document_value",
+          "attributes": {
+            "value": "<span itemprop=\"spatial\"><a href=\"/catalog?f%5Bdct_spatial_sm%5D%5B%5D=Ithaca+%28N.Y.%29\">Ithaca (N.Y.)</a></span> and <span itemprop=\"spatial\"><a href=\"/catalog?f%5Bdct_spatial_sm%5D%5B%5D=Tompkins+County+%28N.Y.%29\">Tompkins County (N.Y.)</a></span>",
+            "label": "Place"
+          }
+        },
+        "dct_temporal_sm": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#dct_temporal_sm",
+          "type": "document_value",
+          "attributes": {
+            "value": "<span itemprop=\"temporal\">1929</span>",
+            "label": "Year"
+          }
+        },
+        "gbl_resourceClass_sm": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#gbl_resourceClass_sm",
+          "type": "document_value",
+          "attributes": {
+            "value": "<span itemprop=\"class\">Maps</span>",
+            "label": "Resource Class"
+          }
+        },
+        "dct_format_s": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#dct_format_s",
+          "type": "document_value",
+          "attributes": {
+            "value": "<span itemprop=\"format\">GeoTIFF</span>",
+            "label": "Format"
+          }
+        },
+        "gbl_georeferenced_b": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#gbl_georeferenced_b",
+          "type": "document_value",
+          "attributes": {
+            "value": "<span itemprop=\"georeferenced\">false</span>",
+            "label": "Georeferenced"
+          }
+        },
+        "dct_references_s": {
+          "id": "https://cugir.library.cornell.edu/catalog/cugir-map-5063364#dct_references_s",
+          "type": "document_value",
+          "attributes": {
+            "value": "<a href=\"https://catalog.library.cornell.edu/catalog/5063364\">https://catalog.library.cornell.edu/catalog/5063364</a>",
+            "label": "External Website"
+          }
+        }
+      }
+    }
+  }
+}

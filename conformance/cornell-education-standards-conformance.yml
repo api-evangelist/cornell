@@ -1,0 +1,95 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  Live probes of Cornell-operated hosts on 2026-08-19, run as part of the API Evangelist
+  university pipeline. Every hit below points at the exact URL that returned the evidence;
+  no conformance is recorded from a prose claim.
+provider: Cornell University
+providerId: cornell
+regime: education
+description: >-
+  Conformance of Cornell University's own machine-readable surfaces against the Kin Score
+  `education` regime standards (scim, lti, oneroster, ed-fi, caliper, qti, oai-pmh, shibboleth,
+  saml, orcid, datacite, crossref). Reward-only: absence below means "not found on a public
+  surface on 2026-08-19", not "not in use internally".
+standards:
+- id: shibboleth
+  status: conformant
+  operator: institution
+  evidence:
+    url: https://shibidp.cit.cornell.edu/idp/shibboleth
+    status: 200
+    content_type: application/xml
+    detail: >-
+      Cornell's Shibboleth Identity Provider publishes its SAML 2.0 metadata at its canonical
+      /idp/shibboleth location. The document is an <EntityDescriptor> with
+      entityID="https://shibidp.cit.cornell.edu/idp/shibboleth". The host is under Cornell's
+      own registrable domain and resolves to cu-idm-shibidp-prod-1114238550.us-east-1.elb.amazonaws.com,
+      an AWS load balancer in Cornell's own account.
+- id: saml
+  status: conformant
+  operator: institution
+  evidence:
+    url: https://mdq.incommon.org/entities/https:%2F%2Fshibidp.cit.cornell.edu%2Fidp%2Fshibboleth
+    status: 200
+    content_type: application/samlmetadata+xml
+    detail: >-
+      Cornell's IdP is a registered InCommon (and thereby eduGAIN) entity: the InCommon MDQ
+      service returns a signed SAML 2.0 EntityDescriptor for
+      entityID https://shibidp.cit.cornell.edu/idp/shibboleth, validUntil 2026-09-02.
+      Federation membership is an institution-operated fact by definition — no vendor sits
+      between Cornell and this metadata.
+- id: oai-pmh
+  status: conformant
+  operator: tenant
+  evidence:
+    url: https://ecommons.cornell.edu/server/oai/request?verb=Identify
+    status: 200
+    content_type: text/xml
+    detail: >-
+      eCommons, Cornell University Library's institutional repository, answers OAI-PMH 2.0
+      Identify and ListMetadataFormats (200, text/xml) on Cornell's own host. The endpoint is
+      recorded as `tenant` rather than `institution` because the software and the contract are
+      DSpace 8.2's, running on a 4Science-managed platform
+      (ecommons.cornell.edu CNAME cornell-ecommons.eks.prod.4science.cloud). The metadata
+      harvested through it is Cornell's; the interface is not Cornell's engineering.
+  additional_evidence:
+  - url: https://ecommons.cornell.edu/server/oai/request?verb=ListMetadataFormats
+    status: 200
+  - url: https://ecommons.cornell.edu/server/api
+    status: 200
+    note: 'DSpace REST root reports dspaceVersion "DSpace 8.2", dspaceName "eCommons and Cornell University Library".'
+not_found:
+- id: scim
+  detail: No public SCIM 2.0 endpoint or SCIM documentation found on a Cornell-operated host.
+- id: lti
+  detail: >-
+    Cornell runs Canvas (an Instructure product) for learning management; any LTI conformance
+    belongs to Instructure's contract, not Cornell's, and no Cornell-operated LTI surface was found.
+- id: oneroster
+  detail: No IMS/1EdTech OneRoster endpoint found on a Cornell-operated host.
+- id: ed-fi
+  detail: Ed-Fi is a K-12 data standard; no Cornell surface implements it.
+- id: caliper
+  detail: No Caliper Analytics event store or endpoint found on a public Cornell host.
+- id: qti
+  detail: No public QTI assessment interchange surface found.
+- id: orcid
+  detail: >-
+    No Cornell-operated ORCID-integrated public API found. Cornell's former VIVO/Scholars
+    surface (vivo.cornell.edu) now resolves to an S3 website endpoint that times out
+    (curl exit 28/35 on 2026-08-19) and scholars.cornell.edu does not resolve at all.
+- id: datacite
+  detail: >-
+    eCommons mints DOIs, but no Cornell-operated DataCite-conformant API surface was probed
+    successfully; DOI registration runs through the vendor platform.
+- id: crossref
+  detail: No Cornell-operated Crossref deposit or query surface found.
+notes: >-
+  arXiv is deliberately absent from this file. arXiv spun out of Cornell University as an
+  independent nonprofit on 2026-07-01 (Cornell Chronicle, 2026-06; blog.arxiv.org 2026-06-30),
+  so its OAI-PMH and Atom query APIs are no longer a Cornell surface and no longer count toward
+  Cornell's conformance.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

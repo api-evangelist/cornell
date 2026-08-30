@@ -1,0 +1,81 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  Live error probes of https://classes.cornell.edu/api/2.0, https://cugir.library.cornell.edu and
+  https://catalog.library.cornell.edu on 2026-08-19. Cornell publishes no error reference for any of
+  these surfaces; every entry below is an observed response, not a documented one.
+provider: Cornell University
+providerId: cornell
+apis:
+- aid: cornell:class-roster
+  operator: institution
+  envelope:
+    shape: '{"status":"error","data":null,"message":"<human message>","meta":{"copyright":"..."}}'
+    content_type: application/json
+    note: >-
+      The success envelope is the same shape with status "success" and a populated data object. The
+      meta.copyright value on both is "Cornell University, Office of the University Registrar" — the
+      API itself names its operator, which is independent confirmation of the institution attribution.
+  errors:
+  - status: 404
+    message: Roster not found or not available.
+    trigger: Missing or unknown `roster` parameter on /search/classes.json (and on the /config lookups).
+    evidence:
+      url: https://classes.cornell.edu/api/2.0/search/classes.json?roster=ZZ99&subject=CS
+      status: 404
+  - status: 404
+    message: HTML 404 page (not the JSON envelope).
+    trigger: An unknown method path under /api/2.0/, e.g. /config/bogus.json.
+    content_type: text/html
+    note: >-
+      Unknown method paths fall through to the site's HTML 404 rather than the API's JSON error
+      envelope — a client parsing JSON unconditionally will break on a typo'd path.
+    evidence:
+      url: https://classes.cornell.edu/api/2.0/config/bogus.json
+      status: 404
+- aid: cornell:cugir
+  operator: institution
+  envelope:
+    shape: '{"status":404,"error":"Not Found"}'
+    content_type: application/json
+  errors:
+  - status: 404
+    message: Not Found
+    trigger: Unknown record id on /catalog/{id}.json.
+    evidence:
+      url: https://cugir.library.cornell.edu/catalog/does-not-exist.json
+      status: 404
+- aid: cornell:library-catalog
+  operator: institution
+  errors:
+  - status: 200
+    message: No error envelope.
+    trigger: An unknown `search_field` value is ignored — the catalog answers 200 with an ordinary result set.
+    note: Invalid input is not distinguishable from valid input by status code on this surface.
+    evidence:
+      url: https://catalog.library.cornell.edu/catalog.json?q=&search_field=bogus_field
+      status: 200
+  - status: 406
+    message: Not Acceptable (empty body).
+    trigger: Item-level JSON, e.g. /catalog/{id}.json — the format is not served.
+    evidence:
+      url: https://catalog.library.cornell.edu/catalog/15658426.json
+      status: 406
+  - status: 202
+    message: Empty body (bot challenge).
+    trigger: HTML routes fetched by a non-browser client. The .json routes are unaffected.
+    evidence:
+      url: https://catalog.library.cornell.edu/
+      status: 202
+- aid: cornell:ebird
+  operator: institution
+  errors:
+  - status: 403
+    message: Empty body.
+    trigger: Missing or invalid X-eBirdApiToken.
+    evidence:
+      url: https://api.ebird.org/v2/ref/region/list/subnational1/US
+      status: 403
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
