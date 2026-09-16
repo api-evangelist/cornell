@@ -63,46 +63,6 @@ created: '2026-06-03'
 modified: '2026-08-19'
 specificationVersion: '0.23'
 apis:
-- aid: cornell:class-roster
-  name: Cornell Class Roster API
-  description: >-
-    Public, read-only API (version 2.0) for Cornell Class Roster data: scheduled classes with Course of
-    Study detail, plus configuration lookups for rosters, academic careers, academic groups, class levels
-    and subjects. All methods are GET and return JSON or XML. No authentication. The schedule behind it
-    is maintained by the Cornell Office of the University Registrar and updated daily; the documentation
-    asks clients to stay under one request per second. This is the one unambiguous, institution-engineered
-    public API Cornell operates.
-  humanURL: https://classes.cornell.edu/content/FA26/api-details
-  baseURL: https://classes.cornell.edu/api/2.0
-  x-operator: institution
-  x-operator-evidence: >-
-    classes.cornell.edu is Cornell's own registrable domain and CNAMEs to classes.ssit.cucloud.net, Cornell's
-    own cloud namespace. Probed 2026-08-19: /config/rosters.json 200 application/json, /search/classes.json?roster=FA26&subject=CS
-    200, /config/rosters.xml 200.
-  tags:
-  - Course Catalog
-  - Class Roster
-  - Education
-  - Scheduling
-  properties:
-  - type: OpenAPI
-    url: openapi/cornell-class-roster-api-openapi.yml
-  - type: Documentation
-    url: https://classes.cornell.edu/content/FA26/api-details
-  - type: Examples
-    url: examples/cornell-search-classes-example.json
-  - type: Errors
-    url: errors/cornell-errors.yml
-  - type: Examples
-    url: examples/cornell-class-roster-rosters-example.json
-  - type: JSONSchema
-    url: json-schema/cornell-class-schema.json
-  - type: JSONStructure
-    url: json-structure/cornell-class-structure.json
-  - type: Vocabulary
-    url: vocabulary/cornell-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/cornell-context.jsonld
 - aid: cornell:library-catalog
   name: Cornell University Library Catalog Search API
   description: >-
@@ -228,6 +188,58 @@ apis:
     url: openapi/cornell-cugir-api-openapi.yml
   - type: Examples
     url: examples/cugir-record-example.json
+- aid: cornell:cornell-config-api
+  name: Cornell University Config API
+  description: The config API from Cornell University — 5 operation(s) for config.
+  humanURL: https://classes.cornell.edu/content/FA26/api-details
+  baseURL: https://classes.cornell.edu/api/2.0
+  tags:
+  - config
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-config-api-openapi.yml
+  - type: Documentation
+    url: https://classes.cornell.edu/content/FA26/api-details
+  - type: Examples
+    url: examples/cornell-search-classes-example.json
+  - type: Errors
+    url: errors/cornell-errors.yml
+  - type: Examples
+    url: examples/cornell-class-roster-rosters-example.json
+  - type: JSONSchema
+    url: json-schema/cornell-class-schema.json
+  - type: JSONStructure
+    url: json-structure/cornell-class-structure.json
+  - type: Vocabulary
+    url: vocabulary/cornell-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/cornell-context.jsonld
+- aid: cornell:cornell-search-api
+  name: Cornell University Search API
+  description: The search API from Cornell University — 1 operation(s) for search.
+  humanURL: https://classes.cornell.edu/content/FA26/api-details
+  baseURL: https://classes.cornell.edu/api/2.0
+  tags:
+  - search
+  properties:
+  - type: OpenAPI
+    url: openapi/cornell-search-api-openapi.yml
+  - type: Documentation
+    url: https://classes.cornell.edu/content/FA26/api-details
+  - type: Examples
+    url: examples/cornell-search-classes-example.json
+  - type: Errors
+    url: errors/cornell-errors.yml
+  - type: Examples
+    url: examples/cornell-class-roster-rosters-example.json
+  - type: JSONSchema
+    url: json-schema/cornell-class-schema.json
+  - type: JSONStructure
+    url: json-structure/cornell-class-structure.json
+  - type: Vocabulary
+    url: vocabulary/cornell-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/cornell-context.jsonld
 common:
   - type: Website
     url: https://www.cornell.edu/
