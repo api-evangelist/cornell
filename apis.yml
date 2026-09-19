@@ -194,6 +194,8 @@ apis:
   humanURL: https://classes.cornell.edu/content/FA26/api-details
   baseURL: https://classes.cornell.edu/api/2.0
   tags:
+  - Config
+  tags_raw:
   - config
   properties:
   - type: OpenAPI
@@ -220,6 +222,8 @@ apis:
   humanURL: https://classes.cornell.edu/content/FA26/api-details
   baseURL: https://classes.cornell.edu/api/2.0
   tags:
+  - Search
+  tags_raw:
   - search
   properties:
   - type: OpenAPI
