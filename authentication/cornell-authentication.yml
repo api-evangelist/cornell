@@ -1,16 +1,84 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/cornell-codi-events.yaml
+generated: '2026-08-19'
+method: probed
+source: >-
+  Live probes 2026-08-19 of every surface attributed to Cornell University, plus
+  openapi/cornell-class-roster-api-openapi.yml. Replaces the 2026-07-11 file, which derived an
+  `apiKey in query` scheme from openapi/_original/cornell-codi-events.yaml — the Localist
+  (events.cornell.edu) contract. That was a vendor's auth model recorded as Cornell's.
+provider: Cornell University
+providerId: cornell
 summary:
   types:
+  - none
   - apiKey
-  api_key_in:
-  - query
+  - saml
+  institution_operated_public_apis_requiring_no_auth: 3
 schemes:
-- name: UserSecurity
+- name: ClassRosterPublic
+  type: none
+  operator: institution
+  applies_to: https://classes.cornell.edu/api/2.0
+  description: >-
+    The Cornell Class Roster API is public and read-only; no key, token or header is required.
+    Probed 2026-08-19: /config/rosters.json and /search/classes.json both 200 with no credential.
+    Cornell asks clients to stay under one request per second.
+  evidence:
+    url: https://classes.cornell.edu/api/2.0/config/rosters.json
+    status: 200
+- name: LibraryCatalogPublic
+  type: none
+  operator: institution
+  applies_to: https://catalog.library.cornell.edu
+  description: >-
+    Cornell University Library's Blacklight catalog serves JSON with no credential. The HTML root
+    answers HTTP 202 with an empty body to non-browser clients (a bot challenge); the .json routes
+    are unaffected.
+  evidence:
+    url: https://catalog.library.cornell.edu/catalog.json?q=cornell&search_field=all_fields
+    status: 200
+- name: CugirPublic
+  type: none
+  operator: institution
+  applies_to: https://cugir.library.cornell.edu
+  description: CUGIR's GeoBlacklight JSON routes are open, unauthenticated reads.
+  evidence:
+    url: https://cugir.library.cornell.edu/catalog.json?q=ithaca
+    status: 200
+- name: eBirdApiToken
   type: apiKey
-  in: query
-  parameter: api_key
-  description: Security for the API key
-  sources:
-  - openapi/cornell-codi-events.yaml
+  in: header
+  parameter: X-eBirdApiToken
+  operator: institution
+  applies_to: https://api.ebird.org/v2
+  description: >-
+    The eBird API 2.0, run by the Cornell Lab of Ornithology, requires a free API token requested
+    at https://ebird.org/api/keygen. Probed 2026-08-19: an unauthenticated call and a call with an
+    invalid token both return HTTP 403 with an empty body — the surface is gated, not dead.
+  evidence:
+    url: https://api.ebird.org/v2/ref/region/list/subnational1/US
+    status: 403
+- name: eCommonsDSpacePublicRead
+  type: none
+  operator: tenant
+  applies_to: https://ecommons.cornell.edu/server/api
+  description: >-
+    eCommons serves DSpace 8.2 REST and OAI-PMH reads without authentication. Deposit and
+    administration authenticate against the DSpace platform, whose auth model is 4Science/DSpace's,
+    not Cornell's.
+  evidence:
+    url: https://ecommons.cornell.edu/server/api
+    status: 200
+- name: ShibbolethSAML
+  type: saml
+  operator: institution
+  applies_to: https://shibidp.cit.cornell.edu/idp/shibboleth
+  description: >-
+    Cornell's institutional systems federate through its own Shibboleth IdP, published as SAML 2.0
+    metadata and registered with InCommon/eduGAIN. This is Cornell's own identity surface and the
+    only machine-readable authentication contract the institution itself publishes.
+  evidence:
+    url: https://shibidp.cit.cornell.edu/idp/shibboleth
+    status: 200
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

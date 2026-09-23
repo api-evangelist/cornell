@@ -1,58 +1,64 @@
 ---
+generated: '2026-08-19'
+method: derived
+source: >-
+  openapi/cornell-class-roster-api-openapi.yml plus live responses from
+  https://catalog.library.cornell.edu/catalog.json and https://cugir.library.cornell.edu/catalog.json,
+  probed 2026-08-19.
 vocabulary:
-  name: Cornell Open Data Initiative Vocabulary
+  name: Cornell University Institution-Operated API Vocabulary
   description: >-
-    Controlled terms drawn from the Cornell Open Data Initiative (CODI) public
-    APIs (Classes, Days, Dining, Events, Map) as stewarded under Cornell
-    University. Definitions reflect fields and concepts present in the real
-    OpenAPI definitions synced to SwaggerHub.
-  version: "0.1"
+    Controlled terms drawn ONLY from surfaces Cornell University itself operates: the Class Roster
+    API (classes.cornell.edu), the Cornell University Library catalog (Blacklight) and CUGIR, the
+    Cornell University Geospatial Information Repository (GeoBlacklight). The 2026-06 version of
+    this file also carried dining, campus-map, Cornell Days and Localist event terms; those were
+    removed on 2026-08-19 because their surfaces are either dead (now.dining.cornell.edu and
+    www.cornell.edu/about/maps return an SPA shell / 404, schedule.cornelldays.cornell.edu 301s to
+    admissions.cornell.edu) or vendor-operated (events.cornell.edu is a Localist tenancy).
+  version: '0.2'
   terms:
     - term: Roster
-      definition: A published academic term of the Class Roster, e.g. FA25, identified by a slug and strm code.
-      tags: [classes, scheduling]
+      definition: A published academic term of the Class Roster, e.g. FA26, identified by a slug and strm code.
+      tags: [class-roster, scheduling]
     - term: strm
-      definition: Numeric term code identifying a specific roster/term in the Classes API.
-      tags: [classes]
+      definition: Numeric term code identifying a specific roster/term in the Class Roster API.
+      tags: [class-roster]
     - term: crseId
-      definition: Unique course identifier for a class in the Classes API.
-      tags: [classes]
+      definition: Unique course identifier for a class in the Class Roster API.
+      tags: [class-roster]
     - term: catalogNbr
       definition: Catalog number of a course, e.g. 1110, within a subject.
-      tags: [classes, catalog]
+      tags: [class-roster, catalog]
     - term: acadCareer
       definition: Academic career classification such as UG (undergraduate) or GR (graduate).
-      tags: [classes]
+      tags: [class-roster]
     - term: acadGroup
       definition: Academic group (college/school) offering the class, e.g. EN for Engineering.
-      tags: [classes]
+      tags: [class-roster]
+    - term: classLevel
+      definition: Class standing filter (e.g. 1000-level, 2000-level) exposed by the Class Roster config lookups.
+      tags: [class-roster]
+    - term: subject
+      definition: Subject code, e.g. CS, required by the Class Roster search method.
+      tags: [class-roster]
     - term: enrollGroups
-      definition: Enrollment groupings within a class describing class sections and components.
-      tags: [classes, enrollment]
-    - term: Eatery
-      definition: A Cornell dining location with hours, cuisines, pay methods, and menu items.
-      tags: [dining]
-    - term: operatingHours
-      definition: Per-day open/close windows and events for a dining eatery.
-      tags: [dining, hours]
-    - term: payMethods
-      definition: Accepted payment methods at a dining eatery, e.g. meal plan, BRB, cash.
-      tags: [dining]
-    - term: Event
-      definition: An official Cornell event with dates, location, and Localist metadata.
-      tags: [events, calendar]
-    - term: event_instances
-      definition: Specific dated occurrences of a recurring or single Cornell event.
-      tags: [events]
-    - term: localist_url
-      definition: Canonical Localist URL for an event in the Events API.
-      tags: [events]
-    - term: Location
-      definition: A Cornell campus map point of interest with name, address, and coordinates.
-      tags: [map, geo]
-    - term: AKA
-      definition: Alternate or also-known-as name for a campus map location.
-      tags: [map]
-    - term: Cornell Days
-      definition: Admitted-student program events exposed via the Cornell Days itinerary API.
-      tags: [days, admissions, events]
+      definition: Enrollment groupings within a class describing sections and components.
+      tags: [class-roster, enrollment]
+    - term: search_field
+      definition: Blacklight search field selector in the Library catalog API, e.g. all_fields, title, author.
+      tags: [library-catalog, blacklight]
+    - term: document
+      definition: One catalog record inside the Blacklight `response.document[]` array.
+      tags: [library-catalog, blacklight]
+    - term: dct_creator_sm
+      definition: Aardvark/GeoBlacklight creator field on a CUGIR record.
+      tags: [cugir, geospatial, aardvark]
+    - term: dct_spatial_sm
+      definition: Aardvark/GeoBlacklight spatial-coverage field used to facet CUGIR records by place.
+      tags: [cugir, geospatial, aardvark]
+    - term: CUGIR record id
+      definition: CUGIR item identifier, e.g. cugir-map-5063364, addressable at /catalog/{id}.json.
+      tags: [cugir, geospatial]
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

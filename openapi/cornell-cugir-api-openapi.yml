@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Cornell University Geospatial Information Repository Cugir API
+  title: Cornell University Geospatial Information Repository Cugir…
   version: '1.0'
   description: Machine-readable search and item metadata for CUGIR, the Cornell University Geospatial Information Repository operated by Cornell University Library. CUGIR runs GeoBlacklight, which answers every catalog route in JSON:API form when `.json` is appended. There is no Cornell-published API reference; this document was derived from live probes of the running service. Item records carry Aardvark/GeoBlacklight metadata fields (dct_creator_sm, dct_spatial_sm, and so on).
   termsOfService: https://cugir.library.cornell.edu/

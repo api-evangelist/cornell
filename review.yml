@@ -57,4 +57,61 @@ reviews:
       - url: https://www.linkedin.com/school/cornell-university/
         status: 999
         note: LinkedIn school page; 999 is LinkedIn anti-bot, page exists in browser.
+
+  - date: '2026-08-19'
+    rating: 2
+    summary: >-
+      University-pipeline re-profile, run for operator attribution rather than artifact volume, and
+      it lowers this profile deliberately. Three findings. (1) The seven refined OpenAPIs in this repo
+      were a WELD: five Cornell Open Data Initiative specs describing five different hosts had been
+      split by tag and re-based onto a single servers[] entry, https://classes.cornell.edu/api/2.0, so
+      Cornell Dining's /config/pages.json and Localist's /events/search were being scored as Class
+      Roster paths. (2) Three of those five surfaces are dead — the dining API returns the same 63KB
+      Angular shell on every path, the Cornell Days API 301s to admissions.cornell.edu, and the campus
+      map API 404s — and a fourth, the events calendar, is a Localist (Concept3D) tenancy, proven by
+      the x-slzr-platform response header. (3) arXiv left Cornell: it spun out as an independent
+      nonprofit on 2026-07-01 and is no longer a Cornell surface, so it was removed. What survives is
+      genuinely Cornell's and was verified live: the Class Roster API, the Library's self-hosted
+      Blacklight catalog, CUGIR, the Shibboleth/InCommon SAML metadata, and the Cornell Lab of
+      Ornithology's token-gated eBird API. eCommons stays, re-labelled tenant — Cornell's repository
+      on a 4Science-managed DSpace instance.
+    endpoints:
+      - url: https://classes.cornell.edu/api/2.0/config/rosters.json
+        status: 200
+        note: Class Roster config — institution-operated, live.
+      - url: https://classes.cornell.edu/api/2.0/search/classes.json?roster=FA26&subject=CS
+        status: 200
+        note: Class Roster search, current FA26 term.
+      - url: https://catalog.library.cornell.edu/catalog.json?q=cornell&search_field=all_fields
+        status: 200
+        note: Library Blacklight catalog JSON; HTML root is bot-challenged (202, empty body).
+      - url: https://cugir.library.cornell.edu/catalog/cugir-map-5063364.json
+        status: 200
+        note: CUGIR GeoBlacklight record, JSON:API.
+      - url: https://ecommons.cornell.edu/server/oai/request?verb=Identify
+        status: 200
+        note: OAI-PMH Identify — institution host, 4Science-managed DSpace 8.2 (tenant).
+      - url: https://mdq.incommon.org/entities/https:%2F%2Fshibidp.cit.cornell.edu%2Fidp%2Fshibboleth
+        status: 200
+        note: Signed InCommon/eduGAIN SAML metadata for Cornell's IdP.
+      - url: https://events.cornell.edu/api/2/events
+        status: 200
+        note: Live, but Localist's contract — response header x-slzr-platform:cornell. Tenant.
+      - url: https://api.ebird.org/v2/ref/region/list/subnational1/US
+        status: 403
+        note: eBird API 2.0 (Cornell Lab of Ornithology) — gated on a free token, not dead.
+      - url: https://now.dining.cornell.edu/api/1.0/dining/eateries.json
+        status: 200
+        note: Soft-200. Identical 63KB SPA shell on every path — Cornell Dining API is dead.
+      - url: https://schedule.cornelldays.cornell.edu/api/itin/cornelldays/events
+        status: 301
+        note: Redirects to admissions.cornell.edu — Cornell Days API is dead.
+      - url: https://www.cornell.edu/about/maps/overlay-items.cfm?layer=TCAT
+        status: 404
+        note: Campus map API dead; locations.cfm returns 200 with a zero-length body.
+      - url: https://info.arxiv.org/about/index.html
+        status: 200
+        note: >-
+          "After decades of being hosted at Cornell University, [arXiv] was established as an
+          independent nonprofit organization in 2026." arXiv removed from this profile.
 ---

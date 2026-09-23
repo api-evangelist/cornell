@@ -3,22 +3,69 @@
   "$id": "https://raw.githubusercontent.com/api-evangelist/cornell/main/json-structure/cornell-class-structure.json",
   "name": "CornellClass",
   "type": "object",
-  "description": "A scheduled Cornell class from the Cornell Classes (CODI) API.",
+  "description": "A scheduled Cornell class from the Cornell Class Roster API.",
   "properties": {
-    "strm": { "type": "int32" },
-    "crseId": { "type": "int32" },
-    "crseOfferNbr": { "type": "int32" },
-    "subject": { "type": "string" },
-    "catalogNbr": { "type": "string" },
-    "titleShort": { "type": "string" },
-    "titleLong": { "type": "string" },
-    "description": { "type": "string" },
-    "catalogWhenOffered": { "type": "string" },
-    "catalogPrereqCoreq": { "type": "string" },
-    "acadCareer": { "type": "string" },
-    "acadGroup": { "type": "string" },
-    "enrollGroups": { "type": "array", "items": { "type": "object", "properties": {} } },
-    "catalogOutcomes": { "type": "array", "items": { "type": "string" } }
+    "strm": {
+      "type": "int32"
+    },
+    "crseId": {
+      "type": "int32"
+    },
+    "crseOfferNbr": {
+      "type": "int32"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "catalogNbr": {
+      "type": "string"
+    },
+    "titleShort": {
+      "type": "string"
+    },
+    "titleLong": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "catalogWhenOffered": {
+      "type": "string"
+    },
+    "catalogPrereqCoreq": {
+      "type": "string"
+    },
+    "acadCareer": {
+      "type": "string"
+    },
+    "acadGroup": {
+      "type": "string"
+    },
+    "enrollGroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "catalogOutcomes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
   },
-  "required": ["crseId", "subject", "catalogNbr", "titleLong"]
+  "required": [
+    "crseId",
+    "subject",
+    "catalogNbr",
+    "titleLong"
+  ],
+  "x-provenance": {
+    "generated": "2026-08-19",
+    "method": "derived",
+    "source": "openapi/cornell-class-roster-api-openapi.yml",
+    "notes": "Re-stamped during the 2026-08-19 university re-profile. The sibling eatery, event and location schemas were removed: their surfaces are dead (Cornell Dining, campus map) or vendor-operated (the Localist events calendar).",
+    "operator": "institution"
+  }
 }

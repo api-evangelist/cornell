@@ -1,12 +1,22 @@
 ---
-# Spectral ruleset encoding patterns observed across the Cornell Open Data
-# Initiative (CODI) OpenAPI definitions: classes, days, dining, events, map.
+# authorship: API Evangelist tooling.
+x-generated: '2026-08-19'
+x-method: derived
+x-source: >-
+  openapi/cornell-class-roster-api-openapi.yml, openapi/cornell-library-catalog-api-openapi.yml,
+  openapi/cugir-geospatial-api-openapi.yml
+# Spectral ruleset encoding the conventions of the API surfaces Cornell University
+# itself operates: the Class Roster API (classes.cornell.edu), the Library catalog
+# (Blacklight) and CUGIR (GeoBlacklight). Rewritten 2026-08-19 — the 2026-06 version
+# was framed around the five Cornell Open Data Initiative specs (classes, days,
+# dining, events, map), four of which describe surfaces that are now dead or
+# vendor-operated.
 extends: [[spectral:oas, off]]
 formats:
   - oas3
 rules:
   cornell-info-contact:
-    description: CODI APIs should declare the Cornell Open Data Initiative contact.
+    description: Every Cornell-operated API should declare an institutional contact.
     severity: warn
     given: $.info
     then:
@@ -22,7 +32,7 @@ rules:
       function: truthy
 
   cornell-operations-have-tags:
-    description: Operations are grouped by tag (config, events, eateries, etc.).
+    description: Operations are grouped by tag (class-roster, library-catalog, cugir).
     severity: warn
     given: $.paths[*][get]
     then:
@@ -30,7 +40,7 @@ rules:
       function: truthy
 
   cornell-get-only:
-    description: The CODI public read-only APIs expose GET operations only.
+    description: Cornell's public institution-operated APIs expose GET operations only.
     severity: error
     given: $.paths[*]
     then:
@@ -38,6 +48,27 @@ rules:
       function: pattern
       functionOptions:
         match: "^(get|parameters|summary|description|servers)$"
+
+  cornell-operator-declared:
+    description: >-
+      Every Cornell OpenAPI must declare info.x-operator, so a vendor's contract can never be
+      credited to the institution by accident (university pipeline, operator axis).
+    severity: error
+    given: $.info
+    then:
+      field: x-operator
+      function: truthy
+
+  cornell-servers-on-institution-host:
+    description: >-
+      servers[] must sit under a host Cornell operates. A spec based on classes.cornell.edu while
+      describing another host is the weld this repo was corrected for on 2026-08-19.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://[a-z0-9.-]*cornell\\.edu(/|$)"
 
   cornell-2xx-response:
     description: Each operation must document a success response.

@@ -4,24 +4,33 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Cornell University
 providerId: cornell
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-19'
 reconciled: false
 tags:
 - Education
 - Higher Education
 - University
 - Rate Limiting
-description: >-
-  Cornell University does not publish a unified public rate-limit table across its APIs. Open
-  metadata and harvesting endpoints (OAI-PMH, IIIF, library) may throttle large-scale
-  or automated harvesting; clients should harvest politely, honor Retry-After, and
-  contact the relevant service for bulk access.
+description: Cornell University does not publish a unified rate-limit table across its surfaces. The one
+  documented limit is on the Class Roster API, whose API details page asks clients to stay under one request
+  per second. Open metadata and harvesting endpoints (the eCommons OAI-PMH endpoint, the Library catalog
+  and CUGIR JSON routes) may throttle large-scale automated harvesting; harvest politely, honor Retry-After,
+  and contact the service for bulk access. The eBird API 2.0 (Cornell Lab of Ornithology) gates access
+  behind a free token rather than a published rate table.
 notes: Confirm per-service limits with each API's documentation; harvest responsibly.
 sources:
+- https://classes.cornell.edu/content/FA26/api-details
 - https://raw.githubusercontent.com/api-evangelist/cornell/refs/heads/main/apis.yml
 responseCodes:
   throttled: 429
 limits:
+- name: Class Roster API
+  scope: client
+  metric: requests-per-second
+  limit: 1
+  notes: Documented at https://classes.cornell.edu/content/FA26/api-details — "no more than one request
+    per second".
+  source: https://classes.cornell.edu/content/FA26/api-details
 - name: Default
   scope: client
   metric: requests-per-minute
@@ -33,3 +42,5 @@ policies:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+generated: '2026-08-19'
+method: searched

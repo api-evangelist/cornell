@@ -1,0 +1,504 @@
+openapi: 3.2.0
+info:
+  description: A public API for retrieving classes at Cornell University
+  version: '0.1'
+  title: Cornell Classes Search API
+  contact:
+    name: Cornell Open Data Initiative
+    url: https://codi.engineering.cornell.edu
+    email: codi@cornellappdev.com
+servers:
+- url: https://classes.cornell.edu/api/2.0
+tags:
+- name: Search
+paths:
+  /search/classes.json:
+    get:
+      tags:
+      - Search
+      summary: Get all classes matching input query
+      description: Return all classes in the specified roster and subject that match the input query
+      parameters:
+      - name: roster
+        in: query
+        description: Roster semester & year (i.e. FA14, SP15)
+        required: true
+        schema:
+          type: string
+      - name: subject
+        in: query
+        description: Academic subject (i.e. CS, PHIL)
+        required: true
+        schema:
+          type: string
+      - name: acadGroup[]
+        in: query
+        description: Academic group (i.e. AG)
+        required: false
+        schema:
+          type: string
+      - name: acadCareer[]
+        in: query
+        description: Academic career (i.e. GR)
+        required: false
+        schema:
+          type: string
+      - name: classLevels[]
+        in: query
+        description: Class levels (i.e. 6000)
+        required: false
+        schema:
+          type: integer
+      - name: crseAttrs[]
+        in: query
+        description: Course attribute (i.e. CU-SBY)
+        required: false
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: Search term (i.e. graphics)
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A JSON of classes
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClassesResponse'
+      operationId: getSearchClassesJson
+      x-operation-id-source: derived
+components:
+  schemas:
+    ClassesResponse_meta:
+      properties:
+        copyright:
+          type: string
+          example: Cornell University, Office of the University Registrar
+        rosterDttm:
+          type: string
+          example: 2015-01-14T18:16:01-0500
+        catalogDttm:
+          type: string
+          example: 2015-01-14T18:21:04-0500
+      example:
+        copyright: Cornell University, Office of the University Registrar
+        catalogDttm: 2015-01-14T18:21:04-0500
+        rosterDttm: 2015-01-14T18:16:01-0500
+    Classes_enrollGroups:
+      properties:
+        classSections:
+          type: array
+          example: []
+          items:
+            type: object
+            properties: {}
+        unitsMinimum:
+          type: integer
+          example: 4
+        unitsMaximum:
+          type: integer
+          example: 4
+        componentsOptional:
+          type: array
+          example: []
+          items:
+            type: string
+        componentsRequired:
+          type: array
+          example: []
+          items:
+            type: string
+        gradingBasis:
+          type: string
+          example: OPT
+        gradingBasisShort:
+          type: string
+          example: Stdnt Opt
+        gradingBasisLong:
+          type: string
+          example: Student Option
+        simpleCombinations:
+          type: array
+          example: []
+          items:
+            type: string
+        sessionCode:
+          type: string
+          example: 1
+        sessionBeginDt:
+          type: string
+          example: 08/26/2014
+        sessionEndDt:
+          type: string
+          example: 12/05/2014
+        sessionLong:
+          type: string
+          example: Regular Academic Session
+      example:
+        unitsMaximum: 4
+        sessionCode: 1
+        simpleCombinations: []
+        gradingBasisShort: Stdnt Opt
+        componentsOptional: []
+        gradingBasisLong: Student Option
+        sessionEndDt: 12/05/2014
+        unitsMinimum: 4
+        gradingBasis: OPT
+        sessionLong: Regular Academic Session
+        sessionBeginDt: 08/26/2014
+        componentsRequired: []
+        classSections: []
+    Classes:
+      type: object
+      properties:
+        strm:
+          type: integer
+          example: 2573
+        crseId:
+          type: integer
+          example: 358526
+        crseOfferNbr:
+          type: integer
+          example: 1
+        subject:
+          type: string
+          example: CS
+        catalogNbr:
+          type: string
+          example: 1110
+        titleShort:
+          type: string
+          example: Intro Computing Using Python
+        titleLong:
+          type: string
+          example: Introduction to Computing Using Python
+        enrollGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classes_enrollGroups'
+        description:
+          type: string
+          example: null
+        catalogBreadth:
+          type: string
+          example: null
+        catalogDistr:
+          type: string
+          example: (MQR)
+        catalogLang:
+          type: string
+          example: null
+        catalogForbiddenOverlaps:
+          type: string
+          example: null
+        catalogWhenOffered:
+          type: string
+          example: Fall, spring, summer.
+        catalogComments:
+          type: string
+          example: null
+        catalogPrereqCoreq:
+          type: string
+          example: Assumes basic high school mathematics (no calculus) but no programming experience.
+        catalogFee:
+          type: string
+          example: null
+        catalogSatisfiesReq:
+          type: string
+          example: null
+        catalogPermission:
+          type: string
+          example: null
+        catalogCourseSubfield:
+          type: string
+          example: null
+        catalogOutcomes:
+          type: array
+          example: []
+          items:
+            type: string
+        acadCareer:
+          type: string
+          example: UG
+        acadGroup:
+          type: string
+          example: EN
+      example:
+        catalogBreadth: null
+        catalogPrereqCoreq: Assumes basic high school mathematics (no calculus) but no programming experience.
+        enrollGroups:
+        - unitsMaximum: 4
+          sessionCode: 1
+          simpleCombinations: []
+          gradingBasisShort: Stdnt Opt
+          componentsOptional: []
+          gradingBasisLong: Student Option
+          sessionEndDt: 12/05/2014
+          unitsMinimum: 4
+          gradingBasis: OPT
+          sessionLong: Regular Academic Session
+          sessionBeginDt: 08/26/2014
+          componentsRequired: []
+          classSections: []
+        - unitsMaximum: 4
+          sessionCode: 1
+          simpleCombinations: []
+          gradingBasisShort: Stdnt Opt
+          componentsOptional: []
+          gradingBasisLong: Student Option
+          sessionEndDt: 12/05/2014
+          unitsMinimum: 4
+          gradingBasis: OPT
+          sessionLong: Regular Academic Session
+          sessionBeginDt: 08/26/2014
+          componentsRequired: []
+          classSections: []
+        catalogCourseSubfield: null
+        subject: CS
+        catalogDistr: (MQR)
+        catalogOutcomes: []
+        description: null
+        strm: 2573
+        catalogComments: null
+        catalogForbiddenOverlaps: null
+        acadCareer: UG
+        crseId: 358526
+        crseOfferNbr: 1
+        catalogNbr: 1110
+        catalogLang: null
+        titleShort: Intro Computing Using Python
+        titleLong: Introduction to Computing Using Python
+        acadGroup: EN
+        catalogFee: null
+        catalogPermission: null
+        catalogWhenOffered: Fall, spring, summer.
+        catalogSatisfiesReq: null
+    ClassesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/ClassesResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/ClassesResponse_meta'
+      example:
+        data:
+          subjects:
+          - catalogBreadth: null
+            catalogPrereqCoreq: Assumes basic high school mathematics (no calculus) but no programming experience.
+            enrollGroups:
+            - unitsMaximum: 4
+              sessionCode: 1
+              simpleCombinations: []
+              gradingBasisShort: Stdnt Opt
+              componentsOptional: []
+              gradingBasisLong: Student Option
+              sessionEndDt: 12/05/2014
+              unitsMinimum: 4
+              gradingBasis: OPT
+              sessionLong: Regular Academic Session
+              sessionBeginDt: 08/26/2014
+              componentsRequired: []
+              classSections: []
+            - unitsMaximum: 4
+              sessionCode: 1
+              simpleCombinations: []
+              gradingBasisShort: Stdnt Opt
+              componentsOptional: []
+              gradingBasisLong: Student Option
+              sessionEndDt: 12/05/2014
+              unitsMinimum: 4
+              gradingBasis: OPT
+              sessionLong: Regular Academic Session
+              sessionBeginDt: 08/26/2014
+              componentsRequired: []
+              classSections: []
+            catalogCourseSubfield: null
+            subject: CS
+            catalogDistr: (MQR)
+            catalogOutcomes: []
+            description: null
+            strm: 2573
+            catalogComments: null
+            catalogForbiddenOverlaps: null
+            acadCareer: UG
+            crseId: 358526
+            crseOfferNbr: 1
+            catalogNbr: 1110
+            catalogLang: null
+            titleShort: Intro Computing Using Python
+            titleLong: Introduction to Computing Using Python
+            acadGroup: EN
+            catalogFee: null
+            catalogPermission: null
+            catalogWhenOffered: Fall, spring, summer.
+            catalogSatisfiesReq: null
+          - catalogBreadth: null
+            catalogPrereqCoreq: Assumes basic high school mathematics (no calculus) but no programming experience.
+            enrollGroups:
+            - unitsMaximum: 4
+              sessionCode: 1
+              simpleCombinations: []
+              gradingBasisShort: Stdnt Opt
+              componentsOptional: []
+              gradingBasisLong: Student Option
+              sessionEndDt: 12/05/2014
+              unitsMinimum: 4
+              gradingBasis: OPT
+              sessionLong: Regular Academic Session
+              sessionBeginDt: 08/26/2014
+              componentsRequired: []
+              classSections: []
+            - unitsMaximum: 4
+              sessionCode: 1
+              simpleCombinations: []
+              gradingBasisShort: Stdnt Opt
+              componentsOptional: []
+              gradingBasisLong: Student Option
+              sessionEndDt: 12/05/2014
+              unitsMinimum: 4
+              gradingBasis: OPT
+              sessionLong: Regular Academic Session
+              sessionBeginDt: 08/26/2014
+              componentsRequired: []
+              classSections: []
+            catalogCourseSubfield: null
+            subject: CS
+            catalogDistr: (MQR)
+            catalogOutcomes: []
+            description: null
+            strm: 2573
+            catalogComments: null
+            catalogForbiddenOverlaps: null
+            acadCareer: UG
+            crseId: 358526
+            crseOfferNbr: 1
+            catalogNbr: 1110
+            catalogLang: null
+            titleShort: Intro Computing Using Python
+            titleLong: Introduction to Computing Using Python
+            acadGroup: EN
+            catalogFee: null
+            catalogPermission: null
+            catalogWhenOffered: Fall, spring, summer.
+            catalogSatisfiesReq: null
+        meta:
+          copyright: Cornell University, Office of the University Registrar
+          catalogDttm: 2015-01-14T18:21:04-0500
+          rosterDttm: 2015-01-14T18:16:01-0500
+        message: null
+        status: success
+    ClassesResponse_data:
+      properties:
+        subjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classes'
+      example:
+        subjects:
+        - catalogBreadth: null
+          catalogPrereqCoreq: Assumes basic high school mathematics (no calculus) but no programming experience.
+          enrollGroups:
+          - unitsMaximum: 4
+            sessionCode: 1
+            simpleCombinations: []
+            gradingBasisShort: Stdnt Opt
+            componentsOptional: []
+            gradingBasisLong: Student Option
+            sessionEndDt: 12/05/2014
+            unitsMinimum: 4
+            gradingBasis: OPT
+            sessionLong: Regular Academic Session
+            sessionBeginDt: 08/26/2014
+            componentsRequired: []
+            classSections: []
+          - unitsMaximum: 4
+            sessionCode: 1
+            simpleCombinations: []
+            gradingBasisShort: Stdnt Opt
+            componentsOptional: []
+            gradingBasisLong: Student Option
+            sessionEndDt: 12/05/2014
+            unitsMinimum: 4
+            gradingBasis: OPT
+            sessionLong: Regular Academic Session
+            sessionBeginDt: 08/26/2014
+            componentsRequired: []
+            classSections: []
+          catalogCourseSubfield: null
+          subject: CS
+          catalogDistr: (MQR)
+          catalogOutcomes: []
+          description: null
+          strm: 2573
+          catalogComments: null
+          catalogForbiddenOverlaps: null
+          acadCareer: UG
+          crseId: 358526
+          crseOfferNbr: 1
+          catalogNbr: 1110
+          catalogLang: null
+          titleShort: Intro Computing Using Python
+          titleLong: Introduction to Computing Using Python
+          acadGroup: EN
+          catalogFee: null
+          catalogPermission: null
+          catalogWhenOffered: Fall, spring, summer.
+          catalogSatisfiesReq: null
+        - catalogBreadth: null
+          catalogPrereqCoreq: Assumes basic high school mathematics (no calculus) but no programming experience.
+          enrollGroups:
+          - unitsMaximum: 4
+            sessionCode: 1
+            simpleCombinations: []
+            gradingBasisShort: Stdnt Opt
+            componentsOptional: []
+            gradingBasisLong: Student Option
+            sessionEndDt: 12/05/2014
+            unitsMinimum: 4
+            gradingBasis: OPT
+            sessionLong: Regular Academic Session
+            sessionBeginDt: 08/26/2014
+            componentsRequired: []
+            classSections: []
+          - unitsMaximum: 4
+            sessionCode: 1
+            simpleCombinations: []
+            gradingBasisShort: Stdnt Opt
+            componentsOptional: []
+            gradingBasisLong: Student Option
+            sessionEndDt: 12/05/2014
+            unitsMinimum: 4
+            gradingBasis: OPT
+            sessionLong: Regular Academic Session
+            sessionBeginDt: 08/26/2014
+            componentsRequired: []
+            classSections: []
+          catalogCourseSubfield: null
+          subject: CS
+          catalogDistr: (MQR)
+          catalogOutcomes: []
+          description: null
+          strm: 2573
+          catalogComments: null
+          catalogForbiddenOverlaps: null
+          acadCareer: UG
+          crseId: 358526
+          crseOfferNbr: 1
+          catalogNbr: 1110
+          catalogLang: null
+          titleShort: Intro Computing Using Python
+          titleLong: Introduction to Computing Using Python
+          acadGroup: EN
+          catalogFee: null
+          catalogPermission: null
+          catalogWhenOffered: Fall, spring, summer.
+          catalogSatisfiesReq: null

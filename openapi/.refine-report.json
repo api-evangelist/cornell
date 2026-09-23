@@ -1,25 +1,32 @@
 {
   "provider": "cornell",
   "sources": [
-    "cornell-class-roster-api-openapi.yml",
-    "cornell-library-catalog-api-openapi.yml",
-    "cugir-geospatial-api-openapi.yml"
+    "_original/cornell-codi-classes.yaml",
+    "_original/cugir-geospatial-api-openapi.yml",
+    "cornell-library-catalog-api-openapi.yml"
   ],
   "outputs": [
-    "cornell-class-roster-api-openapi.yml",
-    "cornell-library-catalog-api-openapi.yml",
-    "cornell-cugir-api-openapi.yml"
+    "cornell-config-api-openapi.yml",
+    "cornell-search-api-openapi.yml",
+    "cornell-cugir-api-openapi.yml",
+    "cornell-library-catalog-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/cugir-geospatial-api-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [
-    "cornell-class-roster-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "cornell-library-catalog-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "cugir-geospatial-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "apis.yml register: written (+1 apis, 6 total)"
+  "warnings": [
+    "cornell-library-catalog-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /catalog/opensearch.json get, /catalog/opensearch.xml get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
   ],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "cornell-codi-classes.yaml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "cornell-codi-classes.yaml: declared missing tag: config",
+    "cornell-codi-classes.yaml: declared missing tag: search",
+    "cugir-geospatial-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "cornell-config-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cornell-cugir-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cornell-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
