@@ -72,6 +72,21 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ClassesResponse_meta:
+      properties:
+        copyright:
+          type: string
+          example: Cornell University, Office of the University Registrar
+        rosterDttm:
+          type: string
+          example: 2015-01-14T18:16:01-0500
+        catalogDttm:
+          type: string
+          example: 2015-01-14T18:21:04-0500
+      example:
+        copyright: Cornell University, Office of the University Registrar
+        catalogDttm: 2015-01-14T18:21:04-0500
+        rosterDttm: 2015-01-14T18:16:01-0500
     Classes_enrollGroups:
       properties:
         classSections:
@@ -256,21 +271,6 @@ components:
           rosterDttm: 2015-01-14T18:16:01-0500
         message: null
         status: success
-    ClassesResponse_meta:
-      properties:
-        copyright:
-          type: string
-          example: Cornell University, Office of the University Registrar
-        rosterDttm:
-          type: string
-          example: 2015-01-14T18:16:01-0500
-        catalogDttm:
-          type: string
-          example: 2015-01-14T18:21:04-0500
-      example:
-        copyright: Cornell University, Office of the University Registrar
-        catalogDttm: 2015-01-14T18:21:04-0500
-        rosterDttm: 2015-01-14T18:16:01-0500
     ClassesResponse_data:
       properties:
         subjects:

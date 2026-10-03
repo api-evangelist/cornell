@@ -124,303 +124,6 @@ components:
           example: Cornell University, Office of the University Registrar
       example:
         copyright: Cornell University, Office of the University Registrar
-    AcadCareersResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/AcadCareersResponse_data'
-        message:
-          type: string
-          example: null
-        meta:
-          $ref: '#/components/schemas/Meta'
-      example:
-        data:
-          acadCareers:
-          - descr: Undergraduate
-            value: UG
-          - descr: Undergraduate
-            value: UG
-        meta:
-          referenceDttm: 2015-01-14T18:16:01-0500
-          copyright: Cornell University, Office of the University Registrar
-        message: null
-        status: success
-    SubjectsResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/SubjectsResponse_data'
-        message:
-          type: string
-          example: null
-        meta:
-          $ref: '#/components/schemas/Meta'
-      example:
-        data:
-          subjects:
-          - descr: Asian American Studies
-            descrformal: Asian American Studies
-            value: AAS
-          - descr: Asian American Studies
-            descrformal: Asian American Studies
-            value: AAS
-        meta:
-          referenceDttm: 2015-01-14T18:16:01-0500
-          copyright: Cornell University, Office of the University Registrar
-        message: null
-        status: success
-    AcadCareers:
-      type: object
-      properties:
-        value:
-          type: string
-          example: UG
-        descr:
-          type: string
-          example: Undergraduate
-      example:
-        descr: Undergraduate
-        value: UG
-    Subjects:
-      type: object
-      properties:
-        value:
-          type: string
-          example: AAS
-        descr:
-          type: string
-          example: Asian American Studies
-        descrformal:
-          type: string
-          example: Asian American Studies
-      example:
-        descr: Asian American Studies
-        descrformal: Asian American Studies
-        value: AAS
-    AcadGroups:
-      type: object
-      properties:
-        value:
-          type: string
-          example: AG
-        descr:
-          type: string
-          example: Agriculture and Life Sciences
-      example:
-        descr: Agriculture and Life Sciences
-        value: AG
-    Roster:
-      type: object
-      properties:
-        slug:
-          type: string
-          example: FA14
-        isDefaultRoster:
-          type: string
-          example: N
-        strm:
-          type: string
-          example: 2573
-        descr:
-          type: string
-          example: Fall 2014
-        descrshort:
-          type: string
-          example: 2014FA
-        defaultSessionCode:
-          type: string
-          example: 1
-        defaultCampus:
-          type: string
-          example: MAIN
-        defaultLocation:
-          type: string
-          example: ITH
-        defaultInstructionMode:
-          type: string
-          example: P
-        sharing:
-          type: string
-          example: N
-        archiveMode:
-          type: string
-          example: Y
-        version:
-          $ref: '#/components/schemas/Roster_version'
-        lastModifiedDttm:
-          type: string
-          example: 2018-04-02T19:35:43-0400
-      example:
-        lastModifiedDttm: 2018-04-02T19:35:43-0400
-        strm: 2573
-        defaultInstructionMode: P
-        sharing: N
-        isDefaultRoster: N
-        version:
-          referenceDttm: 2015-01-14T18:16:01-0500
-          catalogDttm: 2015-01-14T18:21:04-0500
-          showCatalogNote: Y
-          catalogCourseNote: null
-          catalog:
-            acalogCatalogId: 22
-            descr: Courses of Study 2014-2015
-            descrshort: CoS 14-15
-            version:
-              status: COMPLETE
-          descriptionSource: CATALOG
-          status: COMPLETE
-        archiveMode: Y
-        defaultCampus: MAIN
-        descr: Fall 2014
-        defaultSessionCode: 1
-        descrshort: 2014FA
-        slug: FA14
-        defaultLocation: ITH
-    RostersResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/RostersResponse_data'
-        message:
-          type: string
-          example: null
-        meta:
-          $ref: '#/components/schemas/RostersResponse_meta'
-      example:
-        data:
-          rosters:
-          - lastModifiedDttm: 2018-04-02T19:35:43-0400
-            strm: 2573
-            defaultInstructionMode: P
-            sharing: N
-            isDefaultRoster: N
-            version:
-              referenceDttm: 2015-01-14T18:16:01-0500
-              catalogDttm: 2015-01-14T18:21:04-0500
-              showCatalogNote: Y
-              catalogCourseNote: null
-              catalog:
-                acalogCatalogId: 22
-                descr: Courses of Study 2014-2015
-                descrshort: CoS 14-15
-                version:
-                  status: COMPLETE
-              descriptionSource: CATALOG
-              status: COMPLETE
-            archiveMode: Y
-            defaultCampus: MAIN
-            descr: Fall 2014
-            defaultSessionCode: 1
-            descrshort: 2014FA
-            slug: FA14
-            defaultLocation: ITH
-          - lastModifiedDttm: 2018-04-02T19:35:43-0400
-            strm: 2573
-            defaultInstructionMode: P
-            sharing: N
-            isDefaultRoster: N
-            version:
-              referenceDttm: 2015-01-14T18:16:01-0500
-              catalogDttm: 2015-01-14T18:21:04-0500
-              showCatalogNote: Y
-              catalogCourseNote: null
-              catalog:
-                acalogCatalogId: 22
-                descr: Courses of Study 2014-2015
-                descrshort: CoS 14-15
-                version:
-                  status: COMPLETE
-              descriptionSource: CATALOG
-              status: COMPLETE
-            archiveMode: Y
-            defaultCampus: MAIN
-            descr: Fall 2014
-            defaultSessionCode: 1
-            descrshort: 2014FA
-            slug: FA14
-            defaultLocation: ITH
-        meta:
-          copyright: Cornell University, Office of the University Registrar
-        message: null
-        status: success
-    AcadGroupsResponse_data:
-      properties:
-        acadGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/AcadGroups'
-      example:
-        acadGroups:
-        - descr: Agriculture and Life Sciences
-          value: AG
-        - descr: Agriculture and Life Sciences
-          value: AG
-    AcadGroupsResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-        data:
-          $ref: '#/components/schemas/AcadGroupsResponse_data'
-        message:
-          type: string
-          example: null
-        meta:
-          $ref: '#/components/schemas/Meta'
-      example:
-        data:
-          acadGroups:
-          - descr: Agriculture and Life Sciences
-            value: AG
-          - descr: Agriculture and Life Sciences
-            value: AG
-        meta:
-          referenceDttm: 2015-01-14T18:16:01-0500
-          copyright: Cornell University, Office of the University Registrar
-        message: null
-        status: success
-    ClassLevelsResponse_data:
-      properties:
-        classLevels:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClassLevels'
-      example:
-        classLevels:
-        - descr: 1000
-          value: 1000
-        - descr: 1000
-          value: 1000
-    Roster_version_catalog:
-      properties:
-        descrshort:
-          type: string
-          example: CoS 14-15
-        descr:
-          type: string
-          example: Courses of Study 2014-2015
-        acalogCatalogId:
-          type: integer
-          example: 22
-        version:
-          $ref: '#/components/schemas/Roster_version_catalog_version'
-      example:
-        acalogCatalogId: 22
-        descr: Courses of Study 2014-2015
-        descrshort: CoS 14-15
-        version:
-          status: COMPLETE
     ClassLevelsResponse:
       type: object
       properties:
@@ -480,6 +183,124 @@ components:
           version:
             status: COMPLETE
         descriptionSource: CATALOG
+        status: COMPLETE
+    Subjects:
+      type: object
+      properties:
+        value:
+          type: string
+          example: AAS
+        descr:
+          type: string
+          example: Asian American Studies
+        descrformal:
+          type: string
+          example: Asian American Studies
+      example:
+        descr: Asian American Studies
+        descrformal: Asian American Studies
+        value: AAS
+    Roster_version_catalog:
+      properties:
+        descrshort:
+          type: string
+          example: CoS 14-15
+        descr:
+          type: string
+          example: Courses of Study 2014-2015
+        acalogCatalogId:
+          type: integer
+          example: 22
+        version:
+          $ref: '#/components/schemas/Roster_version_catalog_version'
+      example:
+        acalogCatalogId: 22
+        descr: Courses of Study 2014-2015
+        descrshort: CoS 14-15
+        version:
+          status: COMPLETE
+    SubjectsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/SubjectsResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/Meta'
+      example:
+        data:
+          subjects:
+          - descr: Asian American Studies
+            descrformal: Asian American Studies
+            value: AAS
+          - descr: Asian American Studies
+            descrformal: Asian American Studies
+            value: AAS
+        meta:
+          referenceDttm: 2015-01-14T18:16:01-0500
+          copyright: Cornell University, Office of the University Registrar
+        message: null
+        status: success
+    AcadGroups:
+      type: object
+      properties:
+        value:
+          type: string
+          example: AG
+        descr:
+          type: string
+          example: Agriculture and Life Sciences
+      example:
+        descr: Agriculture and Life Sciences
+        value: AG
+    AcadGroupsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/AcadGroupsResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/Meta'
+      example:
+        data:
+          acadGroups:
+          - descr: Agriculture and Life Sciences
+            value: AG
+          - descr: Agriculture and Life Sciences
+            value: AG
+        meta:
+          referenceDttm: 2015-01-14T18:16:01-0500
+          copyright: Cornell University, Office of the University Registrar
+        message: null
+        status: success
+    ClassLevelsResponse_data:
+      properties:
+        classLevels:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassLevels'
+      example:
+        classLevels:
+        - descr: 1000
+          value: 1000
+        - descr: 1000
+          value: 1000
+    Roster_version_catalog_version:
+      properties:
+        status:
+          type: string
+          example: COMPLETE
+      example:
         status: COMPLETE
     Meta:
       type: object
@@ -563,6 +384,155 @@ components:
           descrshort: 2014FA
           slug: FA14
           defaultLocation: ITH
+    RostersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/RostersResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/RostersResponse_meta'
+      example:
+        data:
+          rosters:
+          - lastModifiedDttm: 2018-04-02T19:35:43-0400
+            strm: 2573
+            defaultInstructionMode: P
+            sharing: N
+            isDefaultRoster: N
+            version:
+              referenceDttm: 2015-01-14T18:16:01-0500
+              catalogDttm: 2015-01-14T18:21:04-0500
+              showCatalogNote: Y
+              catalogCourseNote: null
+              catalog:
+                acalogCatalogId: 22
+                descr: Courses of Study 2014-2015
+                descrshort: CoS 14-15
+                version:
+                  status: COMPLETE
+              descriptionSource: CATALOG
+              status: COMPLETE
+            archiveMode: Y
+            defaultCampus: MAIN
+            descr: Fall 2014
+            defaultSessionCode: 1
+            descrshort: 2014FA
+            slug: FA14
+            defaultLocation: ITH
+          - lastModifiedDttm: 2018-04-02T19:35:43-0400
+            strm: 2573
+            defaultInstructionMode: P
+            sharing: N
+            isDefaultRoster: N
+            version:
+              referenceDttm: 2015-01-14T18:16:01-0500
+              catalogDttm: 2015-01-14T18:21:04-0500
+              showCatalogNote: Y
+              catalogCourseNote: null
+              catalog:
+                acalogCatalogId: 22
+                descr: Courses of Study 2014-2015
+                descrshort: CoS 14-15
+                version:
+                  status: COMPLETE
+              descriptionSource: CATALOG
+              status: COMPLETE
+            archiveMode: Y
+            defaultCampus: MAIN
+            descr: Fall 2014
+            defaultSessionCode: 1
+            descrshort: 2014FA
+            slug: FA14
+            defaultLocation: ITH
+        meta:
+          copyright: Cornell University, Office of the University Registrar
+        message: null
+        status: success
+    AcadCareers:
+      type: object
+      properties:
+        value:
+          type: string
+          example: UG
+        descr:
+          type: string
+          example: Undergraduate
+      example:
+        descr: Undergraduate
+        value: UG
+    Roster:
+      type: object
+      properties:
+        slug:
+          type: string
+          example: FA14
+        isDefaultRoster:
+          type: string
+          example: N
+        strm:
+          type: string
+          example: 2573
+        descr:
+          type: string
+          example: Fall 2014
+        descrshort:
+          type: string
+          example: 2014FA
+        defaultSessionCode:
+          type: string
+          example: 1
+        defaultCampus:
+          type: string
+          example: MAIN
+        defaultLocation:
+          type: string
+          example: ITH
+        defaultInstructionMode:
+          type: string
+          example: P
+        sharing:
+          type: string
+          example: N
+        archiveMode:
+          type: string
+          example: Y
+        version:
+          $ref: '#/components/schemas/Roster_version'
+        lastModifiedDttm:
+          type: string
+          example: 2018-04-02T19:35:43-0400
+      example:
+        lastModifiedDttm: 2018-04-02T19:35:43-0400
+        strm: 2573
+        defaultInstructionMode: P
+        sharing: N
+        isDefaultRoster: N
+        version:
+          referenceDttm: 2015-01-14T18:16:01-0500
+          catalogDttm: 2015-01-14T18:21:04-0500
+          showCatalogNote: Y
+          catalogCourseNote: null
+          catalog:
+            acalogCatalogId: 22
+            descr: Courses of Study 2014-2015
+            descrshort: CoS 14-15
+            version:
+              status: COMPLETE
+          descriptionSource: CATALOG
+          status: COMPLETE
+        archiveMode: Y
+        defaultCampus: MAIN
+        descr: Fall 2014
+        defaultSessionCode: 1
+        descrshort: 2014FA
+        slug: FA14
+        defaultLocation: ITH
     AcadCareersResponse_data:
       properties:
         acadCareers:
@@ -575,6 +545,43 @@ components:
           value: UG
         - descr: Undergraduate
           value: UG
+    AcadCareersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        data:
+          $ref: '#/components/schemas/AcadCareersResponse_data'
+        message:
+          type: string
+          example: null
+        meta:
+          $ref: '#/components/schemas/Meta'
+      example:
+        data:
+          acadCareers:
+          - descr: Undergraduate
+            value: UG
+          - descr: Undergraduate
+            value: UG
+        meta:
+          referenceDttm: 2015-01-14T18:16:01-0500
+          copyright: Cornell University, Office of the University Registrar
+        message: null
+        status: success
+    AcadGroupsResponse_data:
+      properties:
+        acadGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcadGroups'
+      example:
+        acadGroups:
+        - descr: Agriculture and Life Sciences
+          value: AG
+        - descr: Agriculture and Life Sciences
+          value: AG
     SubjectsResponse_data:
       properties:
         subjects:
@@ -589,10 +596,3 @@ components:
         - descr: Asian American Studies
           descrformal: Asian American Studies
           value: AAS
-    Roster_version_catalog_version:
-      properties:
-        status:
-          type: string
-          example: COMPLETE
-      example:
-        status: COMPLETE
