@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/cornell-data/codi-api-docs/HEAD/cornell-classes-api/cornell-classes-api.yaml",
+ "requested_url": "https://raw.githubusercontent.com/cornell-data/codi-api-docs/HEAD/cornell-classes-api/cornell-classes-api.yaml",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 29123,
+ "sha256": "363ba11e18972075ca5e4be04013664e18a5b08ec0a0525132ded2bb6bae4362",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
