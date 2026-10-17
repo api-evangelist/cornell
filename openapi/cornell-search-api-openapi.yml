@@ -72,146 +72,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Classes:
-      type: object
-      properties:
-        strm:
-          type: integer
-          example: 2573
-        crseId:
-          type: integer
-          example: 358526
-        crseOfferNbr:
-          type: integer
-          example: 1
-        subject:
-          type: string
-          example: CS
-        catalogNbr:
-          type: string
-          example: 1110
-        titleShort:
-          type: string
-          example: Intro Computing Using Python
-        titleLong:
-          type: string
-          example: Introduction to Computing Using Python
-        enrollGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/Classes_enrollGroups'
-        description:
-          type: string
-          example: null
-        catalogBreadth:
-          type: string
-          example: null
-        catalogDistr:
-          type: string
-          example: (MQR)
-        catalogLang:
-          type: string
-          example: null
-        catalogForbiddenOverlaps:
-          type: string
-          example: null
-        catalogWhenOffered:
-          type: string
-          example: Fall, spring, summer.
-        catalogComments:
-          type: string
-          example: null
-        catalogPrereqCoreq:
-          type: string
-          example: Assumes basic high school mathematics (no calculus) but no programming experience.
-        catalogFee:
-          type: string
-          example: null
-        catalogSatisfiesReq:
-          type: string
-          example: null
-        catalogPermission:
-          type: string
-          example: null
-        catalogCourseSubfield:
-          type: string
-          example: null
-        catalogOutcomes:
-          type: array
-          example: []
-          items:
-            type: string
-        acadCareer:
-          type: string
-          example: UG
-        acadGroup:
-          type: string
-          example: EN
-      example:
-        catalogBreadth: null
-        catalogPrereqCoreq: Assumes basic high school mathematics (no calculus) but no programming experience.
-        enrollGroups:
-        - unitsMaximum: 4
-          sessionCode: 1
-          simpleCombinations: []
-          gradingBasisShort: Stdnt Opt
-          componentsOptional: []
-          gradingBasisLong: Student Option
-          sessionEndDt: 12/05/2014
-          unitsMinimum: 4
-          gradingBasis: OPT
-          sessionLong: Regular Academic Session
-          sessionBeginDt: 08/26/2014
-          componentsRequired: []
-          classSections: []
-        - unitsMaximum: 4
-          sessionCode: 1
-          simpleCombinations: []
-          gradingBasisShort: Stdnt Opt
-          componentsOptional: []
-          gradingBasisLong: Student Option
-          sessionEndDt: 12/05/2014
-          unitsMinimum: 4
-          gradingBasis: OPT
-          sessionLong: Regular Academic Session
-          sessionBeginDt: 08/26/2014
-          componentsRequired: []
-          classSections: []
-        catalogCourseSubfield: null
-        subject: CS
-        catalogDistr: (MQR)
-        catalogOutcomes: []
-        description: null
-        strm: 2573
-        catalogComments: null
-        catalogForbiddenOverlaps: null
-        acadCareer: UG
-        crseId: 358526
-        crseOfferNbr: 1
-        catalogNbr: 1110
-        catalogLang: null
-        titleShort: Intro Computing Using Python
-        titleLong: Introduction to Computing Using Python
-        acadGroup: EN
-        catalogFee: null
-        catalogPermission: null
-        catalogWhenOffered: Fall, spring, summer.
-        catalogSatisfiesReq: null
-    ClassesResponse_meta:
-      properties:
-        copyright:
-          type: string
-          example: Cornell University, Office of the University Registrar
-        rosterDttm:
-          type: string
-          example: 2015-01-14T18:16:01-0500
-        catalogDttm:
-          type: string
-          example: 2015-01-14T18:21:04-0500
-      example:
-        copyright: Cornell University, Office of the University Registrar
-        catalogDttm: 2015-01-14T18:21:04-0500
-        rosterDttm: 2015-01-14T18:16:01-0500
     ClassesResponse_data:
       properties:
         subjects:
@@ -438,6 +298,146 @@ components:
           rosterDttm: 2015-01-14T18:16:01-0500
         message: null
         status: success
+    Classes:
+      type: object
+      properties:
+        strm:
+          type: integer
+          example: 2573
+        crseId:
+          type: integer
+          example: 358526
+        crseOfferNbr:
+          type: integer
+          example: 1
+        subject:
+          type: string
+          example: CS
+        catalogNbr:
+          type: string
+          example: 1110
+        titleShort:
+          type: string
+          example: Intro Computing Using Python
+        titleLong:
+          type: string
+          example: Introduction to Computing Using Python
+        enrollGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classes_enrollGroups'
+        description:
+          type: string
+          example: null
+        catalogBreadth:
+          type: string
+          example: null
+        catalogDistr:
+          type: string
+          example: (MQR)
+        catalogLang:
+          type: string
+          example: null
+        catalogForbiddenOverlaps:
+          type: string
+          example: null
+        catalogWhenOffered:
+          type: string
+          example: Fall, spring, summer.
+        catalogComments:
+          type: string
+          example: null
+        catalogPrereqCoreq:
+          type: string
+          example: Assumes basic high school mathematics (no calculus) but no programming experience.
+        catalogFee:
+          type: string
+          example: null
+        catalogSatisfiesReq:
+          type: string
+          example: null
+        catalogPermission:
+          type: string
+          example: null
+        catalogCourseSubfield:
+          type: string
+          example: null
+        catalogOutcomes:
+          type: array
+          example: []
+          items:
+            type: string
+        acadCareer:
+          type: string
+          example: UG
+        acadGroup:
+          type: string
+          example: EN
+      example:
+        catalogBreadth: null
+        catalogPrereqCoreq: Assumes basic high school mathematics (no calculus) but no programming experience.
+        enrollGroups:
+        - unitsMaximum: 4
+          sessionCode: 1
+          simpleCombinations: []
+          gradingBasisShort: Stdnt Opt
+          componentsOptional: []
+          gradingBasisLong: Student Option
+          sessionEndDt: 12/05/2014
+          unitsMinimum: 4
+          gradingBasis: OPT
+          sessionLong: Regular Academic Session
+          sessionBeginDt: 08/26/2014
+          componentsRequired: []
+          classSections: []
+        - unitsMaximum: 4
+          sessionCode: 1
+          simpleCombinations: []
+          gradingBasisShort: Stdnt Opt
+          componentsOptional: []
+          gradingBasisLong: Student Option
+          sessionEndDt: 12/05/2014
+          unitsMinimum: 4
+          gradingBasis: OPT
+          sessionLong: Regular Academic Session
+          sessionBeginDt: 08/26/2014
+          componentsRequired: []
+          classSections: []
+        catalogCourseSubfield: null
+        subject: CS
+        catalogDistr: (MQR)
+        catalogOutcomes: []
+        description: null
+        strm: 2573
+        catalogComments: null
+        catalogForbiddenOverlaps: null
+        acadCareer: UG
+        crseId: 358526
+        crseOfferNbr: 1
+        catalogNbr: 1110
+        catalogLang: null
+        titleShort: Intro Computing Using Python
+        titleLong: Introduction to Computing Using Python
+        acadGroup: EN
+        catalogFee: null
+        catalogPermission: null
+        catalogWhenOffered: Fall, spring, summer.
+        catalogSatisfiesReq: null
+    ClassesResponse_meta:
+      properties:
+        copyright:
+          type: string
+          example: Cornell University, Office of the University Registrar
+        rosterDttm:
+          type: string
+          example: 2015-01-14T18:16:01-0500
+        catalogDttm:
+          type: string
+          example: 2015-01-14T18:21:04-0500
+      example:
+        copyright: Cornell University, Office of the University Registrar
+        catalogDttm: 2015-01-14T18:21:04-0500
+        rosterDttm: 2015-01-14T18:16:01-0500
     Classes_enrollGroups:
       properties:
         classSections:
