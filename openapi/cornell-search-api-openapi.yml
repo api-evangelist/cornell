@@ -502,3 +502,9 @@ components:
         sessionBeginDt: 08/26/2014
         componentsRequired: []
         classSections: []
+x-provenance:
+  method: harvested
+  publisher: Cornell University
+  source: https://raw.githubusercontent.com/cornell-data/codi-api-docs/HEAD/cornell-classes-api/cornell-classes-api.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
