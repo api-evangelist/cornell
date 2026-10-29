@@ -1,4 +1,4 @@
-# Cornell University (cornell)
+# Cornell University
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,74 +64,161 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Cornell University is a private Ivy League and statutory land-grant research university in Ithaca, New York. It runs no developer portal and no API gateway. The surfaces it genuinely operates, all verified live on 2026-08-19, are the Class Roster API (classes.cornell.edu), Cornell University Library's self-hosted Blacklight catalog and CUGIR geospatial repository, its own Shibboleth/InCommon SAML identity metadata, and — through the Cornell Lab of Ornithology — the token-gated eBird API 2.0. Two further surfaces are tenant relationships on vendor platforms (eCommons on 4Science-managed DSpace, the events calendar on Localist) and their contracts belong to those vendors, not to Cornell.
+Cornell University is a private Ivy League and statutory land-grant research university in Ithaca, New York. It operates no central developer portal, no API gateway and no published API program, and this profile records that plainly. What it does operate, directly and on its own hosts, is a small set of real machine-readable surfaces: the Class Roster API on classes.cornell.edu (public, read-only, version 2.0, maintained behind the scenes by the Office of the University Registrar), the Cornell University Library's self-hosted Blacklight catalog and CUGIR geospatial repository, both of which answer JSON on every route, its own Shibboleth identity provider published as SAML 2.0 metadata and registered with InCommon/eduGAIN, and — through the Cornell Lab of Ornithology — the token-gated eBird API 2.0. Everything else that looks like a Cornell API belongs to somebody else: the events calendar at events.cornell.edu is a Localist tenancy, eCommons is a 4Science-managed DSpace instance, and arXiv, hosted at Cornell for twenty-five years, spun out as an independent nonprofit on 2026-07-01 and is no longer a Cornell surface at all. The Cornell Open Data Initiative specs that once padded this profile described a dining API, a campus-map API and a Cornell Days API that are all dead as of 2026-08-19.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/cornell/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=cornell-api-evangelist&utm_content=repo
+**Areas:** University · Higher Education · Education · Ivy League · United States · Course Catalog · Library · Research Data · Geospatial · Identity Federation
 
-## Type
+## Cornell University on APIs.io
 
-- Index
-- Consumer
-- 3rd-Party
+Everything profiled for Cornell University is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cornell/](https://apis.io/providers/cornell/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-University, Higher Education, Education, Ivy League, United States, Course Catalog, Library, Research Data, Geospatial, Identity Federation
+- [Cornell University Library Catalog Search API](https://apis.io/apis/cornell/library-catalog/) — JSON search over Cornell University Library's catalog. The catalog is the library's own Blacklight deployment; appending .json to any catalog route returns…
+- [eBird API 2.0](https://apis.io/apis/cornell/ebird/) — Global bird-observation API run by the Cornell Lab of Ornithology, a unit of Cornell University. Free but token-gated: requests without a valid…
+- [eCommons Institutional Repository (DSpace REST + OAI-PMH) — tenant](https://apis.io/apis/cornell/ecommons/) — eCommons is Cornell University Library's institutional repository: Cornell's content, Cornell's DOIs, Cornell's host. The interface is not Cornell's…
+- [Cornell Events Calendar API (Localist) — tenant](https://apis.io/apis/cornell/events-calendar/) — The Cornell events calendar at events.cornell.edu answers a live JSON API at /api/2/events, and the data is Cornell's. The platform is Localist (Concept3D):…
+- [Cornell University Cugir API](https://apis.io/apis/cornell/cornell-cugir-api/) — Search and retrieve Cornell geospatial datasets and historical maps.
+- [Cornell University Config API](https://apis.io/apis/cornell/cornell-config-api/) — The config API from Cornell University — 5 operation(s) for config.
+- [Cornell University Search API](https://apis.io/apis/cornell/cornell-search-api/) — The search API from Cornell University — 1 operation(s) for search.
 
-## APIs
+### Published properties
 
-Every entry carries an operator: `institution` means Cornell runs the thing the contract describes; `tenant` means Cornell's data on someone else's platform, so the contract is not credited to Cornell.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Cornell Class Roster API** — `institution`. Course and scheduling data (v2.0, JSON/XML, GET only, no auth, 1 req/sec). Docs: https://classes.cornell.edu/content/FA26/api-details
-- **Cornell University Library Catalog Search API** — `institution`. The library's own Blacklight deployment; JSON on every catalog route. Contract derived from live probes — Cornell publishes no API reference.
-- **CUGIR — Cornell University Geospatial Information Repository API** — `institution`. GeoBlacklight JSON:API search and records. Contract derived from live probes.
-- **eBird API 2.0** — `institution` (affiliate domain). Run by the Cornell Lab of Ornithology; free but token-gated. Docs: https://documenter.getpostman.com/view/664302/S1ENwy59
-- **eCommons Institutional Repository (DSpace REST + OAI-PMH)** — `tenant`. Cornell's repository and Cornell's data on a 4Science-managed DSpace 8.2 platform. Docs: https://guides.library.cornell.edu/ecommons/syndication
-- **Cornell Events Calendar API** — `tenant`. Live JSON at events.cornell.edu/api/2, but a Localist (Concept3D) product API — response header `x-slzr-platform: cornell`.
+#### Agentic access (1)
 
-### Removed 2026-08-19
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **arXiv API** — arXiv spun out of Cornell as an independent nonprofit on 2026-07-01. No longer a Cornell surface.
-- **Cornell Dining, Cornell Days and campus map APIs** — all dead: identical SPA shell on every dining path, a 301 to admissions.cornell.edu, and a 404 on the map overlay endpoint.
-- **Seven refined OpenAPIs** — they had welded five Cornell Open Data Initiative specs, describing five different hosts, onto one servers[] entry (`https://classes.cornell.edu/api/2.0`).
+- [Cornell Agentic Access](https://apis.io/agentic-access/cornell/cornell-agentic-access/)
 
-## Plans / Rate Limits / FinOps
+#### JSON Schema (1)
 
-- Plans: [plans/cornell-plans-pricing.yml](plans/cornell-plans-pricing.yml)
-- Rate Limits: [rate-limits/cornell-rate-limits.yml](rate-limits/cornell-rate-limits.yml)
-- FinOps: [finops/cornell-finops.yml](finops/cornell-finops.yml)
+The data models the API reads and writes.
 
-## Timestamps
+- [Cornell Class](https://apis.io/schemas/cornell/cornell-class/)
 
-- Created: 2026-06-03
-- Modified: 2026-08-19
+#### JSON Structure (1)
 
-## Common Properties
+Data models expressed in JSON Structure.
 
-- Website: https://www.cornell.edu/
-- Course Catalog: https://classes.cornell.edu/
-- Library Catalog: https://catalog.library.cornell.edu/
-- Research Repository: https://ecommons.cornell.edu/
-- Open Data (geospatial): https://cugir.library.cornell.edu/
-- Identity Federation (Shibboleth IdP metadata): https://shibidp.cit.cornell.edu/idp/shibboleth
-- Identity Federation (InCommon MDQ entry): https://mdq.incommon.org/entities/https:%2F%2Fshibidp.cit.cornell.edu%2Fidp%2Fshibboleth
-- Research Computing: https://www.cac.cornell.edu/services/
-- AI Policy: https://it.cornell.edu/ai/ai-guidelines
-- GitHub (Cornell University Library): https://github.com/cul
-- GitHub (Cornell Open Data Initiative): https://github.com/cornell-data
-- LinkedIn: https://www.linkedin.com/school/cornell-university/
+- [Cornell Class Structure](https://apis.io/json-structure/cornell/cornell-class-structure/)
 
-## Notes
+#### JSON-LD (1)
 
-Re-profiled on 2026-08-19 under the API Evangelist university pipeline, which settles WHO OPERATES a surface
-before saving any contract. Every URL in this profile was probed with curl on that date and the status codes are
-recorded in `apis.yml` under `x-coverage.evidence` and in `review.yml`. The re-profile removes more than it adds
-and should lower this institution's score: that is the correction working. Education-regime conformance found on
-Cornell's own surfaces — Shibboleth, SAML (InCommon/eduGAIN) and OAI-PMH — is recorded with per-URL evidence in
-[conformance/cornell-education-standards-conformance.yml](conformance/cornell-education-standards-conformance.yml).
-No endpoints were fabricated. The LinkedIn page returns HTTP 999 (LinkedIn anti-bot) but exists in a browser.
+Linked-data contexts for the provider's vocabulary.
 
-## Maintainers
+- [Cornell Context](https://apis.io/jsonld/cornell/cornell-context/)
 
-- Kin Lane — kin@apievangelist.com
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Cornell Open Data Initiative Vocabulary](https://apis.io/vocabularies/cornell/cornell-vocabulary/)
+
+#### Examples (5)
+
+Example requests and responses.
+
+- [Cornell Class Roster Rosters Example](https://apis.io/examples/cornell/cornell-class-roster-rosters-example/)
+- [Cornell Ecommons Dspace Root Example](https://apis.io/examples/cornell/cornell-ecommons-dspace-root-example/)
+- [Cornell Library Catalog Search Example](https://apis.io/examples/cornell/cornell-library-catalog-search-example/)
+- [Cornell Search Classes Example](https://apis.io/examples/cornell/cornell-search-classes-example/)
+- [Cugir Record Example](https://apis.io/examples/cornell/cugir-record-example/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Cornell University — jsonschema rules](https://apis.io/rules/cornell/cornell-jsonschema-spectral-rules/)
+- [Cornell University API Rules](https://apis.io/rules/cornell/cornell-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Cornell Authentication](https://apis.io/security/cornell/cornell-authentication/)
+- [Cornell Domain Security](https://apis.io/security/cornell/cornell-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Cornell Plans Pricing](https://apis.io/plans/cornell/cornell-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Cornell Rate Limits](https://apis.io/rate-limits/cornell/cornell-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Cornell Finops](https://apis.io/finops/cornell/cornell-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.cornell.edu/)
+- [Documentation](https://classes.cornell.edu/content/FA26/api-details)
+- [API reference](https://classes.cornell.edu/content/FA26/api-details)
+- [Support](https://it.cornell.edu/support)
+- [Terms of service](https://policy.cornell.edu/)
+- [Privacy policy](https://privacy.cornell.edu/university-privacy-statement)
+- [GitHub](https://github.com/cul)
+
+## API Evangelist rating
+
+**Kin Score 32.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 39.2 |
+| Contract governance | 17.4 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 26.3 |
+
+**Agent readiness 25.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cornell/](https://apis.io/providers/cornell/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Cornell University: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cornell/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
